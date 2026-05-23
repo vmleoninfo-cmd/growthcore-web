@@ -30,7 +30,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 px-4 py-1.5 rounded-full text-sm mb-8"
         >
           <TrendingUp className="w-3.5 h-3.5 text-accent" />
-          Sistema completo de crecimiento con IA
+          Sistema operativo empresarial
         </motion.div>
 
         {/* Headline */}
@@ -44,10 +44,10 @@ export default function Hero() {
             fontFamily: "var(--font-heading)",
           }}
         >
-          Tu negocio,{" "}
-          <span className="text-accent">automatizado</span>
+          GrowthCore detecta dónde{" "}
+          <span className="text-accent">se pierden oportunidades</span>
           <br />
-          con inteligencia artificial.
+          y te dice qué hacer.
         </motion.h1>
 
         {/* Subtitle */}
@@ -58,9 +58,7 @@ export default function Hero() {
           className="text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ fontSize: "var(--text-base)" }}
         >
-          GrowthCore conecta tus anuncios de Meta, WhatsApp, CRM y página web
-          en un solo sistema que trabaja por ti las 24 horas — para que te
-          enfoques en lo que importa: crecer.
+          Conecta tus campañas, leads y clientes en un solo sistema que analiza datos, detecta problemas y sugiere acciones concretas — sin que tengas que adivinar qué está pasando.
         </motion.p>
 
         {/* CTAs */}
@@ -81,7 +79,7 @@ export default function Hero() {
             href="#servicios"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white border border-white/20 hover:border-white/40 px-6 py-3 rounded-lg font-medium transition-all"
           >
-            Ver servicios
+            Ver cómo funciona
           </a>
         </motion.div>
 
@@ -93,7 +91,7 @@ export default function Hero() {
           className="mt-16 pt-10 border-t border-white/10"
         >
           <p className="text-white/40 text-sm mb-6 uppercase tracking-widest font-medium">
-            Empresas que confían en GrowthCore
+            OPERANDO EN PRODUCCIÓN
           </p>
           <div className="flex items-center justify-center gap-10 flex-wrap">
             <div className="text-white/60 font-heading font-semibold text-lg tracking-tight">
@@ -103,9 +101,8 @@ export default function Hero() {
               </span>
             </div>
             <div className="text-white/30 font-heading font-semibold text-lg tracking-tight">
-              Tu empresa →
+              Próximo cliente →
               <span className="block text-xs font-normal text-white/20 tracking-normal">
-                próximo cliente
               </span>
             </div>
           </div>
