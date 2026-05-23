@@ -6,7 +6,7 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "GrowthCore transformó cómo gestionamos nuestros leads. Pasamos de seguimiento manual a un sistema automático que nos avisa exactamente qué hacer y cuándo. En dos meses ya veíamos la diferencia en los números.",
+      "Pasamos de seguir leads en WhatsApp y Excel a tener un sistema que nos dice exactamente qué campaña está funcionando y qué hacer con cada lead. En dos meses ya éramos más eficientes.",
     author: "Move",
     role: "Empresa de logística de última milla",
     metric: "+40% leads contactados a tiempo",
@@ -48,6 +48,22 @@ export default function Testimonials() {
               className="max-w-2xl bg-card border border-border rounded-2xl p-10 relative"
             >
               <Quote className="w-8 h-8 text-accent/30 mb-6" />
+
+              {/* Métricas antes/después */}
+              <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-border">
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-accent">+40%</p>
+                  <p className="text-xs text-muted-foreground mt-1">leads contactados a tiempo</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-accent">−18%</p>
+                  <p className="text-xs text-muted-foreground mt-1">costo por lead (CPL)</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-accent">−40%</p>
+                  <p className="text-xs text-muted-foreground mt-1">tiempo manual semanal</p>
+                </div>
+              </div>
 
               <blockquote
                 className="text-foreground leading-relaxed mb-8"
