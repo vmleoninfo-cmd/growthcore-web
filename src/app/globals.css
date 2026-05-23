@@ -27,36 +27,53 @@
   --radius-xl: calc(var(--radius) * 1.4);
 }
 
-/* GrowthCore Design System — B2B Service + Growth Green */
+/* GrowthCore Design System v1 — Manual de Marca */
 :root {
-  /* Core palette */
-  --background: #F8FAFC;
-  --foreground: #0F172A;
+  /* ── Núcleo de marca ── */
+  --gc-navy:          #0A1022;
+  --gc-navy-mid:      #102A43;
+  --gc-navy-surface:  #0F2137;
 
-  /* Card */
-  --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  /* ── Acento / Crecimiento ── */
+  --gc-green:         #22C55E;
+  --gc-green-soft:    #4ADE80;
 
-  /* Primary: Navy — trust, authority */
-  --primary: #0F172A;
-  --primary-foreground: #FFFFFF;
+  /* ── Estado / Alertas ── */
+  --gc-yellow:        #FBBF24;
+  --gc-red:           #EF4444;
 
-  /* Secondary: Slate */
-  --secondary: #334155;
-  --secondary-foreground: #FFFFFF;
+  /* ── Neutros ── */
+  --gc-white:         #F8FAFC;
+  --gc-gray-400:      #94A3B8;
+  --gc-gray-600:      #475569;
+  --gc-gray-800:      #1E293B;
 
-  /* Accent: Growth Green — the differentiator */
-  --accent: #22C55E;
-  --accent-foreground: #0F172A;
+  /* ── Tokens semánticos ── */
+  --background:       var(--gc-white);
+  --foreground:       var(--gc-navy);
+  --card:             #FFFFFF;
+  --card-foreground:  var(--gc-navy);
+  --primary:          var(--gc-navy);
+  --primary-foreground: var(--gc-white);
+  --secondary:        var(--gc-navy-mid);
+  --secondary-foreground: var(--gc-white);
+  --accent:           var(--gc-green);
+  --accent-foreground: var(--gc-navy);
+  --muted:            #E2E8F0;
+  --muted-foreground: var(--gc-gray-400);
+  --border:           #E2E8F0;
+  --ring:             var(--gc-green);
+  --destructive:      var(--gc-red);
+  --radius:           0.625rem;
 
-  /* UI */
-  --muted: #E2E8F0;
-  --muted-foreground: #64748B;
-  --border: #E2E8F0;
-  --ring: #22C55E;
-  --destructive: #DC2626;
-
-  --radius: 0.625rem;
+  /* ── Tipografía scale ── */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.25rem;
+  --text-xl:    2.25rem;
+  --text-2xl:   3rem;
+  --text-hero:  clamp(2.5rem, 6vw, 4.5rem);
 }
 
 @layer base {
