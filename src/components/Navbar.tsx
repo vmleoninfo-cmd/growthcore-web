@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
@@ -34,16 +35,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-            <Zap className="w-4 h-4 text-accent-foreground" strokeWidth={2.5} />
-          </div>
-          <span
-            className="text-foreground font-heading font-700 text-lg tracking-tight"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            GrowthCore
-          </span>
+        <a href="/" className="flex items-center group">
+          <Logo light={scrolled ? false : true} size={28} />
         </a>
 
         {/* Desktop nav */}
