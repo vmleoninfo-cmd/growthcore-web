@@ -36,7 +36,7 @@ export default function ContactForm() {
         `*Me interesa:* ${form.service}\n` +
         (form.message ? `*Mensaje:* ${form.message}` : "")
     );
-    window.open(`https://wa.me/56900000000?text=${text}`, "_blank");
+    window.open(`https://wa.me/56991098138?text=${text}`, "_blank");
     setSent(true);
   };
 
