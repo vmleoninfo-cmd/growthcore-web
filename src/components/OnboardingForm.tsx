@@ -8,7 +8,7 @@ const MAKE_WEBHOOK = "https://hook.us2.make.com/n0p1382qkbq3qaqiwhkr1n5g45epuec5
 const CRM_URL = "https://crm.usegrowthcore.com/api/contacts";
 
 // GrowthCore brand colors
-const NAVY = "#0F172A";
+const NAVY = "#0A1022";
 const GREEN = "#22C55E";
 
 // ── Types ──────────────────────────────────────────────────────────────────
