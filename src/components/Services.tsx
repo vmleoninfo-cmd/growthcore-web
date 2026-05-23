@@ -13,10 +13,10 @@ const services = [
   {
     icon: BarChart3,
     tag: "Meta Ads",
-    title: "Smart Ads System",
+    title: "Smart Ads Dashboard",
     description:
-      "Dashboard en tiempo real con score de rendimiento automático. Sabe exactamente qué campañas escalar, mantener o pausar — sin adivinar.",
-    benefits: ["Score 0-100 de tus campañas", "Decisiones automáticas", "CPL objetivo configurable"],
+      "Detecta campañas que están desperdiciando presupuesto antes de que afecten resultados. Score automático 0-100 con la acción exacta que debes tomar.",
+    benefits: ["Score 0-100 con causa identificada", "Acción prioritaria calculada", "Alerta antes de perder presupuesto"],
     color: "text-blue-500",
     bg: "bg-blue-50",
     cta: "Ver demo del dashboard",
@@ -26,8 +26,8 @@ const services = [
     tag: "WhatsApp 24/7",
     title: "Agente WhatsApp con IA",
     description:
-      "Tu vendedor siempre disponible. Responde, califica y convierte leads en WhatsApp de forma automática con inteligencia artificial personalizada para tu negocio.",
-    benefits: ["Respuesta en segundos", "Calificación automática de leads", "Integrado con tu CRM"],
+      "Responde, califica y registra leads en WhatsApp de forma automática. Nunca pierde un contacto, nunca duerme, siempre sigue el guión de ventas de tu negocio.",
+    benefits: ["Respuesta en segundos", "Calificación automática de leads", "Registra cada conversación en tu CRM"],
     color: "text-accent",
     bg: "bg-green-50",
     cta: "Ver ejemplo",
@@ -37,8 +37,8 @@ const services = [
     tag: "CRM Inteligente",
     title: "CRM con IA",
     description:
-      "Gestión de clientes que piensa por ti. Scoring de leads, seguimiento automático y análisis de comportamiento para nunca perder una oportunidad de venta.",
-    benefits: ["Scoring de leads automático", "Historial completo por cliente", "IA que sugiere acciones"],
+      "Detecta automáticamente qué clientes tienen mayor probabilidad de cierre. Prioriza tu tiempo en los leads correctos — el sistema te dice cuándo y cómo actuar.",
+    benefits: ["Probabilidad de cierre por cliente", "Historial completo por cliente", "Sugiere cuándo y cómo contactar"],
     color: "text-purple-500",
     bg: "bg-purple-50",
     cta: "Ver el CRM en acción",
@@ -48,8 +48,8 @@ const services = [
     tag: "Diseño Web",
     title: "Páginas Web con IA",
     description:
-      "Landing pages profesionales que convierten, construidas con IA en tiempo récord. Optimizadas para Google, responsive y listas para capturar leads desde el día uno.",
-    benefits: ["Lista en 2 semanas", "Optimizada para SEO", "Animaciones profesionales"],
+      "Landing page profesional lista en 2 semanas. Conectada a tu CRM desde el primer día para capturar leads automáticamente, sin configuración manual.",
+    benefits: ["Lista en 2 semanas", "Optimizada para SEO", "Conectada a tu CRM desde el día 1"],
     color: "text-orange-500",
     bg: "bg-orange-50",
     cta: "Ver portafolio",
@@ -90,9 +90,9 @@ export default function Services() {
             className="font-heading font-bold text-foreground mb-4"
             style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
           >
-            Cuatro herramientas.
+            Un cerebro operativo.
             <br />
-            Un solo sistema de crecimiento.
+            Cuatro formas de crecer.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -102,7 +102,7 @@ export default function Services() {
             className="text-muted-foreground max-w-xl mx-auto"
             style={{ fontSize: "var(--text-base)" }}
           >
-            Cada herramienta funciona sola. Juntas son imbatibles.
+            Cada módulo resuelve un problema real. Juntos eliminan el trabajo manual.
           </motion.p>
         </div>
 
