@@ -17,8 +17,8 @@ const services = [
     description:
       "Detecta campañas que están desperdiciando presupuesto antes de que afecten resultados. Score automático 0-100 con la acción exacta que debes tomar.",
     benefits: ["Score 0-100 con causa identificada", "Acción prioritaria calculada", "Alerta antes de perder presupuesto"],
-    color: "text-blue-500",
-    bg: "bg-blue-50",
+    color: "text-accent",
+    bg: "bg-accent/10",
     cta: "Ver demo del dashboard",
   },
   {
@@ -29,7 +29,7 @@ const services = [
       "Responde, califica y registra leads en WhatsApp de forma automática. Nunca pierde un contacto, nunca duerme, siempre sigue el guión de ventas de tu negocio.",
     benefits: ["Respuesta en segundos", "Calificación automática de leads", "Registra cada conversación en tu CRM"],
     color: "text-accent",
-    bg: "bg-green-50",
+    bg: "bg-accent/10",
     cta: "Ver ejemplo",
   },
   {
@@ -38,9 +38,9 @@ const services = [
     title: "CRM con IA",
     description:
       "Detecta automáticamente qué clientes tienen mayor probabilidad de cierre. Prioriza tu tiempo en los leads correctos — el sistema te dice cuándo y cómo actuar.",
-    benefits: ["Probabilidad de cierre por cliente", "Historial completo por cliente", "Sugiere cuándo y cómo contactar"],
-    color: "text-purple-500",
-    bg: "bg-purple-50",
+    benefits: ["Probabilidad de cierre por cliente", "Historial completo por cliente", "Identifica cuándo y cómo contactar"],
+    color: "text-[#0A1022]",
+    bg: "bg-[#0A1022]/8",
     cta: "Ver el CRM en acción",
   },
   {
@@ -49,9 +49,9 @@ const services = [
     title: "Páginas Web con IA",
     description:
       "Landing page profesional lista en 2 semanas. Conectada a tu CRM desde el primer día para capturar leads automáticamente, sin configuración manual.",
-    benefits: ["Lista en 2 semanas", "Optimizada para SEO", "Conectada a tu CRM desde el día 1"],
-    color: "text-orange-500",
-    bg: "bg-orange-50",
+    benefits: ["Lista en 2 semanas", "Optimizada para conversión", "Conectada a tu CRM desde el día 1"],
+    color: "text-[#0A1022]",
+    bg: "bg-[#0A1022]/8",
     cta: "Ver portafolio",
   },
 ];

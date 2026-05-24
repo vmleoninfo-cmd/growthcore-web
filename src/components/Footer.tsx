@@ -31,7 +31,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} GrowthCore · Hecho con IA 🇨🇱
+            © {new Date().getFullYear()} GrowthCore · Hecho con IA en Chile
           </p>
         </div>
       </div>

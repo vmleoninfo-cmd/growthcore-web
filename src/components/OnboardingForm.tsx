@@ -317,9 +317,25 @@ export default function OnboardingForm() {
 
       {/* ── Header ── */}
       <header style={{ background: NAVY, color: "#fff", padding: "36px 48px 32px" }}>
+        {/* GrowthCore logo */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#22C55E" fillOpacity="0.15"/>
+            <circle cx="16" cy="9" r="2.5" fill="#22C55E"/>
+            <circle cx="25" cy="16" r="2.5" fill="#22C55E"/>
+            <circle cx="16" cy="23" r="2.5" fill="#22C55E"/>
+            <circle cx="7" cy="16" r="2.5" fill="#22C55E"/>
+            <path d="M16 11.5v9M18.5 9h5M22.5 18.5l-4.5 2.5M9.5 18.5l4.5 2.5M9.5 13.5l4.5-2.5" stroke="#22C55E" strokeWidth="1.2" strokeOpacity="0.5"/>
+            <text x="16" y="20" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="13" fill="#22C55E">G</text>
+          </svg>
+          <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.01em",
+            fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)", color: "#fff" }}>
+            GrowthCore
+          </span>
+        </div>
         <p style={{ fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase",
           color: "rgba(255,255,255,0.55)", fontWeight: 500, marginBottom: 14 }}>
-          GrowthCore · Smart Ads System
+          Smart Ads System
         </p>
         <h1 style={{ fontSize: 28, fontWeight: 700, lineHeight: 1.1, margin: "0 0 10px",
           letterSpacing: "-0.01em", fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)" }}>
