@@ -28,6 +28,22 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Fire-and-forget: send to CRM webhook
+    fetch("https://crm.usegrowthcore.com/api/webhook", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        phone: form.whatsapp,
+        company: form.company || undefined,
+        notes: [
+          form.service && `Servicio: ${form.service}`,
+          form.message && `Mensaje: ${form.message}`,
+        ].filter(Boolean).join(" | ") || undefined,
+      }),
+    }).catch(() => {}); // silencioso, no interrumpe al usuario
+
     const text = encodeURIComponent(
       `Hola GrowthCore 👋\n\n` +
         `*Nombre:* ${form.name}\n` +
