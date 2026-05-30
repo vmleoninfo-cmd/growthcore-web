@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, ChangeEvent, DragEvent, FormEvent } from "react";
+import { trackLead } from "../lib/analytics";
 
 // ── Constants ──────────────────────────────────────────────────────────────
 const STORAGE_KEY = "smart-ads-onboarding-v2";
@@ -265,6 +266,9 @@ export default function OnboardingForm() {
     ].filter(Boolean).join(", ");
 
     showToast("Enviando… un momento");
+
+    // Tracking de conversión (Meta Pixel + GA4)
+    trackLead({ content_name: "onboarding_form" });
 
     const payload = { ...form, __logo: logo };
 

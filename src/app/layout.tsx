@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans } from "next/font/google";
+import Analytics from "../components/Analytics";
 import "./globals.css";
 
 const heading = Space_Grotesk({
@@ -48,6 +49,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${heading.variable} ${body.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

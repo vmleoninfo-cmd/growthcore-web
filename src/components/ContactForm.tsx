@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
+import { trackLead } from "../lib/analytics";
 
 const services = [
   "Smart Ads System (Meta Ads)",
@@ -43,6 +44,9 @@ export default function ContactForm() {
         ].filter(Boolean).join(" | ") || undefined,
       }),
     }).catch(() => {}); // silencioso, no interrumpe al usuario
+
+    // Tracking de conversión (Meta Pixel + GA4)
+    trackLead({ content_name: "contact_form" });
 
     const text = encodeURIComponent(
       `Hola GrowthCore 👋\n\n` +
