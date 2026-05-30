@@ -1,0 +1,127 @@
+{
+  "name": "GrowthCore Analytics Sync",
+  "flow": [
+    {
+      "id": 1,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,impressions,clicks,actions&date_preset=last_7d&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "method": "get",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 0, "y": 0 } }
+    },
+    {
+      "id": 2,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=ad_name,impressions,clicks,spend&date_preset=last_7d&level=ad&access_token=YOUR_META_ACCESS_TOKEN",
+        "method": "get",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 300, "y": 0 } }
+    },
+    {
+      "id": 4,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,impressions,clicks,date_start,actions&date_preset=last_7d&time_increment=1&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "method": "get",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 600, "y": 0 } }
+    },
+    {
+      "id": 5,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=campaign_name,spend,actions,impressions,clicks&date_preset=last_7d&level=campaign&access_token=YOUR_META_ACCESS_TOKEN",
+        "method": "get",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 900, "y": 0 } }
+    },
+    {
+      "id": 6,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,actions,impressions&date_preset=last_7d&breakdowns=publisher_platform&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "method": "get",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 1200, "y": 0 } }
+    },
+    {
+      "id": 3,
+      "module": "http:MakeRequest",
+      "version": 4,
+      "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
+      "mapper": {
+        "url": "https://usegrowthcore.com/api/metrics",
+        "method": "post",
+        "contentType": "urlEncoded",
+        "shareCookies": false,
+        "parseResponse": true,
+        "allowRedirects": true,
+        "stopOnHttpError": true,
+        "urlEncodedBodyContent": [
+          { "name": "secret", "value": "YOUR_METRICS_SECRET" },
+          { "name": "data", "value": "{\"updated_at\":\"{{now}}\",\"kpi\":{\"spend_total\":\"{{1.data.data[1].spend}}\",\"impressions\":\"{{1.data.data[1].impressions}}\",\"clicks\":\"{{1.data.data[1].clicks}}\",\"leads\":\"{{ifempty(first(map(1.data.data[1].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"cpl_avg\":\"0\"},\"meta\":{\"ads\":[{\"ad_name\":\"{{2.data.data[1].ad_name}}\",\"impressions\":\"{{2.data.data[1].impressions}}\",\"clicks\":\"{{2.data.data[1].clicks}}\",\"spend\":\"{{2.data.data[1].spend}}\",\"leads\":0,\"cpl\":0},{\"ad_name\":\"{{2.data.data[2].ad_name}}\",\"impressions\":\"{{2.data.data[2].impressions}}\",\"clicks\":\"{{2.data.data[2].clicks}}\",\"spend\":\"{{2.data.data[2].spend}}\",\"leads\":0,\"cpl\":0},{\"ad_name\":\"{{2.data.data[3].ad_name}}\",\"impressions\":\"{{2.data.data[3].impressions}}\",\"clicks\":\"{{2.data.data[3].clicks}}\",\"spend\":\"{{2.data.data[3].spend}}\",\"leads\":0,\"cpl\":0}]},\"daily\":[{\"date\":\"{{4.data.data[1].date_start}}\",\"spend\":\"{{4.data.data[1].spend}}\",\"impressions\":\"{{4.data.data[1].impressions}}\",\"clicks\":\"{{4.data.data[1].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[1].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[2].date_start}}\",\"spend\":\"{{4.data.data[2].spend}}\",\"impressions\":\"{{4.data.data[2].impressions}}\",\"clicks\":\"{{4.data.data[2].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[2].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[3].date_start}}\",\"spend\":\"{{4.data.data[3].spend}}\",\"impressions\":\"{{4.data.data[3].impressions}}\",\"clicks\":\"{{4.data.data[3].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[3].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[4].date_start}}\",\"spend\":\"{{4.data.data[4].spend}}\",\"impressions\":\"{{4.data.data[4].impressions}}\",\"clicks\":\"{{4.data.data[4].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[4].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[5].date_start}}\",\"spend\":\"{{4.data.data[5].spend}}\",\"impressions\":\"{{4.data.data[5].impressions}}\",\"clicks\":\"{{4.data.data[5].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[5].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[6].date_start}}\",\"spend\":\"{{4.data.data[6].spend}}\",\"impressions\":\"{{4.data.data[6].impressions}}\",\"clicks\":\"{{4.data.data[6].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[6].actions; 'value'; 'action_type'; 'lead')); '0')}}\"},{\"date\":\"{{4.data.data[7].date_start}}\",\"spend\":\"{{4.data.data[7].spend}}\",\"impressions\":\"{{4.data.data[7].impressions}}\",\"clicks\":\"{{4.data.data[7].clicks}}\",\"leads\":\"{{ifempty(first(map(4.data.data[7].actions; 'value'; 'action_type'; 'lead')); '0')}}\"}],\"campaigns\":[{\"name\":\"{{5.data.data[1].campaign_name}}\",\"spend\":\"{{5.data.data[1].spend}}\",\"leads\":\"{{ifempty(first(map(5.data.data[1].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"cpl\":0,\"clicks\":\"{{5.data.data[1].clicks}}\",\"impressions\":\"{{5.data.data[1].impressions}}\"},{\"name\":\"{{5.data.data[2].campaign_name}}\",\"spend\":\"{{5.data.data[2].spend}}\",\"leads\":\"{{ifempty(first(map(5.data.data[2].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"cpl\":0,\"clicks\":\"{{5.data.data[2].clicks}}\",\"impressions\":\"{{5.data.data[2].impressions}}\"},{\"name\":\"{{5.data.data[3].campaign_name}}\",\"spend\":\"{{5.data.data[3].spend}}\",\"leads\":\"{{ifempty(first(map(5.data.data[3].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"cpl\":0,\"clicks\":\"{{5.data.data[3].clicks}}\",\"impressions\":\"{{5.data.data[3].impressions}}\"}],\"platforms\":[{\"name\":\"{{capitalize(6.data.data[1].publisher_platform)}}\",\"spend\":\"{{6.data.data[1].spend}}\",\"leads\":\"{{ifempty(first(map(6.data.data[1].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"impressions\":\"{{6.data.data[1].impressions}}\"},{\"name\":\"{{capitalize(6.data.data[2].publisher_platform)}}\",\"spend\":\"{{6.data.data[2].spend}}\",\"leads\":\"{{ifempty(first(map(6.data.data[2].actions; 'value'; 'action_type'; 'lead')); '0')}}\",\"impressions\":\"{{6.data.data[2].impressions}}\"}]}" }
+        ],
+        "requestCompressedContent": true
+      },
+      "metadata": { "designer": { "x": 1500, "y": 0 } }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false
+    },
+    "designer": { "orphans": [] }
+  },
+  "scheduling": {
+    "type": "indefinitely",
+    "interval": 900,
+    "restrict": [
+      { "days": [1, 2, 3, 4, 5, 6, 0], "time": ["09:00", "09:01"] }
+    ]
+  }
+}
