@@ -7,7 +7,7 @@
       "version": 4,
       "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
       "mapper": {
-        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,impressions,clicks,actions&date_preset=last_7d&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "url": "https://graph.facebook.com/v25.0/act_820432074193831/insights?fields=spend,impressions,clicks,actions&date_preset=last_7d&level=account&access_token=YOUR_META_ACCESS_TOKEN",
         "method": "get",
         "shareCookies": false,
         "parseResponse": true,
@@ -23,7 +23,7 @@
       "version": 4,
       "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
       "mapper": {
-        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=ad_name,impressions,clicks,spend&date_preset=last_7d&level=ad&access_token=YOUR_META_ACCESS_TOKEN",
+        "url": "https://graph.facebook.com/v25.0/act_820432074193831/insights?fields=ad_name,impressions,clicks,spend&date_preset=last_7d&level=ad&access_token=YOUR_META_ACCESS_TOKEN",
         "method": "get",
         "shareCookies": false,
         "parseResponse": true,
@@ -39,7 +39,7 @@
       "version": 4,
       "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
       "mapper": {
-        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,impressions,clicks,date_start,actions&date_preset=last_7d&time_increment=1&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "url": "https://graph.facebook.com/v25.0/act_820432074193831/insights?fields=spend,impressions,clicks,date_start,actions&date_preset=last_7d&time_increment=1&level=account&access_token=YOUR_META_ACCESS_TOKEN",
         "method": "get",
         "shareCookies": false,
         "parseResponse": true,
@@ -55,7 +55,7 @@
       "version": 4,
       "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
       "mapper": {
-        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=campaign_name,spend,actions,impressions,clicks&date_preset=last_7d&level=campaign&access_token=YOUR_META_ACCESS_TOKEN",
+        "url": "https://graph.facebook.com/v25.0/act_820432074193831/insights?fields=campaign_name,spend,actions,impressions,clicks&date_preset=last_7d&level=campaign&access_token=YOUR_META_ACCESS_TOKEN",
         "method": "get",
         "shareCookies": false,
         "parseResponse": true,
@@ -71,7 +71,7 @@
       "version": 4,
       "parameters": { "tlsType": "", "proxyKeychain": "", "authenticationType": "noAuth" },
       "mapper": {
-        "url": "https://graph.facebook.com/v25.0/act_YOUR_GROWTHCORE_AD_ACCOUNT/insights?fields=spend,actions,impressions&date_preset=last_7d&breakdowns=publisher_platform&level=account&access_token=YOUR_META_ACCESS_TOKEN",
+        "url": "https://graph.facebook.com/v25.0/act_820432074193831/insights?fields=spend,actions,impressions&date_preset=last_7d&breakdowns=publisher_platform&level=account&access_token=YOUR_META_ACCESS_TOKEN",
         "method": "get",
         "shareCookies": false,
         "parseResponse": true,

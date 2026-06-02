@@ -129,6 +129,17 @@ Visitante → ContactForm →
 | Meta Pixel | ✅ cableado (env `NEXT_PUBLIC_META_PIXEL_ID`) — pega el ID y deploy |
 | GA4 | ✅ cableado (env `NEXT_PUBLIC_GA4_ID`) — pega el ID y deploy |
 
+### Activos de Meta — GrowthCore (creados 2026-06-01)
+| Activo | Valor |
+|---|---|
+| **Business portfolio** | GrowthCore — business_id `1317921280299273` (independiente de MOVE) |
+| **Cuenta publicitaria** | GrowthCore Agency — `act_820432074193831` |
+| **Meta Pixel / Dataset** | GrowthCore Web — **`881377761643365`** (CAPI activada) |
+| **GA4** | ⏳ pendiente de crear (propiedad nueva) |
+
+> Pixel `881377761643365` → pega en Coolify env `NEXT_PUBLIC_META_PIXEL_ID` + redeploy.
+> El blueprint de Make (`ops/`) ya usa `act_820432074193831`; falta solo el token de Meta.
+
 ### Tracking — cómo activarlo (implementado 2026-05-30)
 - **Código:** `src/components/Analytics.tsx` inyecta Pixel + GA4 vía `next/script` (solo si hay IDs).
   `src/lib/analytics.ts` expone `trackLead()` → dispara `fbq('track','Lead')` + GA4 `generate_lead`.
