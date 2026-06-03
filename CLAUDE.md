@@ -135,7 +135,8 @@ Visitante → ContactForm →
 | **Business portfolio** | GrowthCore — business_id `1317921280299273` (independiente de MOVE) |
 | **Cuenta publicitaria** | GrowthCore Agency — `act_820432074193831` |
 | **Meta Pixel / Dataset** | GrowthCore Web — **`881377761643365`** (CAPI activada) |
-| **GA4** | ⏳ pendiente de crear (propiedad nueva) |
+| **GA4** | ✅ `G-5NFT5HT351` (propiedad "GrowthCore Web") — cableado en Coolify |
+| **Página de Facebook** | ⏳ pendiente (obligatoria para anunciar) |
 
 > Pixel `881377761643365` → pega en Coolify env `NEXT_PUBLIC_META_PIXEL_ID` + redeploy.
 > El blueprint de Make (`ops/`) ya usa `act_820432074193831`; falta solo el token de Meta.
