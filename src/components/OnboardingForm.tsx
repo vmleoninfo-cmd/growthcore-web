@@ -5,7 +5,7 @@ import { trackLead } from "../lib/analytics";
 
 // ── Constants ──────────────────────────────────────────────────────────────
 const STORAGE_KEY = "smart-ads-onboarding-v2";
-const MAKE_WEBHOOK = "https://hook.us2.make.com/n0p1382qkbq3qaqiwhkr1n5g45epuec5";
+const MAKE_WEBHOOK = "https://n8n.usegrowthcore.com/webhook/growthcore-lead-intake";
 const CRM_URL = "https://crm.usegrowthcore.com/api/contacts";
 
 // GrowthCore brand colors
