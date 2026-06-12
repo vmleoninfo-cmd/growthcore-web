@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import { trackLead } from "../lib/analytics";
 
+function getUtmParams(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  return keys.reduce((acc, k) => {
+    const v = p.get(k);
+    if (v) acc[k] = v;
+    return acc;
+  }, {} as Record<string, string>);
+}
+
 const services = [
-  "Smart Ads System (Meta Ads)",
+  "Smart Ads Dashboard",
   "Agente WhatsApp con IA",
   "CRM con IA",
-  "Diseño Web",
-  "Todo el sistema completo",
+  "Web Conectada",
+  "Sistema completo (Opción C o D)",
 ];
 
 export default function ContactForm() {
@@ -22,6 +33,9 @@ export default function ContactForm() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [utms, setUtms] = useState<Record<string, string>>({});
+
+  useEffect(() => { setUtms(getUtmParams()); }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -42,6 +56,7 @@ export default function ContactForm() {
           form.service && `Servicio: ${form.service}`,
           form.message && `Mensaje: ${form.message}`,
         ].filter(Boolean).join(" | ") || undefined,
+        ...utms,
       }),
     }).catch(() => {}); // silencioso, no interrumpe al usuario
 
@@ -81,8 +96,9 @@ export default function ContactForm() {
               className="font-heading font-bold text-foreground mb-4 leading-[1.15]"
               style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
             >
-              ¿Listo para que tu negocio{" "}
-              <span className="text-accent">trabaje solo?</span>
+              Detecta qué está fallando
+              <br />
+              <span className="text-accent">antes de que cueste más.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
