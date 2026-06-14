@@ -124,7 +124,8 @@ Visitante → ContactForm →
 | Integración | Estado |
 |---|---|
 | CRM (auto-crm) | ✅ conectado vía webhook |
-| Make.com Lead Onboarding | ✅ activo (ID: 5088464) |
+| n8n Lead Intake          | ✅ activo — `POST https://n8n.usegrowthcore.com/webhook/growthcore-lead-intake` |
+| Make.com Lead Onboarding | ⛔ desactivado (migrado a n8n, 2026-06-09) |
 | WhatsApp CTA | ✅ funcionando |
 | Meta Pixel | ✅ cableado (env `NEXT_PUBLIC_META_PIXEL_ID`) — pega el ID y deploy |
 | GA4 | ✅ cableado (env `NEXT_PUBLIC_GA4_ID`) — pega el ID y deploy |
@@ -185,3 +186,26 @@ CMD ["node", "server.js"]
 5. Cambiar número WhatsApp en ContactForm
 6. Deploy en Coolify con dominio del cliente
 7. Conectar CRM via webhook (cambiar URL en ContactForm)
+
+---
+
+## 📚 Corpus estratégico (ADN fundacional)
+
+El corpus completo de GrowthCore vive en `docs/corpus/`. Es la base de la que parten todas las mejoras de copy, producto y comunicación.
+
+**Antes de modificar copy, propuesta de valor o estructura de producto, leer:**
+
+| Archivo | Qué define |
+|---|---|
+| `docs/corpus/CONTEXTO-CLIENTE.md` | Estado del sistema, agentes activos, restricciones y prioridades |
+| `docs/corpus/CAT1-ADN-GROWTHCORE-v1.md` | ADN y esencia del proyecto |
+| `docs/corpus/CAT2-PILARES-GROWTHCORE-v1.md` | Pilares estratégicos |
+| `docs/corpus/CAT3-METODOLOGIA-COMUNICACION-v1.md` | Metodología de comunicación |
+| `docs/corpus/CAT4-IDENTIDAD-VERBAL-v1.md` | Voz y tono — obligatorio antes de escribir copy |
+| `docs/corpus/CAT5-ARQUITECTURA-CONTENIDO-v1.md` | Arquitectura de contenido |
+| `docs/corpus/DIAG-2026-06-04-001.md` | Diagnóstico fundacional |
+| `docs/corpus/FICHAS-PRODUCTO-v1.md` | Fichas detalladas de cada producto |
+| `docs/corpus/INV-MERCADO-PRECIOS-v1.md` | Investigación de mercado y precios |
+| `docs/corpus/PROPUESTA-COMERCIAL-TEMPLATE-v1.md` | Template de propuesta comercial |
+
+> Los `.pdf` y `.html` en `docs/corpus/pdf/` y `docs/corpus/html/` son versiones de distribución — trabajar siempre desde los `.md`.
