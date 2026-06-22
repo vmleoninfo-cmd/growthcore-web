@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT.1 — ADN del Ecosistema · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">CAT.1 — ADN del Ecosistema</div>
+  <div class="doc-subtitle">GROWTH CORE · Identidad Fundacional</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>CAT.1 — ADN DE GROWTH CORE</h1>
+<h2>Documento de identidad fundacional del ecosistema</h2>
+<pre><code>cat_id:         CAT1-ADN-GROWTHCORE-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes:        Estratega Central (01) · Arquitecto del Sistema (00)
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — base para CAT.2-5</code></pre>
+<hr>
+<h2>1. PROPÓSITO CENTRAL</h2>
+<p>Growth Core existe para eliminar la pérdida silenciosa de oportunidades comerciales en negocios pequeños que no tienen capacidad de operar sistemas complejos.</p>
+<p>El problema no es la falta de esfuerzo del emprendedor. El problema es la ausencia de infraestructura: datos que no se leen, leads que no se atienden a tiempo, campañas que gastan sin resultado visible. Growth Core convierte esa cafeína de datos dispersos en una sola acción concreta que el emprendedor puede ejecutar hoy.</p>
+<p><strong>Propósito operativo:</strong> Dar a los emprendedores pequeños el sistema de detección y acción que antes solo existía en empresas con equipos de marketing, analítica y tecnología.</p>
+<hr>
+<h2>2. ESENCIA</h2>
+<blockquote><p>Growth Core es un cerebro operativo accesible.</p></blockquote>
+<p>No es un dashboard que muestra datos. No es una agencia que toma decisiones. No es un software que hay que aprender. Es un sistema que observa el negocio, detecta dónde se está perdiendo dinero o clientes, y entrega la acción exacta que resuelve ese problema específico.</p>
+<p>La IA no es el producto. Es el mecanismo que hace posible que una persona opere como si tuviera un equipo de especialistas trabajando para ella.</p>
+<p><strong>Lo que Growth Core hace en el fondo:</strong> transforma caos operativo en claridad accionable.</p>
+<hr>
+<h2>3. PROBLEMA CENTRAL QUE RESUELVE</h2>
+<p>Los emprendedores pequeños y PYMES de servicios en Latinoamérica pierden clientes y presupuesto publicitario de manera sistemática por tres razones que se retroalimentan:</p>
+<p><strong>Problema 1 — Campañas que sangran sin que nadie lo detecte</strong><br>No saben cuándo una campaña de Meta está fallando hasta que ya perdieron dinero. No tienen tiempo ni conocimiento para leer los datos correctamente. El presupuesto se va sin resultado visible y la única conclusión es "la publicidad no funciona".</p>
+<p><strong>Problema 2 — Leads que llegan y desaparecen</strong><br>Los leads entran por WhatsApp o formularios y nadie los atiende en los primeros minutos. El emprendedor está operando el negocio, no atendiendo el teléfono. Cuando responde, el lead ya habló con otro. El problema no es el volumen de leads — es la velocidad y consistencia de la respuesta.</p>
+<p><strong>Problema 3 — Clientes actuales sin seguimiento sistemático</strong><br>Hay clientes que están listos para comprar de nuevo y nadie los contacta. No hay sistema que detecte cuándo llamar, qué ofrecerles, ni qué clientes priorizar. La retención queda al azar de la memoria o el tiempo del emprendedor.</p>
+<p><strong>La raíz común de los tres problemas:</strong><br>No es desidia ni incapacidad. Es que estos problemas requieren sistemas que no existen a precio accesible para este segmento. Growth Core cierra esa brecha.</p>
+<hr>
+<h2>4. CLIENTE IDEAL DE GROWTH CORE</h2>
+<h3>Perfil primario</h3>
+<p><strong>Quién es:</strong><br>Emprendedor latinoamericano que ofrece servicios o tiene negocio físico pequeño (clínica, inmobiliaria, estudio, academia, restaurante, boutique, freelancer con clientes recurrentes). Opera principalmente en México, Colombia, Venezuela, Chile, Guatemala, Perú, Ecuador.</p>
+<p><strong>Señales detectables — tiene Growth Core listo si:</strong><br><ul><li>Invierte entre $100 y $1,000 USD mensuales en Meta Ads y no sabe si están funcionando</li><br><li>Recibe o podría recibir leads por WhatsApp pero los pierde en el proceso de respuesta</li><br><li>Tiene entre 1 y 15 empleados o trabaja solo</li><br><li>No puede pagar una agencia de marketing ni contratar un especialista interno</li><br><li>Ya intentó algún CRM (Excel, un gratuito) pero no lo mantuvo</li><br><li>Tiene WhatsApp Business pero sin automatización real</li><br><li>Siente que trabaja mucho pero los resultados no escalan</li><br></ul><br><strong>Señales de exclusión — NO es cliente de Growth Core si:</strong><br><ul><li>Tiene equipo de marketing in-house ya operando</li><br><li>Está en etapa pre-ventas (sin clientes aún)</li><br><li>Su negocio no genera leads digitales ni invierte en publicidad</li><br><li>Busca solo diseño web o solo redes sociales sin automatización</li><br></ul><br><h3>Perfil secundario (empresa pequeña)</h3></p>
+<p>Empresa de 10-30 empleados que tiene estructura pero no tiene un departamento de tecnología. Entiende el valor de la automatización pero no tiene tiempo ni personal para implementarla. Contrata servicios de implementación, no herramientas que configurar.</p>
+<hr>
+<h2>5. DIFERENCIACIÓN REAL</h2>
+<h3>Frente a CRMs genéricos (HubSpot, Pipedrive, Zoho)</h3>
+<p>Los CRMs del mercado fueron construidos para equipos de ventas con dedicación exclusiva. Requieren configuración extensa, adopción de procesos nuevos y mantenimiento constante. Un emprendedor solo no tiene tiempo para eso.</p>
+<p><strong>Growth Core:</strong> preconfigurado para el perfil específico del emprendedor de servicios latinoamericano. No se adapta al negocio — el negocio lo adopta porque ya funciona para su caso.</p>
+<h3>Frente a agencias de marketing digital</h3>
+<p>Las agencias gestionan campañas y cobran porcentaje de inversión. No dejan capacidad instalada en el negocio del cliente. Cuando se va la agencia, se va el sistema.</p>
+<p><strong>Growth Core:</strong> construye infraestructura propia en el negocio. El cliente retiene el control y la capacidad, con o sin Evoluciona Inteligente.</p>
+<h3>Frente a bots de WhatsApp (ManyChat, WATI, etc.)</h3>
+<p>Los bots genéricos responden con flujos fijos. No entienden el contexto del negocio, no califican leads según los criterios reales del negocio, no aprenden.</p>
+<p><strong>Growth Core Agente WhatsApp:</strong> entrenado con el guion de ventas específico del negocio. No es un bot con botones — es un agente que conversa, califica y registra.</p>
+<h3>Diferenciador central: la integración de las 4 herramientas</h3>
+<p>El valor real de Growth Core no está en ninguna herramienta individual — está en que las 4 se conectan:</p>
+<pre><code>Campañas (Smart Ads) → detecta lead de calidad
+↓
+Agente WhatsApp → responde en segundos, califica, registra
+↓
+CRM → prioriza cierre, da historial completo
+↓
+Web → captura automáticamente, conectada al CRM desde el día 1</code></pre>
+<p>Cada herramienta por separado tiene alternativas. El ecosistema integrado para este segmento específico no las tiene.</p>
+<hr>
+<h2>6. POSICIÓN ÚNICA EN EL MERCADO</h2>
+<p><strong>Lo que Growth Core ocupa que nadie más ocupa:</strong></p>
+<p>El espacio entre "herramienta genérica que hay que configurar sola" y "agencia que gestiona todo". Growth Core entrega infraestructura implementada y operando, con inteligencia específica para el negocio del cliente, a un precio que los emprendedores pequeños de Latam pueden pagar.</p>
+<p><strong>Declaración de posición:</strong><br>Growth Core es el primer sistema de operación comercial diseñado para emprendedores latinoamericanos que ya están vendiendo y necesitan dejar de perder lo que ya tienen.</p>
+<p>No es para quien está empezando. Es para quien ya tiene clientes, ya tiene campañas, y siente que está dejando dinero sobre la mesa porque no puede atender todo al mismo tiempo.</p>
+<hr>
+<h2>7. DECLARACIÓN FUNDACIONAL</h2>
+<blockquote><p>"Antes de Growth Core, los emprendedores pequeños perdían clientes, presupuesto publicitario y oportunidades sin saber exactamente dónde.</p></blockquote>
+<blockquote><p>> Growth Core detecta dónde se está perdiendo, entrega la acción concreta que lo recupera, y lo automatiza para que no dependa de que alguien lo recuerde.</p></blockquote>
+<blockquote><p>> No es una promesa de crecimiento. Es un sistema que opera mientras el emprendedor atiende su negocio."</p></blockquote>
+<hr>
+<h2>8. LO QUE GROWTH CORE NO ES (LÍMITES DEL ADN)</h2>
+<p>Estos límites son parte del ADN — no son debilidades, son decisiones de identidad:<br><ul><li><strong>No es una agencia.</strong> No gestiona campañas ni cobra comisión de inversión publicitaria.</li><br><li><strong>No es un curso o formación.</strong> No enseña a hacer marketing — hace el trabajo que requiere sistema.</li><br><li><strong>No es para todos.</strong> Solo funciona para negocios que ya tienen flujo de clientes o leads que perder.</li><br><li><strong>No es genérico.</strong> Cada implementación se conecta al negocio específico del cliente.</li><br><li><strong>No automatiza lo que no existe.</strong> Si no hay proceso de venta definido, Growth Core no lo inventa — lo construye junto con el cliente en el onboarding.</li><br></ul><br><hr></p>
+<h2>9. PALABRAS QUE DEFINEN EL ADN (pre-vocabulario para CAT.4)</h2>
+<p><strong>Palabras que pertenecen a Growth Core:</strong><br>detectar · operar · automatizar · cerebro operativo · acción concreta · integrado · específico para tu negocio · sin tocar código · implementado por nosotros · sistema vivo</p>
+<p><strong>Palabras que NO pertenecen a Growth Core:</strong><br>escalar ilimitadamente · ingresos pasivos · desde la comodidad de tu hogar · sin esfuerzo · hacerse rico · el mejor CRM · revolución · disruptivo</p>
+<p><em>Las primeras hablan de lo que el sistema hace. Las segundas hablan de lo que el emprendedor quiere — y eso es lenguaje de promesa, no de producto.</em></p>
+<hr>
+<h2>CONEXIONES DEL SISTEMA</h2>
+<pre><code>CAT.1 (este documento) → alimenta:
+<ul><li>CAT.2: Pilares estratégicos (qué sostiene el ADN en estructura)</li>
+<li>CAT.3: Metodología de comunicación (cómo habla el ADN)</li>
+<li>CAT.4: Identidad verbal (cómo se expresa el ADN en palabras)</li>
+<li>CAT.5: Arquitectura de contenido (qué publica el ADN)</li>
+<li>Arquitecto de Producto (16): redefine las 4 herramientas desde este ADN</li>
+<li>Arquitecto de Oferta (17): construye la oferta desde este ADN</code></pre></li>
+</ul>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes: Estratega Central (01) + Arquitecto del Sistema (00)</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Siguiente: CAT.2 — Pilares estratégicos de GROWTH CORE</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

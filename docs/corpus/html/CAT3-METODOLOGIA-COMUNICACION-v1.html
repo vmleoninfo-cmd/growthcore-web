@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT.3 — Metodología de Comunicación · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">CAT.3 — Metodología de Comunicación</div>
+  <div class="doc-subtitle">GROWTH CORE · Cómo razona y habla el ecosistema</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>CAT.3 — METODOLOGÍA DE COMUNICACIÓN</h1>
+<h2>Cómo razona y habla GROWTH CORE en todo contexto</h2>
+<pre><code>cat_id:         CAT3-METODOLOGIA-COMUNICACION-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes:        Guardián de Voz (10) · Estratega Central (01)
+dependencias:   CAT1-ADN-GROWTHCORE-v1 · CAT2-PILARES-GROWTHCORE-v1
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — base para CAT.4 (identidad verbal) y CAT.5 (arquitectura de contenido)</code></pre>
+<hr>
+<blockquote><p>CAT.3 no define qué palabras usa Growth Core.</p></blockquote>
+<blockquote><p>Define la lógica que construye cada mensaje antes de escribir una sola palabra.</p></blockquote>
+<blockquote><p>Si CAT.4 es el vocabulario, CAT.3 es la gramática de razonamiento.</p></blockquote>
+<blockquote><p>Todo lo que se comunique debe poder rastrearse a este documento.</p></blockquote>
+<hr>
+<h2>1. FUNDAMENTO DE LA COMUNICACIÓN</h2>
+<h3>El problema que CAT.3 resuelve</h3>
+<p>Antes de construir esta metodología, Growth Core comunicaba desde la ansiedad del emprendedor: <em>"ingresos desde casa con IA"</em>, <em>"escala tu negocio"</em>, <em>"potencia tus campañas"</em>. Este lenguaje no es incorrecto por accidente — refleja lo que el fundador quiere vender, no lo que el cliente necesita escuchar para confiar.</p>
+<p>Un emprendedor que ya fue quemado por promesas de marketing no responde a más promesas. Responde a alguien que describe con precisión el problema que tiene — porque ese nivel de precisión demuestra que quien habla ha visto ese problema de cerca y sabe cómo resolverlo.</p>
+<h3>El principio central</h3>
+<blockquote><p><strong>Growth Core comunica desde el problema, no desde el resultado.</strong></p></blockquote>
+<p>No empieza por dónde puede llegar el cliente. Empieza por dónde está perdiendo ahora. La autoridad no viene de prometer resultados grandes — viene de identificar problemas específicos que el cliente aún no había sabido nombrar.</p>
+<hr>
+<h2>2. SECUENCIA COMUNICATIVA CANÓNICA</h2>
+<p>Todo mensaje de Growth Core — post, correo, propuesta, demo, conversación de venta — sigue esta secuencia de tres pasos. El orden no se invierte.</p>
+<h3>Paso 1 — Señalar el problema observable</h3>
+<p>Describir el problema con tanta precisión que el cliente sienta que lo escribieron para él. No el problema genérico ("las campañas no funcionan") sino el problema específico con su mecanismo visible ("tu campaña lleva 5 días con CTR bajando pero nadie te avisó — cuando lo notes, ya perdiste $200 de presupuesto").</p>
+<p><strong>Criterio de validación del Paso 1:</strong><br>El problema debe ser observable — el cliente puede verificar si lo tiene o no tiene, hoy, en su negocio. Si no puede verificarlo, no es suficientemente específico.</p>
+<h3>Paso 2 — Mostrar el costo de no resolver</h3>
+<p>No el costo abstracto ("pierdes dinero"). El costo concreto y acumulable: cuánto se pierde, con qué frecuencia, con qué consecuencia operativa. El costo no es una amenaza — es la evidencia de que el problema ya está activo.</p>
+<p><strong>Criterio de validación del Paso 2:</strong><br>El costo debe poder calcularse o estimarse. Si no tiene número o frecuencia, es abstracto y no genera acción.</p>
+<h3>Paso 3 — Presentar la acción que lo resuelve</h3>
+<p>No "Growth Core soluciona esto". Sino: "Smart Ads detecta ese momento exacto y te da la acción específica para corregirlo antes de perder más presupuesto". La solución se ancla al problema del Paso 1 y elimina el costo del Paso 2.</p>
+<p><strong>Criterio de validación del Paso 3:</strong><br>La solución debe conectar con el problema específico del Paso 1. Si puede usarse para describir cualquier solución genérica, no es suficientemente específica.</p>
+<hr>
+<h2>3. TIPOS DE ARGUMENTO VÁLIDOS</h2>
+<p>Growth Core usa cinco tipos de argumento. Cada pieza de comunicación usa al menos uno. Los argumentos no se mezclan al azar — se eligen según el objetivo de la comunicación.</p>
+<h3>Argumento 1 — Evidencia de problema (diagnóstico)</h3>
+<p>Describe un problema específico que el cliente tiene sin saber que lo tiene, o que sabe que tiene pero no sabe nombrar. Demuestra que Growth Core entiende la operación interna del negocio del cliente.</p>
+<p><em>Ejemplo de estructura:</em> "El 73% de los leads que entran por WhatsApp no reciben respuesta en los primeros 5 minutos. Después de 5 minutos, la probabilidad de cierre cae a la mitad."</p>
+<h3>Argumento 2 — Mecanismo explicado (cómo funciona)</h3>
+<p>Explica la lógica interna de por qué el problema ocurre o de cómo la solución funciona. No el resultado — el mecanismo. Esto genera confianza técnica sin requerir que el cliente sea experto.</p>
+<p><em>Ejemplo de estructura:</em> "Smart Ads procesa tus métricas de campaña cada 24 horas y calcula un score 0-100. Cuando el score baja de 60, genera una alerta con la causa específica y la acción que la corrige."</p>
+<h3>Argumento 3 — Contraste de estados (antes y después operativo)</h3>
+<p>Muestra la diferencia entre el estado actual (con el problema activo) y el estado con Growth Core instalado — pero en términos operativos, no aspiracionales. No "antes vivías estresado, ahora vives tranquilo". Sino: "antes respondías leads a las 10pm porque no había sistema, ahora el agente responde en 30 segundos mientras tú atiendes otro cliente".</p>
+<p><em>Ejemplo de estructura:</em> "Sin sistema: revisas manualmente las métricas cada semana, detectas el problema cuando ya afectó resultados. Con Smart Ads: recibes el informe el lunes con la acción concreta para esa semana."</p>
+<h3>Argumento 4 — Especificidad de entrega (qué recibe exactamente)</h3>
+<p>Describe con precisión qué recibe el cliente cuando contrata. No "una solución integral" — sino "dashboard instalado en tu servidor, correo de informe todos los lunes antes de las 9am con score de cada campaña activa y la acción priorizada de esa semana".</p>
+<p><em>Ejemplo de estructura:</em> "En 5 días hábiles: tu CRM configurado con los campos específicos de tu tipo de negocio, conectado a tu formulario de contacto, con el primer reporte de probabilidad de cierre activo."</p>
+<h3>Argumento 5 — Consecuencia acumulada (el costo de esperar)</h3>
+<p>Muestra qué pasa si el problema continúa sin resolverse durante 30, 60, 90 días. No es una amenaza — es un cálculo. Hace visible el costo de la inacción.</p>
+<p><em>Ejemplo de estructura:</em> "Si tu campaña pierde $50 por semana en clics que no convierten, en 3 meses son $600 que podrían haberse redirigido a creativos que sí funcionan."</p>
+<hr>
+<h2>4. REGISTRO Y TONO</h2>
+<h3>Registro general</h3>
+<p><strong>Técnico accesible.</strong> Growth Core puede hablar de Meta Ads, score de campañas, calificación de leads, probabilidad de cierre — sin que el cliente necesite ser experto para entenderlo. La complejidad técnica existe en el sistema, no en la comunicación.</p>
+<p><strong>Directo sin ser frío.</strong> Cada mensaje tiene un punto. Llega a ese punto sin rodeos, sin introducción larga, sin disclaimer. Pero no es clínico ni distante — conoce el negocio del cliente y habla desde ese conocimiento.</p>
+<p><strong>Empático sin victimizar.</strong> Entiende que el emprendedor está ocupado, que ha sido quemado por promesas vacías, que tiene miedo de perder más tiempo. No lo hace sentir víctima ni incompetente. Lo trata como alguien que ya tomó decisiones correctas y ahora necesita la infraestructura que respalde esas decisiones.</p>
+<p><strong>Confiado sin arrogancia.</strong> Growth Core sabe lo que hace y lo comunica con certeza. No usa lenguaje de duda ("podría ayudarte a", "quizás funcione para ti"). Pero tampoco promete lo que no puede controlar.</p>
+<h3>Escala de tono según contexto</h3>
+<table><thead><tr><th>Contexto</th><th>Tono</th><th>Nivel técnico</th></tr></thead><tbody><tr><td>Contenido orgánico (redes)</td><td>Diagnóstico → educativo → invitación</td><td>Bajo-medio — accesible para el público general</td></tr><tr><td>Demo o llamada de venta</td><td>Diagnóstico del negocio específico → mecanismo → entregable</td><td>Medio — adaptado al nivel del prospecto</td></tr><tr><td>Propuesta formal</td><td>Diagnóstico estructurado → solución específica → entregables con fecha</td><td>Alto — detalle operativo</td></tr><tr><td>Informe semanal (Smart Ads)</td><td>Datos → diagnóstico → acción concreta</td><td>Alto — el cliente ya está instalado</td></tr><tr><td>Onboarding</td><td>Proceso paso a paso → validación de funcionamiento</td><td>Técnico-operativo — sin jerga innecesaria</td></tr></tbody></table>
+<hr>
+<h2>5. PROHIBICIONES METODOLÓGICAS</h2>
+<p>Estas prohibiciones no son preferencias de estilo. Son restricciones estructurales derivadas de los pilares. Violarlas produce comunicación que contradice el ADN del ecosistema.</p>
+<h3>Prohibición 1 — No comunicar resultado antes de problema</h3>
+<p><em>Prohibido:</em> "Aumenta tus ventas con Growth Core."<br><em>Correcto:</em> "Growth Core detecta qué parte de tu proceso está bloqueando ventas que ya podrías estar cerrando."</p>
+<p><strong>Razón:</strong> Comunicar resultado sin diagnóstico previo es exactamente el lenguaje de venta de humo que destruye la credibilidad con el cliente objetivo. Viola Pilar 1.</p>
+<h3>Prohibición 2 — No usar métricas sin instrucción ejecutable</h3>
+<p><em>Prohibido:</em> "Aumenta tu CTR y reduce tu CPL."<br><em>Correcto:</em> "Cuando tu CPL sube más del 20% en una semana, Smart Ads te dice exactamente qué creativo pausar."</p>
+<p><strong>Razón:</strong> Las métricas sin contexto accionable son lenguaje de agencia, no de sistema operativo. Viola Pilar 4.</p>
+<h3>Prohibición 3 — No prometer antes de diagnosticar</h3>
+<p><em>Prohibido:</em> "Con Growth Core vas a tener más clientes en 30 días."<br><em>Correcto:</em> "Después del diagnóstico de onboarding, definimos qué herramienta resuelve el cuello de botella más urgente de tu negocio."</p>
+<p><strong>Razón:</strong> Las promesas sin diagnóstico previo generan expectativas desconectadas del problema real del cliente. Viola Pilar 1 y la declaración fundacional del ADN.</p>
+<h3>Prohibición 4 — No usar lenguaje de aspiración personal del fundador</h3>
+<p><em>Prohibido:</em> "Genera ingresos desde la comodidad de tu hogar." / "Trabaja menos, gana más."<br><em>Correcto:</em> "Tu agente de WhatsApp responde leads mientras estás en otra reunión."</p>
+<p><strong>Razón:</strong> El lenguaje de aspiración personal revela que el comunicador está vendiendo su propio sueño, no resolviendo el problema del cliente. Genera desconfianza inmediata en el público objetivo. Viola el ADN completo.</p>
+<h3>Prohibición 5 — No describir las herramientas por lo que conectan</h3>
+<p><em>Prohibido:</em> "Smart Ads se conecta con tus canales de ventas."<br><em>Correcto:</em> "Smart Ads detecta qué campaña está desperdiciando presupuesto antes de que afecte tus resultados del mes."</p>
+<p><strong>Razón:</strong> Describir por conexiones técnicas sin nombrar el problema que resuelven es comunicación de desarrollador, no de sistema operativo. El cliente no compra conexiones — compra detección y acción. Viola Pilar 1 y Pilar 4.</p>
+<h3>Prohibición 6 — No usar la personalización como argumento de valor único</h3>
+<p><em>Prohibido:</em> "Nuestro CRM es completamente personalizado para tu negocio."<br><em>Correcto:</em> "Tu CRM viene configurado con los campos específicos de tu tipo de negocio y conectado a tus canales de entrada de leads desde el día 1."</p>
+<p><strong>Razón:</strong> "Personalizado" no es diferenciador en 2026 — todo dice ser personalizado. El diferenciador es qué problema específico resuelve la personalización y cómo se implementa. Viola Pilar 2.</p>
+<hr>
+<h2>6. CÓMO HABLA GROWTH CORE EN CADA CANAL</h2>
+<h3>Contenido orgánico (redes sociales)</h3>
+<p><strong>Estructura de post tipo Growth Core:</strong><br><li>Apertura: señala el problema con precisión (Paso 1 de la secuencia)</li><br><li>Desarrollo: muestra el mecanismo o el costo acumulado (Argumentos 1 o 5)</li><br><li>Cierre: instrucción concreta — qué hacer o qué tiene Growth Core que resuelve eso (Paso 3)</li></p>
+<p><strong>Longitud:</strong> no más de lo necesario para completar los 3 pasos. Si el punto se puede hacer en 3 líneas, no necesita 10.</p>
+<h3>Landing page (usegrowthcore.com)</h3>
+<p><strong>Estructura por sección:</strong><br><ul><li>Hero: Pilar 1 — qué detecta el sistema (no qué promete)</li><br><li>Sección de herramientas: Argumento 4 — qué recibe exactamente</li><br><li>Proceso: Pilar 2 — cómo se instala y en qué tiempo</li><br><li>Integración: Pilar 3 — cómo las herramientas se conectan</li><br><li>CTA: instrucción concreta ("agenda tu diagnóstico" — no "empieza gratis")</li><br></ul><br><h3>Propuesta a cliente</h3></p>
+<p><strong>Secuencia:</strong><br><li>Diagnóstico del negocio específico del prospecto (basado en lo que se detectó)</li><br><li>Identificación del cuello de botella más urgente</li><br><li>Herramienta(s) que resuelven ese cuello de botella específico</li><br><li>Entregables con fecha y proceso de onboarding</li><br><li>Inversión justificada desde el problema resuelto, no desde las funciones del software</li></p>
+<h3>Informe semanal (Smart Ads)</h3>
+<p><strong>Estructura:</strong><br><li>Score global de la semana (número + clasificación)</li><br><li>Qué detectó el sistema (máximo 3 alertas priorizadas)</li><br><li>Acción de esta semana (una instrucción principal por alerta)</li><br><li>Tendencia (subió, bajó, estable — con causa identificada)</li></p>
+<hr>
+<h2>7. LO QUE ESTA METODOLOGÍA HABILITA</h2>
+<pre><code>CAT.3 → CAT.4 (identidad verbal):
+  El vocabulario canónico se construye desde los tipos de argumento válidos
+  y las prohibiciones de esta metodología.
+<p>CAT.3 → CAT.5 (arquitectura de contenido):<br>  Los formatos de contenido se diseñan para ejecutar la secuencia comunicativa<br>  canónica: problema → costo → solución.</p>
+<p>CAT.3 → Arquitecto de Producto (16):<br>  Las fichas de producto de las 4 herramientas se reescriben siguiendo<br>  la Prohibición 5: descripción por problema que resuelve, no por qué conecta.</p>
+<p>CAT.3 → Arquitecto de Oferta (17):<br>  La propuesta de venta usa la secuencia canónica completa:<br>  diagnóstico del prospecto → costo de su problema → solución específica.</code></pre></p>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes: Guardián de Voz (10) + Estratega Central (01)</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Siguiente: CAT.4 — Identidad verbal de GROWTH CORE</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

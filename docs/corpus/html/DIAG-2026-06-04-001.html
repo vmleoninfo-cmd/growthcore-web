@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico Estructural · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">Diagnóstico Estructural</div>
+  <div class="doc-subtitle">GROWTH CORE · Ingreso de Proyecto</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>DIAGNÓSTICO ESTRUCTURAL — GROWTH CORE</h1>
+<h2>Output del sistema HAYDE · Ingreso de proyecto</h2>
+<pre><code>diagnostico_id: DIAG-2026-06-04-001
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes_diagnostico:
+<ul><li>Arquitecto del Sistema (00)</li>
+<li>Estratega Central (01)</li>
+<li>Arquitecto de Producto (16)</li>
+<li>Arquitecto de Oferta (17)</li>
+<li>Guardián de Voz (10)</li>
+<li>Sistema de Validación (11)</li>
+<li>Agente de Activación (13)</li>
+</ul>estado:         APROBADO
+proxima_accion: Ejecutar ACT-2026-06-04-001 → construcción CAT.1-5 + redefinición de producto</code></pre>
+<hr>
+<blockquote><p>GROWTH CORE no tiene un problema de producto.</p></blockquote>
+<blockquote><p>Tiene un producto técnico que funciona.</p></blockquote>
+<blockquote><p>Tiene un problema estructural: no sabe qué problema resuelve,</p></blockquote>
+<blockquote><p>para quién lo resuelve exactamente, ni cómo comunicarlo sin que suene a humo.</p></blockquote>
+<blockquote><p>El sistema viene a construir la arquitectura que el producto ya necesita y no tiene.</p></blockquote>
+<hr>
+<h2>D1 — ETAPA DEL CLIENTE</h2>
+<pre><code>ETAPA_DETECTADA: 1 — SIN ESTRUCTURA COMERCIAL</code></pre>
+<p><strong>Árbol de detección aplicado:</strong></p>
+<li>¿Tiene clientes externos pagando por alguna herramienta? → <strong>NO</strong> (solo uso interno con MOVE)</li>
+<li>¿Tiene ventas esporádicas externas de alguna herramienta? → <strong>NO</strong></li>
+<li>→ <strong>ETAPA 1</strong> — producto técnico existe, estructura comercial no existe</li>
+<p><strong>Brecha de etapa detectada:</strong></p>
+<pre><code>BRECHA_ETAPA:
+  cliente_declara: Etapa 2 (percepción implícita — tiene herramientas funcionando,
+                   tiene landing page, tiene CRM, tiene servidor activo)
+  sistema_detecta: Etapa 1 (cero validación comercial externa · cero clientes
+                   pagando · cero flujo de onboarding definido · cero identidad de marca)
+  delta: 1
+  severidad: Media — el fundador confunde capacidad técnica con madurez comercial.
+             Esta confusión es estructural y genera riesgo de comunicación vaga.
+  nota: Tener una herramienta funcionando no equivale a tener un producto vendible.
+        La brecha entre "esto funciona" y "esto se vende" es exactamente lo que
+        falta construir.</code></pre>
+<hr>
+<h2>D2 — MADUREZ GENERAL</h2>
+<p><strong>Cálculo del score:</strong></p>
+<table><thead><tr><th>Dimensión</th><th>Evidencia del brief</th><th>Score (1-5)</th><th>Peso</th><th>Ponderado</th></tr></thead><tbody><tr><td>Estructura operativa</td><td>Herramientas funcionan internamente · sin flujo de cliente definido · sin onboarding · sin procesos de entrega documentados</td><td>2.0</td><td>0.25</td><td>0.50</td></tr><tr><td>Validación comercial</td><td>Cero clientes externos · cero ingresos por estas herramientas · solo uso interno</td><td>1.0</td><td>0.25</td><td>0.25</td></tr><tr><td>Claridad narrativa</td><td>Describe lo que conecta, no lo que resuelve · confusión resultado-herramienta · sin identidad · sin tono</td><td>1.0</td><td>0.20</td><td>0.20</td></tr><tr><td>Capacidad implementación</td><td>Alta capacidad técnica · baja preparación comercial · puede implementar si se guía</td><td>2.8</td><td>0.20</td><td>0.56</td></tr><tr><td>Solidez del objetivo</td><td>Objetivo declarado ("ingresos desde casa + IA") sin estructura de llegada · sin hoja de ruta</td><td>1.5</td><td>0.10</td><td>0.15</td></tr></tbody></table>
+<pre><code>Score_Madurez = 0.50 + 0.25 + 0.20 + 0.56 + 0.15 = 1.66 / 5.0
+Nivel: MUY BAJA
+Implicación: Solo intervención fundacional — nada más</code></pre>
+<p><strong>Nota — desalineación técnica/comercial:</strong><br>El fundador tiene score técnico alto (construyó 4 herramientas, configura servidores, programa agentes IA). Pero el score comercial es de los más bajos observados: no puede describir qué problema resuelve cada herramienta, no tiene flujo de cliente, no tiene propuesta de valor diferenciada. Esta asimetría es el riesgo principal del proyecto.</p>
+<hr>
+<h2>D3 — CUELLO DE BOTELLA PRINCIPAL</h2>
+<pre><code>CUELLO_DE_BOTELLA: Ausencia de identidad + propuesta de valor vacía + sin flujo de cliente</code></pre>
+<p><strong>Análisis de jerarquía upstream-downstream:</strong></p>
+<pre><code>1. Sin propuesta de valor definida por herramienta
+     → CONFIRMADO: describe conexiones y funciones, no problemas resueltos ni
+                   transformación del usuario
+     ← CUELLO DE BOTELLA UPSTREAM #1 — raíz de todo lo demás
+<li>Sin identidad verbal ni visual de GROWTH CORE como marca</li>
+     → CONFIRMADO: landing page existe pero es "plana" según el diagnóstico
+     → Sin diferenciación · Sin voz · Sin personalidad
+     ← CUELLO DE BOTELLA UPSTREAM #2 — paralelo al #1
+<li>Sin flujo de cliente definido</li>
+     → CONFIRMADO: CRM no tiene estructura de entrada clara · el proceso
+                   de onboarding del CRM toma 2-3 días sin estructura documentada
+     ← CONSECUENCIA DIRECTA DE LOS CUELLOS DE BOTELLA 1 y 2
+<li>Sin estructura de precios justificada</li>
+     → CONFIRMADO: precios estimados o sin definir en 3 de 4 herramientas
+     ← CONSECUENCIA DIRECTA — no se puede justificar precio sin propuesta de valor
+<li>Infraestructura frágil para escalar</li>
+     → CONFIRMADO: servidor Hetzner $17/mes aloja TODOS los clientes futuros
+     → Capacidad no definida · Sin SLA · Sin plan de escalabilidad
+     ← RIESGO OPERATIVO — no bloqueante ahora, pero crítico antes de 10 clientes</code></pre>
+<hr>
+<h2>D4 — LECTURA POR HERRAMIENTA (Agente: Arquitecto de Producto · 16)</h2>
+<h3>Herramienta 1 — Smart Ads Systems</h3>
+<pre><code>estado_producto:    PARCIALMENTE DEFINIDO
+problema_que_dice:  "Conecta canales de ventas y potencia campañas"
+problema_real:      No definido — ¿qué falla específica en campañas resuelve?
+                    ¿Qué métrica mejora? ¿Cuánto? ¿En cuánto tiempo?
+entregables:        Dashboard + informe semanal con análisis IA → CONCRETO
+flujo_cliente:      Setup por proveedor + usuario/clave → aceptable como inicio
+precios:            Setup $200 · Mensualidad $150 → precio más alto del ecosistema
+riesgo_percepción:  Alta confusión posible — "conexión con canales" puede interpretarse
+                    como gestión de campañas o inversión publicitaria incluida
+accion_requerida:   Redefinir descripción en términos de problema específico +
+                    resultado medible + aclaración explícita de qué NO incluye</code></pre>
+<h3>Herramienta 2 — CRM</h3>
+<pre><code>estado_producto:    INDEFINIDO — el más crítico
+problema_que_dice:  "Seguimiento de ventas y gestión de clientes con IA"
+problema_real:      No diferenciado — hay cientos de CRM en el mercado
+entregables:        Usuario y clave → entregable mínimo, sin proceso de adopción
+flujo_cliente:      Formulario de datos sensibles → onboarding 2-3 días → SIN ESTRUCTURA
+precios:            Setup $100 · Mensualidad $20 → precio más bajo, pero sin valor claro
+riesgo_técnico:     Todos los clientes en servidor Hetzner $17/mes → escalabilidad crítica
+riesgo_comercial:   "Personalizado" no es diferenciador en 2026 · la IA no es diferenciador
+accion_requerida:   Definir qué problema específico resuelve que otros CRM no resuelven
+                    para el perfil exacto del cliente objetivo · redesignar flujo de entrada</code></pre>
+<h3>Herramienta 3 — Agente WhatsApp IA</h3>
+<pre><code>estado_producto:    NO DEFINIDO
+problema_que_dice:  Agente personalizado entrenado para el cliente final
+problema_real:      No se sabe — el proceso de entrenamiento no está definido
+entregables:        No definidos
+flujo_cliente:      No definido
+precios:            Setup $150 · Mensualidad $50
+riesgo_seguridad:   Conexión WhatsApp sin descripción de niveles de seguridad →
+                    riesgo legal y operativo para el cliente final
+riesgo_percepción:  Debe diferenciarse con claridad de "bots" genéricos —
+                    el fundador lo identifica como agente IA, no lo comunica
+accion_requerida:   Construir metodología de entrenamiento → definir entregables →
+                    definir proceso de conexión segura → solo entonces es vendible</code></pre>
+<h3>Herramienta 4 — Creador de Sitio Web</h3>
+<pre><code>estado_producto:    CAPACIDAD, NO PRODUCTO
+problema_que_dice:  Construcción de sitio web mediante instrucciones
+problema_real:      Servicio de ejecución sin proceso documentado
+entregables:        No definidos
+flujo_cliente:      No definido · sin formularios de captación de información
+precios:            Mínimo $200 → sin estructura
+riesgo_diferenciación: Es el segmento más competido del mercado digital
+                    No hay identidad del servicio ni proceso que lo distinga
+accion_requerida:   Definir si es un producto del ecosistema o un servicio adicional ·
+                    construir proceso de briefing → identidad → entrega</code></pre>
+<hr>
+<h2>D5 — LECTURA DE IDENTIDAD Y VOZ (Agente: Guardián de Voz · 10)</h2>
+<pre><code>IDENTIDAD_VERBAL:   INEXISTENTE
+IDENTIDAD_VISUAL:   PLANA (landing page existe pero sin personalidad)
+VOZ_DE_MARCA:       INDEFINIDA</code></pre>
+<p><strong>Análisis:</strong></p>
+<p>Growth Core no tiene voz. Tiene terminología: "ecosistema", "herramientas", "IA", "optimizar", "leads". Pero no tiene un sistema de comunicación que diferencie al fundador como autoridad en lo que ofrece, ni a la marca como solución específica para un perfil específico.</p>
+<p>El riesgo identificado: el fundador comunica desde la ansiedad del emprendedor que quiere vender, no desde la autoridad del experto que sabe qué resuelve. Esto genera el efecto de "venta de humo" que el diagnóstico externo ya detectó.</p>
+<p><strong>Señales críticas:</strong><br><ul><li>"Ingresos extras desde la comodidad del hogar con IA" → objetivo personal del fundador presentado como propuesta de valor al cliente</li><br><li>"Personalizado" como argumento de valor → no diferencia</li><br><li>"Potencia campañas" → vacío semántico sin contexto de qué falla resuelve</li><br><li>Descripción de resultados (leads, ingresos) sin descripción de mecanismo → humo estructural</li><br></ul><br><hr></p>
+<h2>D6 — LECTURA COMERCIAL (Agente: Arquitecto de Oferta · 17 + Especialista en Conversión · 18)</h2>
+<pre><code>OFERTA_ACTUAL:      4 herramientas individuales + posible ecosistema
+ESTRUCTURA_FUNNEL:  INEXISTENTE
+FLUJO_CONVERSIÓN:   INDEFINIDO
+ESCALERA_VALOR:     NO CONSTRUIDA</code></pre>
+<p><strong>Problema estructural de oferta:</strong></p>
+<p>El ecosistema tiene lógica técnica (las herramientas se conectan entre sí). No tiene lógica de oferta (cómo se venden juntas o separadas, qué problema resuelve cada una en relación con las otras, cuál es la entrada al ecosistema).</p>
+<p>El CRM a $20/mes como herramienta independiente no tiene posición clara. Smart Ads a $150/mes tampoco. La escalera de valor de un ecosistema requiere definir: entrada (ticket bajo, valor claro) → expansión (agregar herramientas) → retención (integración entre ellas).</p>
+<p><strong>Precios detectados:</strong><br>| Herramienta | Setup | Mensualidad | Estado precio |<br>|---|---|---|---|<br>| Smart Ads | $200 | $150 | Estimado |<br>| CRM | $100 | $20 | Estimado |<br>| WhatsApp IA | $150 | $50 | Estimado |<br>| Sitio Web | min $200 | — | Sin definir |</p>
+<p>Ningún precio tiene justificación de valor documentada.</p>
+<hr>
+<h2>D7 — RIESGOS PRINCIPALES</h2>
+<pre><code>RIESGO_1 — Comunicación vacía → percepción de humo
+  Descripción: Las 4 herramientas se describen por qué conectan o qué tienen,
+               no por qué problema específico resuelven. Esto genera escepticismo
+               en el público objetivo (emprendedores quemados por promesas de IA).
+  Severidad: ALTA — bloquea ventas antes de empezar
+  Condición de resolución: CAT.1-5 construidas + redefinición de propuesta de valor
+<p>RIESGO_2 — Infraestructura no escalable<br>  Descripción: Todos los clientes futuros en un servidor de $17/mes sin plan<br>               de escalabilidad, sin SLA, sin capacidad definida.<br>  Severidad: MEDIA — no bloqueante ahora, crítico antes de 10 clientes<br>  Condición de resolución: Plan de infraestructura antes de activar captación masiva</p>
+<p>RIESGO_3 — Flujo de cliente inexistente (especialmente CRM)<br>  Descripción: El proceso de onboarding del CRM toma 2-3 días sin estructura<br>               documentada. Los clientes deben enviar datos sensibles sin<br>               un flujo de seguridad o confianza definido.<br>  Severidad: ALTA — genera abandono post-pago y problemas legales potenciales<br>  Condición de resolución: Diseñar flujo completo antes de vender</p>
+<p>RIESGO_4 — Confusión Smart Ads + inversión publicitaria<br>  Descripción: "Conecta con canales de ventas y potencia campañas" puede hacer<br>               que el cliente crea que el costo incluye inversión publicitaria<br>               o gestión de campañas.<br>  Severidad: ALTA — genera disputas, chargebacks y reputación negativa<br>  Condición de resolución: Descripción reescrita con aclaraciones explícitas</p>
+<p>RIESGO_5 — Fundador como cuello de botella operativo<br>  Descripción: Todo el setup, conexión y soporte lo realiza el fundador.<br>               Sin equipo, sin documentación de procesos, sin automatización<br>               del onboarding. Escalar sin resolver esto = colapso operativo.<br>  Severidad: MEDIA — no bloqueante en Etapa 1, crítico en Etapa 2<br>  Condición de resolución: Construir procesos antes de activar captación</code></pre></p>
+<hr>
+<h2>D8 — NECESIDAD INMEDIATA</h2>
+<pre><code>NECESIDAD_INMEDIATA: Construir base estructural antes de cualquier activación comercial</code></pre>
+<p><strong>Prioridad 1 — CAT.1-5 de GROWTH CORE (Días 0-30)</strong><br><ul><li>CAT.1: ADN del ecosistema (¿qué problema real resuelve? ¿para quién exactamente?)</li><br><li>CAT.2: Pilares estratégicos (los 3-5 ejes que sostienen las 4 herramientas como sistema)</li><br><li>CAT.3: Metodología de comunicación (cómo habla GROWTH CORE como marca)</li><br><li>CAT.4: Identidad verbal (vocabulario canónico, tono, registro — autoridad técnica sin jerga vacía)</li><br><li>CAT.5: Arquitectura de contenido (qué publica, para quién, en qué canal)</li><br></ul><br><strong>Prioridad 2 — Redefinición de producto (Días 20-45)</strong><br><ul><li>Herramienta 1: Problema específico + resultado medible + qué NO incluye</li><br><li>Herramienta 2: Diferenciación real respecto al mercado de CRM + flujo de onboarding</li><br><li>Herramienta 3: Metodología de entrenamiento + entregables + seguridad</li><br><li>Herramienta 4: ¿Producto o servicio? + proceso de briefing e identidad</li><br></ul><br><strong>Prioridad 3 — Flujo de cliente (Días 30-60)</strong><br><ul><li>Captación → contacto → pago → onboarding → entrega → soporte → mantenimiento</li><br><li>Formularios de conexión con lógica de seguridad</li><br><li>Plan de infraestructura antes de activar captación masiva</li><br></ul><br><hr></p>
+<h2>D9 — AGENTES NECESARIOS</h2>
+<p><strong>AGENTES ACTIVADOS:</strong></p>
+<pre><code>agentes_activados:
+<ul><li>agente: Arquitecto del Sistema (00)</li>
+</ul>    orden: 1 — PRIMERA
+    razon: Gobernanza total · gate de coherencia estructural del ecosistema
+    condicion: inmediata
+<ul><li>agente: Estratega Central (01)</li>
+</ul>    orden: 1 — PRIMERA
+    razon: Define dirección estratégica comercial · alinea objetivo del fundador
+           con propuesta de valor real de mercado
+    condicion: inmediata
+<ul><li>agente: Guardián de Voz (10)</li>
+</ul>    orden: 1 — PRIMERA
+    razon: Construye identidad verbal de GROWTH CORE · elimina lenguaje vacío ·
+           CAT.3 y CAT.4
+    condicion: inmediata · co-activo con Estratega Central
+<ul><li>agente: Arquitecto de Producto (16)</li>
+</ul>    orden: 2 — SEGUNDA
+    razon: Redefine estructuralmente las 4 herramientas desde el problema que
+           resuelven · construye escalera de valor del ecosistema
+    condicion: después de CAT.1-2 aprobadas
+<ul><li>agente: Sistema de Validación (11)</li>
+</ul>    orden: GATE
+    razon: Bloquea producción y activación hasta que CAT.1-5 estén aprobadas
+    condicion: gate en cada entrega</code></pre>
+<p><strong>AGENTES DIFERIDOS:</strong></p>
+<pre><code>agentes_diferidos:
+<ul><li>agente: Investigación (02)</li>
+</ul>    condicion: activo para análisis de mercado de SaaS para emprendedores LATAM
+               + competencia directa (HubSpot, ActiveCampaign, ManyChat, etc.)
+<ul><li>agente: Validador de Información (03)</li>
+</ul>    condicion: co-activo con Investigación (02)
+<ul><li>agente: Arquitecto de Oferta (17)</li>
+</ul>    condicion: después de producto redefinido por Arq. Producto (16)
+<ul><li>agente: Especialista en Conversión (18)</li>
+</ul>    condicion: después de flujo de cliente diseñado y primer producto vendible definido
+<ul><li>agente: Arquitecto de Contenido (07)</li>
+</ul>    condicion: después de CAT.1-5 aprobadas
+<ul><li>agente: Constructor de Contenido (08)</li>
+</ul>    condicion: después de blueprint narrativo aprobado
+<ul><li>agente: Director Visual (09)</li>
+</ul>    condicion: después de CAT.4 aprobada · identidad visual derivada de verbal
+<ul><li>agente: Agente de Activación (13)</li>
+</ul>    condicion: gate para P2 — activa cuando hay estructura y piezas para distribuir
+<ul><li>agente: Agente de Distribución (14)</li>
+</ul>    condicion: después de sistema editorial iniciado
+<ul><li>agente: Arquitecto de Documentos (05)</li>
+</ul>    condicion: cuando se construyan documentos de procesos internos del ecosistema
+<ul><li>agente: Agente Evergreen (15)</li>
+</ul>    condicion: diferido hasta sistema de contenido activo y validado
+<ul><li>agente: Sistema de Medición (12)</li>
+</ul>    condicion: diferido hasta primera producción activa con clientes externos
+<ul><li>agente: Agente de Expansión (19)</li>
+</ul>    condicion: diferido hasta Etapa 2 con clientes externos validados</code></pre>
+<hr>
+<h2>D10 — MOVIMIENTO CAT.9</h2>
+<pre><code>MOVIMIENTO_CAT9: FUNDACIONAL
+JUSTIFICACIÓN: Score madurez 1.66 &lt; 2.5 — regla absoluta sin excepción posible</code></pre>
+<p><strong>Qué implica FUNDACIONAL para GROWTH CORE:</strong><br><ul><li>Solo agentes C1 y C2 trabajan en P1 — ningún otro agente produce sin gate</li><br><li>Ningún contenido de marca se publica en los primeros 30 días</li><br><li>Ninguna campaña de captación se activa sin flujo de cliente definido</li><br><li>Ningún precio se comunica sin propuesta de valor construida</li><br><li>Output de P1: CAT.1-5 + redefinición de producto de cada herramienta</li><br><li>La capacidad técnica del fundador no sustituye la base estructural — son dimensiones distintas</li><br></ul><br><hr></p>
+<h2>D11 — SECUENCIA RECOMENDADA</h2>
+<pre><code>SECUENCIA_30_DIAS:
+  Semana 1-2: Estratega Central (01) + Arquitecto del Sistema (00) construyen CAT.1 y CAT.2
+<ul><li>ADN de GROWTH CORE: problema real, para quién exactamente, diferenciación</li>
+<li>Pilares del ecosistema: los ejes que unen las 4 herramientas como sistema coherente</li>
+<li>Validación gate: Sistema de Validación (11) aprueba antes de continuar</li>
+</ul>
+  Semana 2-3: Guardián de Voz (10) construye CAT.3 y CAT.4
+<ul><li>Voz de GROWTH CORE: autoridad técnica sin jerga de marketing vacía</li>
+<li>Vocabulario canónico: qué términos usa, cuáles prohíbe</li>
+<li>Tono: cómo habla al emprendedor sin sonar a promesa inflada</li>
+</ul>
+  Semana 3-4: Arquitecto de Producto (16) + Arquitecto de Contenido (07) cierran P1
+<ul><li>Redefinición de las 4 herramientas desde problema → transformación → entregable</li>
+<li>CAT.5: arquitectura editorial del ecosistema</li>
+<li>Gate final: CAT.1-5 + productos redefinidos aprobados por Sistema de Validación (11)</li>
+</ul>
+  ENTREGABLE 30 DÍAS: Documento de identidad GROWTH CORE (CAT.1-5)
+                      + Ficha de producto redefinida para las 4 herramientas
+<p>SECUENCIA_60_DIAS:<br><ul><li>Flujo de cliente completo diseñado y documentado</li><br><li>Formularios de conexión con estructura de seguridad</li><br><li>Arquitecto de Oferta (17) activo: escalera de valor del ecosistema</li><br><li>Director Visual (09) activo: identidad visual derivada de CAT.4</li><br><li>Landing page reescrita desde propuesta de valor real</li><br><li>Plan editorial inicial activado por Agente de Activación (13)</li><br></ul><br>  ENTREGABLE 60 DÍAS: GROWTH CORE con propuesta de valor clara · flujo de cliente<br>                      definido · identidad coherente · listo para primer cliente externo</p>
+<p>SECUENCIA_90_DIAS:<br><ul><li>Primer cliente externo adquirido y en onboarding</li><br><li>Primer ciclo de contenido ejecutándose</li><br><li>Sistema de Medición (12) activo: primeras métricas</li><br><li>Revisión de infraestructura según demanda real</li><br><li>Especialista en Conversión (18) activo: optimización del funnel</li><br></ul><br>  ENTREGABLE 90 DÍAS: GROWTH CORE con primera validación comercial externa ·<br>                      sistema editorial funcionando · hoja de ruta a Etapa 2</code></pre></p>
+<hr>
+<h2>VARIABLES DEL PIPELINE</h2>
+<pre><code>Variable_ETAPA: 1
+Variable_TENDENCIA: Lanzamiento comercial — producto técnico desarrollado internamente ·
+                    cero clientes externos · primera comercialización pendiente ·
+                    fundador con capacidad técnica alta y capacidad comercial baja
+Variable_BASE: 1.4 — BLOQUEA producción
+               (sin identidad · sin propuesta de valor · sin flujo de cliente ·
+               sin diferenciación documentada)
+Variable_ESTRUCTURAL: 1.2 — Sin narrativa construida · Sin identidad formal ·
+                      Sin proceso de venta documentado · Sin escalera de valor
+Variable_CAPACIDAD: 2.8 — Capacidad técnica alta · Capacidad comercial baja ·
+                    Puede implementar si se guía paso a paso · no autónomo en fase comercial</code></pre>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes diagnóstico: Arquitecto del Sistema (00) / Estratega Central (01) / Arquitecto de Producto (16) / Guardián de Voz (10) / Arquitecto de Oferta (17) / Sistema de Validación (11)</em><br><em>Siguiente paso: ACT-2026-06-04-001.md → construcción CAT.1-5 + redefinición de producto</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT.2 — Pilares Estratégicos · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">CAT.2 — Pilares Estratégicos</div>
+  <div class="doc-subtitle">GROWTH CORE · Ejes estructurales del ecosistema</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>CAT.2 — PILARES ESTRATÉGICOS DE GROWTH CORE</h1>
+<h2>Ejes estructurales que sostienen todas las decisiones del ecosistema</h2>
+<pre><code>cat_id:         CAT2-PILARES-GROWTHCORE-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes:        Estratega Central (01) · Arquitecto del Sistema (00)
+dependencia:    CAT1-ADN-GROWTHCORE-v1 (requerida y aprobada)
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — base para CAT.3-5 y redefinición de producto</code></pre>
+<hr>
+<blockquote><p>Los pilares no son valores de marca ni frases de marketing.</p></blockquote>
+<blockquote><p>Son los ejes estructurales que determinan qué hace Growth Core,</p></blockquote>
+<blockquote><p>cómo lo hace, qué comunica y qué no acepta en ningún contexto.</p></blockquote>
+<blockquote><p>Cada decisión del ecosistema — de producto, comunicación, venta u operación —</p></blockquote>
+<blockquote><p>puede trazarse a uno o más de estos pilares. Si no puede, no pertenece al sistema.</p></blockquote>
+<hr>
+<h2>REGLA DE USO</h2>
+<p>Antes de tomar cualquier decisión sobre Growth Core — qué comunicar, cómo describir una herramienta, qué cliente aceptar, qué agregar al producto — se evalúa contra los 4 pilares. Si la decisión viola o debilita alguno, no se toma.</p>
+<hr>
+<h2>PILAR 1 — DETECCIÓN ANTES QUE OPTIMIZACIÓN</h2>
+<h3>Enunciado</h3>
+<p>Growth Core no optimiza lo que funciona. Detecta lo que está fallando y entrega la acción que lo resuelve. La lógica operativa es diagnóstica: primero identificar dónde se pierde, luego actuar sobre eso específicamente.</p>
+<h3>Qué significa en la práctica</h3>
+<p>No hay acción sin dato previo. No hay recomendación sin diagnóstico. No hay promesa de mejora sin identificación del problema específico que se está mejorando.</p>
+<p>Esto aplica en todas las capas del ecosistema:<br><ul><li><strong>Smart Ads:</strong> detecta qué campaña está desperdiciando presupuesto antes de que afecte los resultados — no optimiza campañas ciegas</li><br><li><strong>Agente WhatsApp:</strong> detecta leads que no reciben respuesta a tiempo — no automatiza conversaciones sin calificación</li><br><li><strong>CRM:</strong> detecta qué cliente tiene mayor probabilidad de cierre — no gestiona contactos sin priorización</li><br><li><strong>Web:</strong> detecta formularios que no convierten — no publica páginas sin conexión al sistema</li><br></ul><br><h3>Lo que este pilar prohíbe</h3><br><ul><li>Prometer crecimiento sin describir el problema que se detecta</li><br><li>Vender herramientas sin mostrar qué problema específico identifican</li><br><li>Comunicar optimización sin evidencia de detección previa</li><br><li>Agregar funciones que no resuelven un problema observable</li><br></ul><br><h3>Señal de que el pilar se está cumpliendo</h3></p>
+<p>Cualquier pieza de comunicación de Growth Core puede responder: <em>"¿Qué problema específico detecta esto y en qué momento?"</em></p>
+<hr>
+<h2>PILAR 2 — INFRAESTRUCTURA INSTALADA, NO HERRAMIENTA CONFIGURADA</h2>
+<h3>Enunciado</h3>
+<p>Growth Core no entrega acceso a una plataforma. Entrega un sistema ya operando en el negocio del cliente. El cliente no configura nada, no aprende un software, no mantiene nada. Recibe el sistema funcionando desde el día de entrega.</p>
+<h3>Qué significa en la práctica</h3>
+<p>El valor de Growth Core no es el software — es la implementación. El diferenciador no es el dashboard, el CRM o el agente; es que están configurados, conectados y entrenados para el negocio específico del cliente.</p>
+<p>Este pilar tiene implicaciones directas en:<br><ul><li><strong>Producto:</strong> cada herramienta se entrega lista para operar, no como acceso a configurar</li><br><li><strong>Precio:</strong> el setup tiene valor propio — no es un costo de activación, es la instalación del sistema</li><br><li><strong>Comunicación:</strong> el mensaje central no es "accede a nuestra plataforma" sino "recibe tu sistema operando"</li><br><li><strong>Operación:</strong> el proceso de onboarding es el corazón del servicio — no un trámite posterior a la venta</li><br></ul><br><h3>Lo que este pilar prohíbe</h3><br><ul><li>Describir las herramientas como software que el cliente "usa" sin mencionar que se instala para él</li><br><li>Cobrar el setup como costo menor o "de activación" — es el servicio principal</li><br><li>Ofrecer acceso sin implementación incluida</li><br><li>Delegar al cliente cualquier parte de la configuración técnica inicial</li><br></ul><br><h3>Señal de que el pilar se está cumpliendo</h3></p>
+<p>Al cierre del onboarding, el cliente opera el sistema sin haber tocado ninguna configuración técnica. Si necesitó entender algo técnico para activarlo, el pilar falló.</p>
+<hr>
+<h2>PILAR 3 — INTEGRACIÓN COMO MULTIPLICADOR DE VALOR</h2>
+<h3>Enunciado</h3>
+<p>El valor de cada herramienta de Growth Core existe. El valor del ecosistema completo es exponencial. Las 4 herramientas se conectan y comparten datos: lo que detecta una alimenta a las otras. La integración no es una función adicional — es la razón de ser del ecosistema.</p>
+<h3>Qué significa en la práctica</h3>
+<pre><code>Smart Ads detecta lead de calidad en campaña
+        ↓
+Agente WhatsApp responde en segundos, califica, registra
+        ↓
+CRM recibe el lead calificado, prioriza el cierre
+        ↓
+Web captura leads adicionales conectados al CRM desde el día 1
+        ↓
+Smart Ads recibe señal de qué perfil de lead convierte mejor</code></pre>
+<p>Cada herramienta sola tiene alternativas en el mercado. El ecosistema integrado entrenado para este segmento específico no las tiene. Este es el diferenciador central que ningún competidor puede replicar en el corto plazo.</p>
+<h3>Implicaciones para la escalera de valor</h3>
+<ul><li>Una herramienta sola tiene valor. Dos herramientas conectadas tienen más. Cuatro tienen el valor máximo.</li>
+<li>La estrategia de entrada al ecosistema debe priorizar la herramienta que más rápido demuestra valor individual y más naturalmente lleva a agregar una segunda.</li>
+<li>El cliente que tiene las 4 integradas no cambia de sistema — no porque tenga contrato, sino porque el sistema es su infraestructura.</li>
+</ul>
+<h3>Lo que este pilar prohíbe</h3>
+<ul><li>Vender herramientas como productos completamente independientes sin mencionar su capacidad de integración</li>
+<li>Construir nuevas herramientas que no se conecten con las existentes</li>
+<li>Comunicar el ecosistema sin mostrar el flujo de datos entre herramientas</li>
+<li>Aceptar clientes que solo quieren una herramienta con la promesa de que "nunca van a necesitar las otras"</li>
+</ul>
+<h3>Señal de que el pilar se está cumpliendo</h3>
+<p>Cada propuesta de venta puede mostrar, con datos o demos concretas, cómo la herramienta que se ofrece se conecta con al menos una más del ecosistema — aunque el cliente no la haya contratado todavía.</p>
+<hr>
+<h2>PILAR 4 — INSTRUCCIÓN EJECUTABLE, NO REPORTE PARA INTERPRETAR</h2>
+<h3>Enunciado</h3>
+<p>El output de Growth Core siempre es una acción concreta que el emprendedor puede ejecutar hoy. No un dashboard de datos para contemplar. No un análisis para que el cliente interprete. No una lista de métricas sin contexto. La inteligencia del sistema está en transformar datos en instrucciones, no en mostrar datos.</p>
+<h3>Qué significa en la práctica</h3>
+<ul><li><strong>Smart Ads:</strong> no solo muestra métricas — entrega un score 0-100 y "la acción exacta que debes tomar"</li>
+<li><strong>Agente WhatsApp:</strong> no solo registra leads — califica y prioriza quién merece seguimiento inmediato</li>
+<li><strong>CRM:</strong> no solo guarda historial — dice cuándo y cómo contactar a cada cliente</li>
+<li><strong>Informe semanal (Smart Ads):</strong> no es un reporte de datos — es un análisis con recomendaciones específicas</li>
+</ul>
+El emprendedor de este segmento no tiene tiempo para interpretar datos. Tiene tiempo para ejecutar instrucciones claras. Si el sistema no puede darle la instrucción, no le está dando valor real.
+<h3>Lo que este pilar prohíbe</h3>
+<ul><li>Mostrar datos sin traducirlos a acción</li>
+<li>Usar jerga de analítica que el cliente objetivo no puede ejecutar (CTR, ROAS, CPM sin contexto)</li>
+<li>Construir reportes que requieran interpretación experta para ser útiles</li>
+<li>Comunicar el ecosistema con lenguaje de datos en lugar de lenguaje de resultados accionables</li>
+</ul>
+<h3>Señal de que el pilar se está cumpliendo</h3>
+<p>Un emprendedor sin experiencia técnica puede leer cualquier output de Growth Core y saber exactamente qué hacer en los próximos 30 minutos.</p>
+<hr>
+<h2>MAPA DE PILARES POR HERRAMIENTA</h2>
+<table><thead><tr><th>Herramienta</th><th>P1 Detección</th><th>P2 Infraestructura</th><th>P3 Integración</th><th>P4 Instrucción</th></tr></thead><tbody><tr><td>Smart Ads</td><td>Score de campaña · alertas antes de pérdida</td><td>Setup y conexión por Growth Core</td><td>Alimenta datos al CRM y define perfil de lead</td><td>Acción exacta por semana en informe</td></tr><tr><td>Agente WhatsApp</td><td>Detecta leads sin respuesta a tiempo</td><td>Entrenado con guion del negocio · instalado listo</td><td>Registra leads directo en CRM</td><td>Califica y prioriza quién responder primero</td></tr><tr><td>CRM</td><td>Detecta clientes con mayor prob. de cierre</td><td>Configurado y conectado en el onboarding</td><td>Recibe leads de WhatsApp y web · datos de Smart Ads</td><td>Dice cuándo y cómo contactar cada cliente</td></tr><tr><td>Web</td><td>Detecta formularios sin conversión</td><td>Landing construida y conectada por Growth Core</td><td>Conectada al CRM desde el día 1</td><td>Captura automatizada · no requiere acción manual</td></tr></tbody></table>
+<hr>
+<h2>LO QUE LOS PILARES HABILITAN EN CAT.3, 4 Y 5</h2>
+<pre><code>Pilar 1 (Detección) → CAT.3: el tono habla desde diagnóstico, no desde promesa
+                    → CAT.4: vocabulario: "detecta", "identifica", "señala" · prohíbe: "optimiza" sin dato previo
+                    → CAT.5: contenido tipo "qué está fallando en tu campaña y cómo detectarlo"
+<p>Pilar 2 (Infraestructura instalada) → CAT.3: autoridad técnica sin transferir trabajo al cliente<br>                                    → CAT.4: "instalado", "operando desde el día 1", "sin que toques código"<br>                                    → CAT.5: contenido que muestre el proceso de implementación como diferenciador</p>
+<p>Pilar 3 (Integración) → CAT.3: comunicar el ecosistema completo, no herramientas aisladas<br>                      → CAT.4: "ecosistema", "conectado", "flujo unificado"<br>                      → CAT.5: contenido que demuestre el flujo de datos entre herramientas</p>
+<p>Pilar 4 (Instrucción ejecutable) → CAT.3: lenguaje directo y accionable · nunca abstracto<br>                                  → CAT.4: "qué hacer", "cuándo actuar", "próximo paso" · prohíbe: "métricas", "KPIs" sin contexto<br>                                  → CAT.5: contenido con formatos de "acción inmediata"</code></pre></p>
+<hr>
+<h2>VALIDACIÓN CRUZADA: PILARES VS ADN (CAT.1)</h2>
+<pre><code>ADN: "detectar dónde se pierde"         → Pilar 1 (Detección)
+ADN: "entrega la acción exacta"         → Pilar 4 (Instrucción ejecutable)
+ADN: "lo automatiza"                    → Pilar 2 (Infraestructura instalada)
+ADN: "datos dispersos en un solo sistema" → Pilar 3 (Integración)</code></pre>
+<p>Los 4 pilares cubren el ADN completo. No hay elemento del ADN sin pilar que lo sostenga.</p>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes: Estratega Central (01) + Arquitecto del Sistema (00)</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Siguiente: CAT.3 — Metodología de comunicación de GROWTH CORE</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

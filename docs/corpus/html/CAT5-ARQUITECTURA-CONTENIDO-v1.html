@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT.5 — Arquitectura de Contenido · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">CAT.5 — Arquitectura de Contenido</div>
+  <div class="doc-subtitle">GROWTH CORE · Qué produce · Para quién · Con qué lógica</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>CAT.5 — ARQUITECTURA DE CONTENIDO</h1>
+<h2>Qué produce Growth Core · Para quién · En qué canal · Con qué lógica</h2>
+<pre><code>cat_id:         CAT5-ARQUITECTURA-CONTENIDO-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes:        Arquitecto de Contenido (07) · Guardián de Voz (10)
+dependencias:   CAT1 · CAT2 · CAT3 · CAT4
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — gate para producción de contenido
+nota:           Producción de contenido BLOQUEADA hasta que CAT.1-5 estén aprobadas.
+                Este documento cierra ese gate.</code></pre>
+<hr>
+<blockquote><p>CAT.5 no es un calendario editorial.</p></blockquote>
+<blockquote><p>Es la arquitectura que determina qué contenido tiene sentido para Growth Core</p></blockquote>
+<blockquote><p>y qué no — antes de definir cuándo publicarlo.</p></blockquote>
+<blockquote><p>Toda pieza de contenido que se produzca debe poder clasificarse</p></blockquote>
+<blockquote><p>en uno de los tipos definidos aquí. Si no puede, no pertenece al sistema.</p></blockquote>
+<hr>
+<h2>1. PRINCIPIO EDITORIAL</h2>
+<h3>El contenido de Growth Core hace una sola cosa</h3>
+<p>Demuestra, a través de problemas específicos y mecanismos concretos, que hay un sistema que detecta lo que el emprendedor no puede ver solo.</p>
+<p>No construye comunidad para tener comunidad. No entretiene para tener alcance. No educa para demostrar que sabe — educa para que el lector sienta que el problema que está leyendo lo escribieron para él.</p>
+<p><strong>El contenido cumple su función cuando el emprendedor piensa: <em>"Esto es exactamente lo que me pasa. No sabía que tenía nombre."</strong></em></p>
+<h3>La regla editorial central</h3>
+<p>Todo contenido de Growth Core sigue la secuencia canónica de CAT.3:</p>
+<pre><code>Problema observable → Costo de no resolver → Acción que lo resuelve</code></pre>
+<p>El ratio de cada paso varía según el tipo de contenido, pero los tres deben estar presentes o implícitos. Un contenido que solo tiene problema sin acción deja al lector frustrado. Un contenido que solo tiene acción sin problema no genera identificación.</p>
+<hr>
+<h2>2. TIPOS DE CONTENIDO VÁLIDOS</h2>
+<p>Growth Core produce cinco tipos de contenido. Cada pieza pertenece a uno — no a varios al mismo tiempo.</p>
+<hr>
+<h3>TIPO 1 — DIAGNÓSTICO</h3>
+<p><strong>Qué hace:</strong> Señala un problema específico que el emprendedor tiene sin saberlo, o sabe que tiene pero no puede nombrar. Demuestra que Growth Core conoce la operación interna de ese tipo de negocio.</p>
+<p><strong>Pilares que activa:</strong> P1 (Detección) · P4 (Instrucción ejecutable)</p>
+<p><strong>Estructura:</strong><br><li>El problema descrito con tanta precisión que el lector se identifique</li><br><li>Por qué ocurre — el mecanismo (no necesariamente largo)</li><br><li>Cómo detectarlo en el propio negocio — la instrucción para verificar</li></p>
+<p><strong>Criterio de validación:</strong><br>El lector puede verificar si tiene o no tiene ese problema hoy, en su negocio, sin herramienta alguna.</p>
+<p><strong>Ejemplos de temas:</strong><br><ul><li>"Tu campaña lleva 4 días bajando CTR y nadie te avisó — así es como se detecta"</li><br><li>"El lead de WhatsApp que no respondiste en 5 minutos ya habló con otro"</li><br><li>"Por qué tu CRM tiene datos pero no te dice qué hacer con ellos"</li><br><li>"Señales de que estás invirtiendo en Meta Ads sin sistema de recepción"</li><br></ul><br><strong>Frecuencia en la mezcla:</strong> 40% del contenido total</p>
+<hr>
+<h3>TIPO 2 — DEMOSTRACIÓN DE MECANISMO</h3>
+<p><strong>Qué hace:</strong> Muestra cómo funciona una herramienta o proceso de Growth Core internamente. No es publicidad — es evidencia técnica de que el sistema existe y funciona de una manera específica.</p>
+<p><strong>Pilares que activa:</strong> P2 (Infraestructura instalada) · P4 (Instrucción ejecutable)</p>
+<p><strong>Estructura:</strong><br><li>El problema que resuelve este mecanismo (1-2 oraciones)</li><br><li>Cómo funciona exactamente — el proceso visible (puede ser visual: screen, video)</li><br><li>Qué recibe el cliente como resultado</li></p>
+<p><strong>Criterio de validación:</strong><br>Alguien que no conoce Growth Core puede entender qué hace ese mecanismo específico y por qué es diferente de hacer eso manualmente.</p>
+<p><strong>Ejemplos de temas:</strong><br><ul><li>El score 0-100 de Smart Ads: qué lo calcula y qué lo activa</li><br><li>Cómo el Agente de WhatsApp califica un lead antes de registrarlo al CRM</li><br><li>El informe semanal de Smart Ads: qué incluye y cómo leerlo en 3 minutos</li><br><li>Cómo llega un lead de Meta a tu CRM sin que toques nada</li><br></ul><br><strong>Frecuencia en la mezcla:</strong> 20% del contenido total</p>
+<hr>
+<h3>TIPO 3 — TRANSFORMACIÓN OPERATIVA</h3>
+<p><strong>Qué hace:</strong> Muestra el contraste entre el estado antes y después de tener el sistema instalado — en términos operativos concretos, no aspiracionales.</p>
+<p><strong>Pilares que activa:</strong> P2 (Infraestructura) · P3 (Integración) · P4 (Instrucción)</p>
+<p><strong>Estructura:</strong><br><li>Estado antes: cómo opera el negocio sin el sistema (describir con empatía, no con condescendencia)</li><br><li>Problema específico que ese estado genera</li><br><li>Estado después: cómo opera con el sistema (operativo, no aspiracional)</li></p>
+<p><strong>Criterio de validación:</strong><br>El "después" no es una promesa — es una descripción de lo que hace el sistema. No dice "ganarás más dinero". Dice "tu lead recibe respuesta en 30 segundos mientras tú estás en otra reunión".</p>
+<p><strong>Ejemplos de temas:</strong><br><ul><li>Antes: revisas campañas los lunes y ya no puedes cambiar lo que pasó la semana. Después: Smart Ads te alertó el miércoles y corregiste antes de perder presupuesto del fin de semana.</li><br><li>Antes: el lead llegó a las 8pm, respondiste a las 10pm, ya no contestó. Después: el agente respondió en 40 segundos, calificó y agendó la llamada para el día siguiente.</li><br><li>Antes: el CRM tiene contactos pero nadie lo revisa. Después: el CRM te dice cada lunes cuáles 3 clientes priorizar y qué decirles.</li><br></ul><br><strong>Frecuencia en la mezcla:</strong> 20% del contenido total</p>
+<hr>
+<h3>TIPO 4 — COSTO CALCULADO</h3>
+<p><strong>Qué hace:</strong> Cuantifica el costo de un problema específico — en dinero, tiempo o oportunidades. Hace visible lo que el emprendedor pierde cada semana/mes sin sistema.</p>
+<p><strong>Pilares que activa:</strong> P1 (Detección) · P4 (Instrucción)</p>
+<p><strong>Estructura:</strong><br><li>El problema con frecuencia estimada (cuántas veces ocurre)</li><br><li>El costo por ocurrencia (en dinero, leads o tiempo)</li><br><li>El costo acumulado en 30/90 días</li><br><li>Lo que resuelve ese costo (instrucción o herramienta)</li></p>
+<p><strong>Criterio de validación:</strong><br>El cálculo es verificable — el emprendedor puede aplicarlo a su propio negocio con sus propios números.</p>
+<p><strong>Ejemplos de temas:</strong><br><ul><li>"Si tu campaña pierde $30/semana en clics que no convierten: en 90 días son $390 que podrían ser otros clientes"</li><br><li>"Si pierdes 3 leads/semana por tiempo de respuesta: a $50 de ingreso promedio por lead, son $600/mes"</li><br><li>"Si tu equipo dedica 2 horas/semana a actualizar el CRM manualmente: en un año son 104 horas"</li><br></ul><br><strong>Frecuencia en la mezcla:</strong> 10% del contenido total</p>
+<hr>
+<h3>TIPO 5 — INVITACIÓN DIRECTA</h3>
+<p><strong>Qué hace:</strong> Convierte. Invita al lector a dar el siguiente paso con Growth Core — demo, diagnóstico, conversación. Es el contenido más comercial y por eso el menos frecuente.</p>
+<p><strong>Pilares que activa:</strong> P2 (Infraestructura instalada)</p>
+<p><strong>Estructura:</strong><br><li>Para quién es (con señales específicas de identificación)</li><br><li>Qué recibe exactamente si da el siguiente paso</li><br><li>El paso concreto</li></p>
+<p><strong>Criterio de validación:</strong><br>La invitación no promete resultados — describe con precisión qué ocurre si el prospecto agenda o contacta. "En 30 minutos diagnosticamos qué herramienta resuelve el cuello de botella más urgente de tu negocio" — no "cambia tu negocio con una llamada".</p>
+<p><strong>Ejemplos de temas:</strong><br><ul><li>"Si inviertes en Meta Ads y no sabes si está funcionando, en 30 minutos te mostramos qué está detectando el sistema en negocios con tu perfil"</li><br><li>"Si estás perdiendo leads por tiempo de respuesta, agenda la demo del Agente WhatsApp — te mostramos cómo funciona en tu tipo de negocio"</li><br></ul><br><strong>Frecuencia en la mezcla:</strong> 10% del contenido total</p>
+<hr>
+<h2>3. TEMAS HABILITADOS POR PILAR</h2>
+<p>Estos temas derivan directamente de los 4 pilares (CAT.2). Un tema no habilitado por ningún pilar no pertenece al sistema de contenido de Growth Core.</p>
+<h3>Temas del Pilar 1 — Detección</h3>
+<ul><li>Señales de que una campaña de Meta está fallando (antes de que lo notes en ventas)</li>
+<li>Cómo saber si tu proceso de respuesta en WhatsApp está perdiendo leads</li>
+<li>Los datos del CRM que nadie lee y lo que revelan</li>
+<li>Por qué el presupuesto de ads baja de rendimiento sin cambiar nada</li>
+<li>Qué preguntarle a tus métricas antes del cierre de mes</li>
+</ul>
+<h3>Temas del Pilar 2 — Infraestructura instalada</h3>
+<ul><li>Por qué los CRMs no funcionan cuando el emprendedor los configura solo</li>
+<li>La diferencia entre acceder a una herramienta y tener un sistema en tu negocio</li>
+<li>Qué pasa en los primeros 7 días después de instalar Growth Core</li>
+<li>El proceso de implementación: de cero a sistema operando en menos de un mes</li>
+</ul>
+<h3>Temas del Pilar 3 — Integración</h3>
+<ul><li>Qué pasa cuando tu campaña, tu WhatsApp y tu CRM comparten datos</li>
+<li>El recorrido completo de un lead: de Meta Ads al cierre de venta</li>
+<li>Por qué una herramienta sola no detecta lo que el ecosistema completo sí detecta</li>
+<li>Cómo la web conectada multiplica los leads del agente de WhatsApp</li>
+</ul>
+<h3>Temas del Pilar 4 — Instrucción ejecutable</h3>
+<ul><li>Esta semana: qué revisar en tus campañas antes del viernes (con instrucciones)</li>
+<li>La acción de 10 minutos que puede recuperar presupuesto publicitario</li>
+<li>Cómo priorizar tus leads esta semana sin herramienta: el método manual mientras llega el sistema</li>
+<li>Qué decirle a un lead que tardó en responder para recuperar la conversación</li>
+</ul>
+<hr>
+<h2>4. TEMAS PROHIBIDOS</h2>
+<p>Estos temas no pertenecen al sistema de contenido de Growth Core — no porque sean incorrectos en general, sino porque no se trazan a ningún pilar del ecosistema.</p>
+<table><thead><tr><th>Tema prohibido</th><th>Por qué no pertenece</th></tr></thead><tbody><tr><td>Motivación / mentalidad emprendedora</td><td>No es lo que Growth Core resuelve — hay mil creadores de ese contenido</td></tr><tr><td>Tips de marketing digital genérico</td><td>Sin conexión a los problemas específicos que detectan las herramientas</td></tr><tr><td>Lifestyle del fundador sin demostración del sistema</td><td>No construye autoridad del producto</td></tr><tr><td>Noticias de IA en general</td><td>Growth Core no es un canal de noticias tecnológicas</td></tr><tr><td>Comparativas directas con competidores nombrados</td><td>Posiciona a los competidores — no a Growth Core</td></tr><tr><td>Tutoriales de Meta Ads, WhatsApp Business, HubSpot</td><td>Enseña a usar lo que Growth Core reemplaza</td></tr><tr><td>Humor o entretenimiento sin conexión al problema</td><td>Puede generar alcance, no confianza del segmento objetivo</td></tr></tbody></table>
+<hr>
+<h2>5. CANALES Y FORMATOS</h2>
+<h3>Canal principal — Instagram</h3>
+<p><strong>Por qué:</strong> El segmento objetivo (emprendedores latinoamericanos de servicios, 25-45 años) consume contenido de negocios principalmente en Instagram. Es donde buscan soluciones, siguen referentes y descubren herramientas.</p>
+<p><strong>Rol:</strong> Construcción de autoridad + captación de prospectos + demostración del sistema</p>
+<p><strong>Formatos por tipo de contenido:</strong></p>
+<table><thead><tr><th>Tipo de contenido</th><th>Formato preferido</th><th>Formato alternativo</th></tr></thead><tbody><tr><td>Diagnóstico</td><td>Carrusel (problema → mecanismo → instrucción)</td><td>Reel con hook de problema</td></tr><tr><td>Demostración de mecanismo</td><td>Reel (screen recording + narración)</td><td>Carrusel con capturas</td></tr><tr><td>Transformación operativa</td><td>Carrusel (antes/después operativo)</td><td>Single image con texto</td></tr><tr><td>Costo calculado</td><td>Single image con número grande + explicación</td><td>Carrusel con desglose</td></tr><tr><td>Invitación directa</td><td>Single image o Stories con CTA claro</td><td>Reel corto con propuesta</td></tr></tbody></table>
+<p><strong>Frecuencia (Fase 2 — días 30-60):</strong><br><ul><li>4-5 publicaciones por semana</li><br><li>Proporción: 2 diagnósticos + 1 demostración + 1 transformación + 1 invitación o costo calculado</li><br><li>Stories: 3-5 por semana (reactivación de contenido + poll + CTA directo)</li><br></ul><br><h3>Canal secundario — Facebook</h3></p>
+<p><strong>Por qué:</strong> El fundador ya tiene página de Facebook activa. El segmento secundario (empresas de 10-30 empleados) está más presente en Facebook que en Instagram.</p>
+<p><strong>Rol:</strong> Distribución de contenido de Instagram + pauta publicitaria (retargeting)</p>
+<p><strong>Formatos:</strong> Espejo de los mejores contenidos de Instagram. No se produce contenido nativo para Facebook en Fase 2 — se distribuye lo que ya funciona en Instagram.</p>
+<p><strong>Frecuencia:</strong> 3 publicaciones por semana (las de mayor engagement de Instagram)</p>
+<h3>Canal de conversión — WhatsApp Business</h3>
+<p><strong>Por qué:</strong> El producto mismo (el Agente WhatsApp) hace que WhatsApp sea la herramienta de demostración más poderosa. Prospectos que lleguen al WhatsApp de Growth Core pueden experimentar en vivo cómo funciona el agente.</p>
+<p><strong>Rol:</strong> Demostración en vivo del producto + cierre de ventas + onboarding</p>
+<p><strong>Requisito:</strong> El WhatsApp Business de Growth Core debe operar con el Agente entrenado para el propio negocio — así cada prospecto que escribe experimenta el producto antes de comprarlo.</p>
+<h3>Canal diferido — LinkedIn</h3>
+<p><strong>Cuándo activar:</strong> Fase 3 (días 60-90) cuando haya casos documentados de clientes externos.</p>
+<p><strong>Rol:</strong> Alcance a perfil de empresa pequeña (10-30 empleados) que no está en Instagram.</p>
+<hr>
+<h2>6. ARQUITECTURA DE LA ESCALERA DE CONTENIDO</h2>
+<p>El contenido no es solo publicaciones aisladas — funciona como un sistema que lleva al prospecto de desconocido a cliente. Esta es la lógica de escalera:</p>
+<pre><code>NIVEL 1 — CONCIENCIA DEL PROBLEMA
+Contenido tipo: Diagnóstico · Costo calculado
+Objetivo: El emprendedor reconoce que el problema existe en su negocio
+Acción esperada: guardar el contenido · compartir · empezar a seguir
+<p>NIVEL 2 — CONCIENCIA DEL SISTEMA<br>Contenido tipo: Demostración de mecanismo · Transformación operativa<br>Objetivo: El emprendedor entiende que existe un sistema que resuelve ese problema<br>Acción esperada: ver más contenido · visitar la landing · preguntar en DM</p>
+<p>NIVEL 3 — EVALUACIÓN<br>Contenido tipo: Transformación operativa con datos · Invitación directa<br>Objetivo: El emprendedor evalúa si Growth Core es para su tipo de negocio<br>Acción esperada: visitar usegrowthcore.com · agendar demo</p>
+<p>NIVEL 4 — CONVERSIÓN<br>Canal: WhatsApp + landing page<br>Objetivo: Diagnóstico de onboarding + propuesta específica + cierre</code></pre></p>
+<p>Cada tipo de contenido tiene un nivel en esta escalera. La mezcla semanal debe cubrir todos los niveles, con peso en el 1 y 2.</p>
+<hr>
+<h2>7. LO QUE ESTE SISTEMA NO PRODUCE</h2>
+<ul><li>Contenido sin problema identificable en las primeras 3 segundos de lectura</li>
+<li>Posts que requieren que el lector ya conozca Growth Core para entenderlos</li>
+<li>Contenido que promete resultado sin describir el mecanismo</li>
+<li>Series de contenido educativo sin conexión al sistema (enseñar marketing digital en general)</li>
+<li>Contenido que comunica desde la aspiración del fundador (ingresos, comodidad, libertad)</li>
+<li>Publicaciones que no pueden clasificarse en uno de los 5 tipos válidos</li>
+</ul>
+<hr>
+<h2>8. GATE DE PRODUCCIÓN</h2>
+<p><strong>Este documento cierra el gate de CAT.1-5.</strong></p>
+<p>A partir de la aprobación de CAT.5, el sistema puede:</p>
+<pre><code>✓ Construir el plan editorial del primer mes de publicación
+✓ Producir las primeras 8-12 piezas fundacionales (Constructor de Contenido · 08)
+✓ Activar el Agente de Activación (13) para la primera validación de piezas
+✓ Reescribir la landing page (usegrowthcore.com) con la identidad verbal de CAT.4
+✓ Activar el Director Visual (09) para derivar identidad visual de CAT.4
+✓ Comenzar la redefinición de las fichas de producto (Arquitecto de Producto · 16)
+✓ Diseñar la escalera de valor del ecosistema (Arquitecto de Oferta · 17)</code></pre>
+<p><strong>Qué sigue después del gate:</strong><br>El Constructor de Contenido (08) produce las primeras piezas siguiendo el blueprint de este documento. Cada pieza se valida contra CAT.3 (metodología), CAT.4 (vocabulario) y CAT.5 (tipo y tema) antes de publicarse.</p>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes: Arquitecto de Contenido (07) + Guardián de Voz (10)</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Gate: CAT.1-5 COMPLETAS Y APROBADAS — producción habilitada</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

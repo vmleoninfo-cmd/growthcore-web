@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GrowthCore · Auditoría de Estado 2026-06-21</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+@page { size: A4; margin: 18mm 16mm 16mm 16mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans','Segoe UI',Arial,sans-serif; font-size: 10.5pt; color: #1E293B; background: #fff; line-height: 1.7; }
+
+/* ── PORTADA ── */
+.cover {
+  position: relative; height: 257mm; background: #0A1022; border-radius: 6px;
+  color: #F8FAFC; display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center; overflow: hidden; page-break-after: always;
+}
+.cover::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 28%, rgba(34,197,94,0.16), transparent 42%),
+              radial-gradient(circle at 85% 88%, rgba(34,197,94,0.10), transparent 40%);
+}
+.cover-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.cover-logo { position: relative; width: 120px; height: 120px; margin-bottom: 26px; }
+.cover-logo svg { width: 100%; height: 100%; }
+.cover-logo .ring { position: absolute; inset: -22px; border: 1.5px solid rgba(34,197,94,0.35); border-radius: 50%; }
+.cover-eyebrow { position: relative; font-family: 'Space Grotesk',sans-serif; font-size: 9pt; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: #22C55E; margin-bottom: 16px; }
+.cover-title { position: relative; font-family: 'Space Grotesk',sans-serif; font-size: 34pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; color: #F8FAFC; margin-bottom: 12px; max-width: 420px; }
+.cover-sub { position: relative; font-size: 12pt; color: #94A3B8; max-width: 380px; line-height: 1.5; }
+.cover-pills { position: relative; margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.cover-pill { padding: 8px 16px; border: 1px solid rgba(34,197,94,0.3); border-radius: 40px; font-family: 'Space Grotesk',sans-serif; font-size: 9pt; color: #DCFCE7; }
+.cover-pill b { color: #22C55E; }
+.cover-foot { position: absolute; bottom: 26px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 34px; font-size: 8.5pt; color: #64748B; }
+.cover-foot strong { color: #94A3B8; font-weight: 600; }
+
+/* ── HEADER CORRIDO ── */
+.run-header { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1.5px solid #E2E8F0; }
+.run-header svg { height: 26px; width: auto; }
+.run-header .tag { margin-left: auto; font-family: 'Space Grotesk',sans-serif; font-size: 8pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #22C55E; }
+
+/* ── TIPOGRAFÍA ── */
+h1 { font-family: 'Space Grotesk',sans-serif; font-size: 17pt; font-weight: 700; color: #0A1022; margin: 30px 0 12px; padding: 10px 0 10px 14px; border-left: 5px solid #22C55E; letter-spacing: -0.01em; page-break-after: avoid; }
+h2 { font-family: 'Space Grotesk',sans-serif; font-size: 13pt; font-weight: 600; color: #0A1022; margin: 24px 0 8px; padding-bottom: 5px; border-bottom: 1.5px solid #22C55E; page-break-after: avoid; }
+h3 { font-family: 'Space Grotesk',sans-serif; font-size: 10.5pt; font-weight: 600; color: #16A34A; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 0.05em; page-break-after: avoid; }
+p { margin-bottom: 10px; }
+strong { font-weight: 700; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+blockquote { background: #F0FDF4; border-left: 4px solid #22C55E; border-radius: 0 5px 5px 0; padding: 14px 18px; margin: 16px 0; font-size: 11pt; color: #166534; font-style: italic; page-break-inside: avoid; }
+blockquote p { margin: 0; }
+
+pre { background: #0A1022; color: #E2E8F0; border-radius: 6px; padding: 14px 18px; font-family: 'Cascadia Code','Consolas',monospace; font-size: 8.5pt; line-height: 1.6; margin: 12px 0; white-space: pre-wrap; overflow-wrap: break-word; page-break-inside: avoid; }
+code { background: #F1F5F9; color: #0A1022; padding: 1px 5px; border-radius: 3px; font-size: 8.5pt; font-family: 'Cascadia Code','Consolas',monospace; }
+pre code { background: transparent; color: #94A3B8; padding: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9.3pt; page-break-inside: avoid; }
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th { padding: 9px 12px; text-align: left; font-family: 'Space Grotesk',sans-serif; font-weight: 600; font-size: 8.5pt; letter-spacing: 0.04em; }
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody td { padding: 8px 12px; border-bottom: 1px solid #E2E8F0; vertical-align: top; }
+
+ul, ol { padding-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 4px; }
+hr { border: none; border-top: 1.5px solid #E2E8F0; margin: 22px 0; }
+
+.doc-footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid #E2E8F0; display: flex; justify-content: space-between; font-size: 8pt; color: #94A3B8; }
+.doc-footer .brand { color: #16A34A; font-weight: 700; font-family: 'Space Grotesk',sans-serif; }
+</style></head>
+<body>
+
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-logo"><div class="ring"></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>GrowthCore Mark — White</title>
+  <g stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <line x1="180" y1="65" x2="130" y2="120"></line>
+    <line x1="130" y1="120" x2="180" y2="175"></line>
+    <line x1="180" y1="65" x2="40" y2="120"></line>
+    <line x1="40" y1="120" x2="180" y2="175"></line>
+    <line x1="40" y1="120" x2="130" y2="120"></line>
+  </g>
+  <path d="M 180 65 A 85 85 0 1 0 180 175 L 180 120 L 130 120" fill="none" stroke="#F8FAFC" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></path>
+  <g fill="#22C55E">
+    <circle cx="180" cy="65" r="10"></circle>
+    <circle cx="180" cy="175" r="10"></circle>
+    <circle cx="130" cy="120" r="10"></circle>
+    <circle cx="40" cy="120" r="10"></circle>
+  </g>
+</svg></div>
+  <div class="cover-eyebrow">Growth Core · by Evoluciona Inteligente</div>
+  <div class="cover-title">Auditoría de Estado</div>
+  <div class="cover-sub">Resumen ejecutivo · Antes y después de la aplicación del ADN/corpus.</div>
+  <div class="cover-pills">
+    <div class="cover-pill"><b>Ingreso ADN:</b> 2026-06-04</div>
+    <div class="cover-pill"><b>Corte:</b> 2026-06-21</div>
+    <div class="cover-pill"><b>Dev:</b> ~2 meses · ≈140 h</div>
+  </div>
+  <div class="cover-foot">
+    <span><strong>Documento interno</strong> · Confidencial</span>
+    <span>usegrowthcore.com</span>
+  </div>
+</div>
+<div class="run-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="880" height="240">
+  <title>GrowthCore Logo — Dark (White on Navy)</title>
+  <g>
+    <g stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <line x1="180" y1="65" x2="130" y2="120"></line>
+      <line x1="130" y1="120" x2="180" y2="175"></line>
+      <line x1="180" y1="65" x2="40" y2="120"></line>
+      <line x1="40" y1="120" x2="180" y2="175"></line>
+      <line x1="40" y1="120" x2="130" y2="120"></line>
+    </g>
+    <path d="M 180 65 A 85 85 0 1 0 180 175 L 180 120 L 130 120" fill="none" stroke="#F8FAFC" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"></path>
+    <g fill="#22C55E">
+      <circle cx="180" cy="65" r="10"></circle>
+      <circle cx="180" cy="175" r="10"></circle>
+      <circle cx="130" cy="120" r="10"></circle>
+      <circle cx="40" cy="120" r="10"></circle>
+    </g>
+  </g>
+  <text x="280" y="120" dominant-baseline="central" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" font-size="84" letter-spacing="-1.68" fill="#F8FAFC">GrowthCore</text>
+</svg><span class="tag">Auditoría de Estado</span></div>
+<h1>AUDITORÍA Y RESUMEN DE ESTADO — GROWTH CORE</h1>
+<h2>Corte: 2026-06-21 · Antes y después de la aplicación del ADN/corpus</h2>
+<pre><code>documento:      AUDITORIA-ESTADO-GROWTHCORE-2026-06-21
+proyecto:       GROWTH CORE
+fecha_corte:    2026-06-21
+ingreso_sistema: 2026-06-04 (DIAG-2026-06-04-001)
+base_referencia: DIAG-2026-06-04-001 · ACT-2026-06-04-001 · CAT.1-5
+estado_global:  Fundación estructural COMPLETA · validación comercial externa PENDIENTE</code></pre>
+<blockquote><p><strong>Tesis de la auditoría:</strong> GrowthCore no tenía un problema de producto — tenía un</p></blockquote>
+<blockquote><p>producto técnico que funcionaba sin estructura comercial. La aplicación del ADN</p></blockquote>
+<blockquote><p>(2026-06-04) no agregó código: agregó la arquitectura de identidad, propuesta de</p></blockquote>
+<blockquote><p>valor y comunicación que el producto ya necesitaba y no tenía. Este documento mide</p></blockquote>
+<blockquote><p>exactamente qué cambió entre el "antes" y el "después" de ese hito.</p></blockquote>
+<hr>
+<h2>1. LÍNEA DE TIEMPO Y TIEMPO DE DESARROLLO</h2>
+<h3>1.1 Hitos verificables (fuente: git + corpus)</h3>
+<table><thead><tr><th>Hito</th><th>Fecha</th><th>Fuente</th></tr></thead><tbody><tr><td>Primer commit base técnica (Smart Ads System)</td><td><strong>2026-04-24</strong></td><td>git smart-ads-system</td></tr><tr><td>Primer commit landing GrowthCore (growthcore-web)</td><td><strong>2026-05-19</strong></td><td>git growthcore-web</td></tr><tr><td>Activos Meta GrowthCore creados (portfolio, pixel, GA4)</td><td>2026-06-01</td><td>CLAUDE.md GrowthCore</td></tr><tr><td><strong>🔻 INGRESO AL SISTEMA / APLICACIÓN DEL ADN</strong></td><td><strong>2026-06-04</strong></td><td>DIAG-2026-06-04-001</td></tr><tr><td>Migración Make.com → n8n</td><td>2026-06-09</td><td>CLAUDE.md smart-ads</td></tr><tr><td>Pipeline CRM→WhatsApp verificado end-to-end</td><td>2026-06-11</td><td>memoria n8n</td></tr><tr><td>Último commit registrado</td><td>2026-06-14</td><td>git growthcore-web</td></tr><tr><td><strong>Corte de esta auditoría</strong></td><td><strong>2026-06-21</strong></td><td>hoy</td></tr></tbody></table>
+<h3>1.2 Tiempo en desarrollo</h3>
+<table><thead><tr><th>Métrica</th><th>Duración</th></tr></thead><tbody><tr><td>Desde la base técnica (Smart Ads, 24-abr)</td><td><strong>~58 días (~2 meses)</strong></td></tr><tr><td>Desde la landing GrowthCore (19-may)</td><td>~33 días</td></tr><tr><td><strong>Desde la aplicación del ADN (04-jun)</strong></td><td><strong>17 días</strong></td></tr></tbody></table>
+<h3>1.3 Horas invertidas (estimación)</h3>
+<blockquote><p>⚠️ <strong>Estimación metodológica, no medición directa.</strong> No hay registro de horas (time-tracking).</p></blockquote>
+<blockquote><p>Se deriva de la actividad real de git: **días con commits significativos × intensidad</p></blockquote>
+<blockquote><p>observada por día**. No incluye el trabajo de estrategia/corpus que no quedó en git</p></blockquote>
+<blockquote><p>(sesiones HAYDE: DIAG, ACT, CAT.1-5, fichas de producto), que se suma aparte.</p></blockquote>
+<table><thead><tr><th>Frente</th><th>Días activos (git)</th><th>Commits</th><th>Horas est. (rango)</th></tr></thead><tbody><tr><td>Smart Ads System (tracking, dashboard, CRM, n8n)</td><td>18</td><td>60</td><td>70 – 110 h</td></tr><tr><td>GrowthCore Web (landing, deploy, tracking)</td><td>9</td><td>25</td><td>30 – 45 h</td></tr><tr><td>Corpus / estrategia (DIAG + ACT + CAT.1-5 + fichas)</td><td>—</td><td>—</td><td>15 – 25 h</td></tr><tr><td><strong>TOTAL estimado</strong></td><td><strong>~27 días activos</strong></td><td><strong>~85</strong></td><td><strong>≈ 115 – 180 h</strong></td></tr></tbody></table>
+<p><strong>Punto medio razonable: ~140 horas</strong> repartidas en ~2 meses de calendario.<br>La densidad real fue por ráfagas (picos de 7-12 commits/día), no un goteo constante.</p>
+<hr>
+<h2>2. ESTADO GENERAL — ANTES vs DESPUÉS DEL ADN</h2>
+<table><thead><tr><th>Dimensión</th><th>ANTES (al 2026-06-04)</th><th>DESPUÉS (al 2026-06-21)</th></tr></thead><tbody><tr><td><strong>Score de madurez</strong></td><td><strong>1.66 / 5.0 — MUY BAJA</strong></td><td>Base estructural resuelta; pendiente recálculo formal post-cliente</td></tr><tr><td><strong>Etapa comercial</strong></td><td>Etapa 1 — sin estructura comercial</td><td>Etapa 1 → en transición a Etapa 2 (falta 1ª venta externa)</td></tr><tr><td><strong>Identidad verbal</strong></td><td>INEXISTENTE</td><td>✅ CAT.4 — vocabulario canónico + términos prohibidos</td></tr><tr><td><strong>Voz de marca</strong></td><td>INDEFINIDA ("ecosistema", "IA", "optimizar")</td><td>✅ Autoridad técnica sin jerga vacía (CAT.3)</td></tr><tr><td><strong>Propuesta de valor</strong></td><td>VACÍA — "conecta canales / potencia campañas"</td><td>✅ "Cerebro operativo accesible" + 3 problemas concretos</td></tr><tr><td><strong>Cliente ideal</strong></td><td>No definido</td><td>✅ Perfil con señales detectables + criterios de exclusión</td></tr><tr><td><strong>Diferenciación</strong></td><td>"personalizado" (no diferencia)</td><td>✅ Posición única documentada vs CRM, agencias y bots</td></tr><tr><td><strong>Flujo de cliente</strong></td><td>INEXISTENTE</td><td>🟡 Pipeline técnico listo; flujo comercial formal parcial</td></tr><tr><td><strong>Producción de marca</strong></td><td>—</td><td>Estaba BLOQUEADA → ✅ DESBLOQUEADA (CAT.1-5 aprobadas)</td></tr></tbody></table>
+<p><strong>Lectura:</strong> el salto no fue de funcionalidades, fue de <strong>claridad</strong>. El riesgo nº1 del<br>diagnóstico ("comunicación vacía → percepción de humo, bloquea ventas antes de empezar")<br>quedó resuelto en su raíz al construir CAT.1-5.</p>
+<hr>
+<h2>3. AUDITORÍA POR PRODUCTO (las 4 herramientas)</h2>
+<blockquote><p>Estado "antes" según el diagnóstico D4. Estado "después" según corpus + código actual.</p></blockquote>
+<h3>3.1 Smart Ads System</h3>
+| | Antes (04-jun) | Después (21-jun) |
+|---|---|---|
+| Estado producto | PARCIALMENTE DEFINIDO | ✅ Definido y operando |
+| Problema que resuelve | "potencia campañas" (vacío) | "campañas que sangran sin que nadie lo detecte" |
+| Entregable | Dashboard + informe | Dashboard Premium (Fase 5): grade A-F, 8 checks, benchmarks, optimizador de presupuesto, FATIGA creativa |
+| Madurez | Media | <strong>Alta</strong> — producto vendible |
+<h3>3.2 CRM (Auto-CRM)</h3>
+| | Antes | Después |
+|---|---|---|
+| Estado producto | INDEFINIDO — "el más crítico" | ✅ Operando en prod (crm.usegrowthcore.com) |
+| Diferenciación | "personalizado" (no diferencia) | Preconfigurado para emprendedor LATAM de servicios |
+| Flujo onboarding | 2-3 días sin estructura | 🟡 Webhook + pipeline a WhatsApp verificado; flujo doc. parcial |
+| Madurez | Muy baja | <strong>Alta (técnica)</strong> / media (comercial) |
+<h3>3.3 Agente WhatsApp IA</h3>
+| | Antes | Después |
+|---|---|---|
+| Estado producto | NO DEFINIDO | 🟡 Operando vía n8n (bot.usegrowthcore.com /notify) |
+| Metodología entrenamiento | Inexistente | Definida en ADN (entrenado con guion de ventas del negocio) |
+| Pipeline | No existía | ✅ CRM → n8n → Meta Cloud API → WhatsApp (verificado 11-jun) |
+| Madurez | Nula | <strong>Media-alta</strong> |
+<h3>3.4 Creador de Sitio Web (Web Builder)</h3>
+| | Antes | Después |
+|---|---|---|
+| Estado producto | CAPACIDAD, NO PRODUCTO | 🟡 Producto con proceso (V2.1) |
+| Proceso | Sin briefing ni identidad | Questionnaire → brand.json; SEO + Growth-Driven Design |
+| Decisión producto/servicio | Sin definir | Pieza del ecosistema (genera landing inicial) |
+| Madurez | Solo capacidad | <strong>Media</strong> |
+<hr>
+<h2>4. LO QUE EL ADN/CORPUS HABILITÓ (entregables construidos)</h2>
+<table><thead><tr><th>Entregable</th><th>Estado</th><th>Qué destrabó</th></tr></thead><tbody><tr><td>CAT.1 — ADN</td><td>✅ Aprobado</td><td>Propósito, esencia, problema central, cliente ideal, diferenciación</td></tr><tr><td>CAT.2 — Pilares estratégicos</td><td>✅</td><td>Ejes que unen las 4 herramientas como sistema</td></tr><tr><td>CAT.3 — Metodología de comunicación</td><td>✅</td><td>Cómo argumenta la marca (evidencia, no promesa)</td></tr><tr><td>CAT.4 — Identidad verbal</td><td>✅</td><td>Vocabulario canónico + términos prohibidos</td></tr><tr><td>CAT.5 — Arquitectura de contenido</td><td>✅</td><td>Qué publica, para quién, en qué canal</td></tr><tr><td>Fichas de producto x4</td><td>✅</td><td>Cada herramienta redefinida desde el problema</td></tr><tr><td>Landing reescrita</td><td>✅</td><td>Hero problema→resultado, copy desde corpus</td></tr><tr><td>Pipeline CRM→WhatsApp (n8n)</td><td>✅</td><td>Atención de lead en segundos (resuelve Problema 2 del ADN)</td></tr></tbody></table>
+<hr>
+<h2>5. PENDIENTES CRÍTICOS (gap a Etapa 2)</h2>
+<table><thead><tr><th>Pendiente</th><th>Severidad</th><th>Bloquea</th></tr></thead><tbody><tr><td><strong>Primer cliente externo pagando</strong></td><td>🔴 ALTA</td><td>Recálculo de score, validación de Etapa 2</td></tr><tr><td>Lanzar 1ª campaña GrowthCore (dogfooding)</td><td>🟡</td><td>Encender dashboard con data real + Make Analytics Sync</td></tr><tr><td>Dominio/Pixel verificados en producción</td><td>🟡</td><td>Medición real del embudo</td></tr><tr><td>Flujo de cliente comercial formal (captación→pago→soporte)</td><td>🟡</td><td>Onboarding repetible y sin fricción</td></tr><tr><td>Identidad visual derivada de CAT.4</td><td>🟢</td><td>Coherencia marca (deriva del verbal, ya listo)</td></tr><tr><td>Plan de infraestructura (Hetzner $17/mes para todos)</td><td>🟢→🔴 antes de 10 clientes</td><td>Escalabilidad</td></tr><tr><td>🔐 Rotar token Meta hardcodeado (MOVE Analytics Sync)</td><td>🔴 SEGURIDAD</td><td>Riesgo activo</td></tr></tbody></table>
+<hr>
+<h2>6. VEREDICTO</h2>
+<p><strong>El "antes" era un taller técnico sin vitrina.</strong> Cuatro herramientas funcionando para uso<br>interno (MOVE), sin saber qué problema vendían ni a quién. Score 1.66/5.0.</p>
+<p><strong>El "después" es un producto con identidad, listo para su primera venta.</strong> En 17 días desde<br>la aplicación del ADN se construyó toda la base estructural (CAT.1-5), se redefinieron los 4<br>productos desde el problema real, y se dejó operando el pipeline que materializa la promesa<br>central del ADN (detectar y actuar sobre cada lead). El cuello de botella ya no es técnico ni<br>estructural: <strong>es comercial — falta encender la primera campaña y cerrar el primer cliente externo.</strong></p>
+<p>La estrategia de dogfooding (GrowthCore como su propio cliente #2) es el siguiente movimiento<br>correcto: cada fricción que aparezca al venderse a sí mismo se convierte en checklist antes<br>de venderlo afuera.</p>
+<hr>
+<p>*Documento generado el 2026-06-21 · Fuentes: DIAG-2026-06-04-001, ACT-2026-06-04-001,<br>CAT.1 ADN, CONTEXTO-CLIENTE, CLAUDE.md (GrowthCore + Smart Ads), historial git.*<br><em>Horas: estimación derivada de actividad git — no medición directa.</em></p>
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> · Auditoría de Estado · 2026-06-21</span>
+  <span>by Evoluciona Inteligente · 2026</span>
+</div>
+</body></html>

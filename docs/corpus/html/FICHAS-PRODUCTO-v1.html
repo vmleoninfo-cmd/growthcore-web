@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fichas de Producto · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">Fichas de Producto</div>
+  <div class="doc-subtitle">GROWTH CORE · Las 4 herramientas · Precios · Bundles</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>FICHAS DE PRODUCTO — GROWTH CORE</h1>
+<h2>Redefinición estructural de las 4 herramientas del ecosistema</h2>
+<pre><code>doc_id:         FICHAS-PRODUCTO-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agente:         Arquitecto de Producto (16)
+dependencias:   CAT1 · CAT2 · CAT3 · CAT4 · INV-MERCADO-PRECIOS-v1
+decisión:       H4 Web solo para clientes del ecosistema (Opción 2 aprobada)
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — base para Arquitecto de Oferta (17)</code></pre>
+<hr>
+<blockquote><p>Cada ficha describe la herramienta desde el problema que resuelve,</p></blockquote>
+<blockquote><p>no desde lo que conecta ni desde sus funciones técnicas.</p></blockquote>
+<blockquote><p>Esta es la diferencia entre comunicación de sistema y comunicación de humo.</p></blockquote>
+<hr>
+<h2>FICHA H1 — SMART ADS DASHBOARD</h2>
+<h3>Problema que resuelve</h3>
+<p>El emprendedor invierte en Meta Ads pero no sabe si está funcionando hasta que ya perdió dinero. No hay señal de alerta temprana. Para cuando nota que una campaña falló, el presupuesto ya se gastó.</p>
+<p>El problema específico: las campañas se deterioran gradualmente — CTR cae, costos suben, conversiones bajan — y sin un sistema de detección activa, el emprendedor lo descubre semanas después durante la revisión manual.</p>
+<h3>Para quién exactamente</h3>
+<p><strong>Señales de que este cliente necesita Smart Ads:</strong><br><ul><li>Invierte entre $100 y $2,000 USD/mes en Meta Ads (Facebook + Instagram)</li><br><li>Revisa las métricas de manera reactiva — cuando algo ya falló</li><br><li>No tiene equipo de marketing que monitoree las campañas a diario</li><br><li>Ha tenido meses donde la inversión no generó resultados visibles sin entender por qué</li><br><li>No puede interpretar CTR, ROAS, CPM con fluidez — necesita que alguien le diga qué hacer</li><br></ul><br><h3>Qué detecta y cómo funciona</h3></p>
+<p>Smart Ads procesa las métricas de todas las campañas activas de Meta Ads cada 24 horas. Calcula un <strong>score 0–100</strong> por campaña basado en rendimiento, tendencia y comparación con parámetros del tipo de negocio. Cuando el score cae por debajo del umbral configurado, genera una alerta con:</p>
+<li>La causa específica del deterioro</li>
+<li>La acción concreta que debe tomarse esa semana</li>
+<li>El impacto estimado si no se actúa</li>
+<p>El resultado llega al emprendedor cada lunes en un <strong>informe de máximo 250 palabras</strong> — legible en 3 minutos, con una sola acción prioritaria.</p>
+<h3>Entregables</h3>
+<pre><code>✓ Dashboard instalado en servidor de Growth Core — acceso con usuario y clave
+✓ Conexión con la cuenta de Meta Ads del cliente (Growth Core hace la conexión)
+✓ Informe semanal cada lunes antes de las 9am:
+    · Score global de la semana (número + clasificación)
+    · Análisis de cada campaña activa
+    · Alerta si alguna campaña bajó de umbral
+    · Acción prioritaria de la semana
+    · Tendencia: mejoró / empeoró / estable + causa identificada
+✓ Alerta inmediata (email) si una campaña cae más del 20% en 48 horas</code></pre>
+<h3>Proceso de implementación</h3>
+<pre><code>Día 1:    Growth Core conecta la cuenta de Meta Ads del cliente
+Día 2–3:  Calibración del dashboard y configuración de umbrales por tipo de negocio
+Día 5:    Primer informe de estado generado (baseline)
+Semana 2: Alertas activas · el cliente recibe su primer informe semanal real</code></pre>
+<h3>Precios</h3>
+<table><thead><tr><th>Valor</th><th>Justificación</th></tr></thead><tbody><tr><td><strong>Setup</strong></td><td><strong>$197</strong></td><td>Conexión + calibración + configuración de umbrales por tipo de negocio</td></tr><tr><td><strong>Mensualidad</strong></td><td><strong>$67/mes</strong></td><td>Monitoreo diario + informe semanal + alertas automáticas + mantenimiento</td></tr></tbody></table>
+<p><strong>Argumento de valor:</strong> Si el cliente tiene $500/mes en Meta Ads y el sistema detecta que el 15% se desperdicia en clics de baja calidad ($75/mes), el dashboard se paga solo en el primer mes. El informe semanal reemplaza 2–3 horas de revisión manual.</p>
+<h3>Lo que NO incluye (aclaración obligatoria)</h3>
+<pre><code>✗ Gestión de campañas — Smart Ads monitorea, no administra
+✗ Creación de anuncios o creatividades
+✗ La inversión publicitaria — ese dinero va directamente a Meta, no a Growth Core
+✗ Estrategia de campañas — el sistema ejecuta detección, no planning
+✗ Campañas de Google Ads, TikTok Ads u otras plataformas</code></pre>
+<h3>Diferenciación frente al mercado</h3>
+<table><thead><tr><th>vs. Madgicx / Adriel ($49–$99/mes)</th><th>Smart Ads entrega la acción específica en español para no-expertos. Los competidores entregan dashboards con métricas que el emprendedor debe interpretar solo</th></tr></thead><tbody><tr><td>vs. Revisión manual del emprendedor</td><td>Detección diaria automática vs. revisión semanal reactiva</td></tr><tr><td>vs. Agencia de marketing</td><td>Sin contrato de gestión, sin porcentaje de inversión, sin dependencia externa</td></tr></tbody></table>
+<hr>
+<h2>FICHA H2 — CRM CON IA</h2>
+<h3>Problema que resuelve</h3>
+<p>El emprendedor tiene contactos guardados en WhatsApp, en Excel, en notas del teléfono — pero no tiene un sistema que le diga quién tiene mayor probabilidad de comprar hoy, cuándo llamar y qué decir. El seguimiento depende de la memoria, no de un sistema.</p>
+<p>Resultado: los clientes que estaban listos para comprar se enfrían porque nadie los contactó a tiempo. Los leads que entraron la semana pasada se pierden entre conversaciones. La retención queda al azar.</p>
+<h3>Para quién exactamente</h3>
+<p><strong>Señales de que este cliente necesita el CRM:</strong><br><ul><li>Tiene clientes activos y prospectos pero no hace seguimiento sistemático</li><br><li>Su "CRM actual" es WhatsApp, Excel o ninguno</li><br><li>Ha perdido ventas porque olvidó contactar a alguien a tiempo</li><br><li>No sabe cuáles de sus prospectos actuales tienen mayor probabilidad de cierre esta semana</li><br><li>Recibe leads por formulario web o WhatsApp y los registra manualmente (o no los registra)</li><br></ul><br><h3>Qué detecta y cómo funciona</h3></p>
+<p>El CRM registra todos los clientes y prospectos con su historial completo. La IA analiza el historial de interacciones, el tiempo transcurrido desde el último contacto, el tipo de negocio y el comportamiento del prospecto para calcular una <strong>probabilidad de cierre</strong> actualizada semanalmente.</p>
+<p>Cada semana el sistema entrega al emprendedor:<br><ul><li>Los 3–5 contactos que priorizar esa semana</li><br><li>Cuándo contactarlos (día y hora recomendada según su patrón)</li><br><li>Qué decirles (contexto del historial + sugerencia de mensaje)</li><br></ul><br><h3>Entregables</h3></p>
+<pre><code>✓ CRM configurado en servidor de Growth Core con usuario y clave
+✓ Campos específicos del tipo de negocio del cliente (no configuración genérica)
+✓ Conexión con al menos un canal de entrada de leads:
+    · Formulario web → CRM automático (si tiene o está contratando H4)
+    · Agente WhatsApp → CRM automático (si tiene o está contratando H3)
+✓ Reporte semanal de prioridades: top 3–5 contactos + cuándo + qué decir
+✓ Panel de historial completo por cliente accesible en cualquier momento</code></pre>
+<h3>Proceso de implementación</h3>
+<pre><code>Día 1:    Cliente completa formulario de conexión segura (datos del negocio)
+Día 2–4:  Growth Core configura el CRM con los campos del tipo de negocio
+Día 5:    Migración de contactos existentes si el cliente los tiene en Excel/lista
+Día 6–7:  Testing y validación de conexiones (web y/o WhatsApp si aplica)
+Semana 2: Primer reporte de prioridades activo</code></pre>
+<h3>Precios</h3>
+<table><thead><tr><th>Valor</th><th>Justificación</th></tr></thead><tbody><tr><td><strong>Setup</strong></td><td><strong>$147</strong></td><td>Configuración específica + migración de contactos + conexión de canales</td></tr><tr><td><strong>Mensualidad</strong></td><td><strong>$57/mes</strong></td><td>Hosting en servidor Growth Core + mantenimiento + actualización del modelo de IA</td></tr></tbody></table>
+<p><strong>Argumento de valor:</strong> Si el cliente cierra 1 venta adicional por mes porque el sistema le dijo cuándo y cómo contactar a ese prospecto que estaba listo, el CRM se paga con la primera venta recuperada.</p>
+<h3>Lo que NO incluye</h3>
+<pre><code>✗ Gestión de conversaciones con clientes — el emprendedor hace el contacto
+✗ Responder en nombre del negocio — eso es función del Agente WhatsApp (H3)
+✗ Integración con CRMs externos (Salesforce, HubSpot) — reemplaza, no se conecta a ellos
+✗ Campañas de email marketing masivo</code></pre>
+<h3>Diferenciación frente al mercado</h3>
+<table><thead><tr><th>vs. HubSpot / Pipedrive ($14–$29/usuario)</th><th>El CRM de Growth Core viene implementado y configurado para el negocio específico. HubSpot y Pipedrive requieren que el cliente configure todo solo y aprenda la herramienta</th></tr></thead><tbody><tr><td>vs. WhatsApp como "CRM"</td><td>Historial estructurado + probabilidad de cierre + instrucción de cuándo actuar — vs. mensajes sin orden ni priorización</td></tr><tr><td>vs. CRMs WhatsApp-first (Kommo, Leadsales)</td><td>Integración nativa con Smart Ads y Agente WhatsApp · el ecosistema completo comparte datos</td></tr></tbody></table>
+<hr>
+<h2>FICHA H3 — AGENTE WHATSAPP CON IA</h2>
+<h3>Problema que resuelve</h3>
+<p>Un lead que no recibe respuesta en los primeros 5 minutos tiene probabilidad de cierre significativamente menor. El emprendedor no puede estar disponible 24/7 para atender el primer contacto. El resultado: leads que costaron dinero en publicidad se pierden porque nadie respondió a tiempo, o se respondió pero sin el guion correcto.</p>
+<p>El problema no es la falta de disposición — es que el primer contacto requiere velocidad y consistencia que una persona sola no puede garantizar.</p>
+<h3>Para quién exactamente</h3>
+<p><strong>Señales de que este cliente necesita el Agente WhatsApp:</strong><br><ul><li>Recibe o podría recibir leads por WhatsApp y no siempre responde en los primeros minutos</li><br><li>Ha perdido prospectos porque tardó en responder</li><br><li>Tiene un guion de ventas mental pero no lo aplica de forma consistente en cada conversación</li><br><li>Invierte en publicidad que lleva tráfico a WhatsApp</li><br><li>Ya tiene o está contratando el CRM de Growth Core</li><br></ul><br><strong>Requisito obligatorio:</strong> El cliente debe tener o estar contratando el CRM (H2). El agente sin CRM no registra leads — pierde su función central.</p>
+<h3>Qué hace y cómo funciona</h3>
+<p>El Agente WhatsApp con IA es un agente conversacional (no un bot con opciones de menú) entrenado con el guion de ventas específico del negocio del cliente. Cuando llega un mensaje:</p>
+<li><strong>Responde en segundos</strong> — con el tono y el guion del negocio</li>
+<li><strong>Califica el lead</strong> — según los criterios definidos en el onboarding</li>
+<li><strong>Registra la conversación</strong> en el CRM automáticamente</li>
+<li><strong>Transfiere al emprendedor</strong> cuando el lead está calificado y listo para el siguiente paso</li>
+<p>El agente no reemplaza al emprendedor en el cierre — lo libera para que solo intervenga cuando el lead ya está calificado y tiene interés real.</p>
+<h3>Entregables</h3>
+<pre><code>✓ Agente instalado y conectado al WhatsApp Business del cliente
+✓ Entrenamiento con el guion de ventas del negocio (Growth Core lo construye en el onboarding)
+✓ Criterios de calificación definidos para el tipo de negocio
+✓ Conexión automática con el CRM de Growth Core
+✓ Documento de metodología: qué puede hacer el agente y qué no
+✓ Protocolo de transferencia: cuándo y cómo pasa la conversación al emprendedor
+✓ Primera semana de monitoreo activo + ajustes incluidos</code></pre>
+<h3>Proceso de implementación</h3>
+<pre><code>Día 1:    Sesión de intake: guion de ventas + criterios de calificación + casos típicos
+Día 2–5:  Entrenamiento y configuración del agente
+Día 6–7:  Fase de prueba con escenarios reales simulados
+Día 8:    Agente activo en producción
+Semana 2: Monitoreo de primeras conversaciones reales + ajuste de respuestas</code></pre>
+<h3>Precios</h3>
+<table><thead><tr><th>Valor</th><th>Justificación</th></tr></thead><tbody><tr><td><strong>Setup</strong></td><td><strong>$247</strong></td><td>Entrenamiento personalizado + configuración + conexión + fase de prueba</td></tr><tr><td><strong>Mensualidad</strong></td><td><strong>$97/mes</strong></td><td>Operación + monitoreo + reentrenamiento cuando cambia el guion</td></tr></tbody></table>
+<p><strong>Costo adicional transparente — Meta API:</strong><br>Meta cobra por mensajes de plantilla enviados. Estimado para 500–2,000 conversaciones/mes: $15–$50 USD/mes adicionales (cobrados directamente por Meta, no por Growth Core). Este costo se informa antes del cierre — no es sorpresa.</p>
+<p><strong>Argumento de valor:</strong> Si el agente atiende 30 leads/mes que antes no recibían respuesta a tiempo, y el 10% cierra ($X de venta promedio del negocio), el cálculo de ROI es directo y verificable desde el primer mes.</p>
+<h3>Lo que NO incluye</h3>
+<pre><code>✗ Conversaciones complejas de cierre — el agente califica, el emprendedor cierra
+✗ Asesoría legal, médica o de cualquier área regulada
+✗ El costo de la API de WhatsApp Business (cobrado directamente por Meta)
+✗ La cuenta de WhatsApp Business API (Growth Core ayuda a activarla, pero la cuenta es del cliente)
+✗ Integración con WhatsApp de otras empresas o CRMs externos</code></pre>
+<h3>Diferenciación frente al mercado</h3>
+<table><thead><tr><th>vs. ManyChat / WATI ($49–$99)</th><th>ManyChat y WATI entregan la herramienta — el cliente la configura solo. Growth Core entrega el agente entrenado con el guion del negocio específico</th></tr></thead><tbody><tr><td>vs. Bots con menú de opciones</td><td>Conversación abierta con contexto del negocio vs. flujos rígidos que el lead abandona</td></tr><tr><td>vs. Empleado de atención al cliente</td><td>24/7 · respuesta en segundos · costo fijo · sin días libres · nunca pierde un contacto</td></tr></tbody></table>
+<hr>
+<h2>FICHA H4 — WEB CONECTADA</h2>
+<h3>Decisión estructural (Opción 2 — aprobada)</h3>
+<blockquote><p>La Web Conectada <strong>solo está disponible para clientes que ya tienen o están contratando el CRM de Growth Core (H2).</strong></p></blockquote>
+<blockquote><p>No es un servicio de diseño web independiente.</p></blockquote>
+<blockquote><p>Un cliente que solo quiere un sitio web no es cliente de Growth Core.</p></blockquote>
+<h3>Problema que resuelve</h3>
+<p>El emprendedor no tiene presencia web, o tiene un sitio que no captura leads automáticamente, o tiene un formulario de contacto que no está conectado a ningún sistema. Cada lead que llega por la web se pierde o se registra manualmente.</p>
+<p>El problema específico: una web sin conexión al CRM es una herramienta de visibilidad que no alimenta el sistema. Los datos de quién visitó, quién completó el formulario, qué preguntó — desaparecen o quedan en un email que nadie sistematiza.</p>
+<h3>Para quién exactamente</h3>
+<p><strong>Señales de que este cliente necesita la Web Conectada:</strong><br><ul><li>No tiene sitio web o tiene uno que no convierte leads en contactos registrados</li><br><li>Su formulario de contacto llega a un email que revisa cuando puede</li><br><li>Ya tiene o está contratando el CRM de Growth Core</li><br><li>Necesita presencia web profesional pero no quiere pasar semanas con un diseñador y luego descubrir que no conecta con nada</li><br></ul><br><strong>Requisito obligatorio:</strong> El cliente debe tener o estar contratando el CRM (H2). Sin CRM no hay Web Conectada.</p>
+<h3>Qué hace y cómo funciona</h3>
+<p>Landing page profesional diseñada, construida y publicada por Growth Core en 14 días hábiles. Conectada al CRM desde el primer día: cada formulario completado crea automáticamente un registro en el CRM con los datos del prospecto y la fecha de contacto. El emprendedor no toca configuraciones — recibe la web activa y el CRM ya registrando leads.</p>
+<h3>Entregables</h3>
+<pre><code>✓ Landing page profesional — 1 página optimizada para conversión
+✓ Formulario de contacto conectado automáticamente al CRM de Growth Core
+✓ Hosting incluido en la mensualidad
+✓ Configuración del dominio del cliente (el cliente aporta el dominio)
+✓ 1 ronda de ajustes incluida antes de publicación
+✓ Técnico SEO básico (títulos, meta descripciones, velocidad)
+✓ Responsive — adaptada a móvil y escritorio</code></pre>
+<h3>Proceso de implementación</h3>
+<pre><code>Día 1:    Sesión de briefing (identidad del negocio · objetivos · CTA · referencias)
+Día 2–7:  Diseño y desarrollo por Growth Core
+Día 8–10: Revisión del cliente + ronda de ajustes
+Día 11–13: Conexión y prueba con el CRM
+Día 14:   Publicación y validación en vivo</code></pre>
+<h3>Precios</h3>
+<table><thead><tr><th>Valor</th><th>Justificación</th></tr></thead><tbody><tr><td><strong>Setup</strong></td><td><strong>$397</strong></td><td>Diseño + desarrollo + integración CRM + configuración dominio</td></tr><tr><td><strong>Mensualidad</strong></td><td><strong>$37/mes</strong></td><td>Hosting + mantenimiento + conexión activa al CRM</td></tr></tbody></table>
+<p><strong>Argumento de valor:</strong> Una agencia web en LATAM cobra $800–$5,000 por una landing page que no está conectada al CRM. Growth Core entrega la web + conexión al sistema en 14 días hábiles a $397 de setup.</p>
+<h3>Lo que NO incluye</h3>
+<pre><code>✗ E-commerce o catálogo de productos
+✗ Blog o sistema de gestión de contenido (CMS)
+✗ Más de 1 página (landing multipage es cotización aparte)
+✗ SEO de posicionamiento y generación de tráfico orgánico
+✗ Integración con redes sociales o pixel de conversión (Meta Pixel se configura aparte)
+✗ Diseño de logotipo o identidad visual (debe ser aportada por el cliente)</code></pre>
+<h3>Diferenciación frente al mercado</h3>
+<table><thead><tr><th>vs. DIY (Wix, Squarespace $17–$25/mes)</th><th>El cliente no configura nada — Growth Core construye y conecta todo</th></tr></thead><tbody><tr><td>vs. Agencias web LATAM ($800–$5,000)</td><td>Precio accesible + conexión nativa al CRM desde el día 1 + parte del ecosistema</td></tr><tr><td>vs. Landing page sin ecosistema</td><td>Cada lead capturado entra automáticamente al CRM y activa el seguimiento del sistema</td></tr></tbody></table>
+<hr>
+<h2>PRECIOS INDIVIDUALES — RESUMEN</h2>
+<table><thead><tr><th>Herramienta</th><th>Setup</th><th>Mensualidad</th><th>Requisito</th></tr></thead><tbody><tr><td>H1 Smart Ads Dashboard</td><td>$197</td><td>$67/mes</td><td>Meta Ads activo</td></tr><tr><td>H2 CRM con IA</td><td>$147</td><td>$57/mes</td><td>Ninguno (es la entrada al ecosistema)</td></tr><tr><td>H3 Agente WhatsApp con IA</td><td>$247</td><td>$97/mes</td><td>CRM (H2) obligatorio</td></tr><tr><td>H4 Web Conectada</td><td>$397</td><td>$37/mes</td><td>CRM (H2) obligatorio</td></tr></tbody></table>
+<hr>
+<h2>BUNDLES DEL ECOSISTEMA</h2>
+<h3>BUNDLE CORE STARTER — CRM + Smart Ads</h3>
+<em>Para el emprendedor que quiere saber si sus campañas están funcionando y tener el sistema de seguimiento.</em>
+<table><thead><tr><th>Precio</th><th>vs. Individual</th></tr></thead><tbody><tr><td>Setup</td><td><strong>$297</strong></td><td>Ahorra $47 vs. separados ($344)</td></tr><tr><td>Mensualidad</td><td><strong>$107/mes</strong></td><td>Ahorra $17/mes vs. separados ($124)</td></tr></tbody></table>
+<h3>BUNDLE CORE GROWTH — CRM + Smart Ads + Agente WhatsApp</h3>
+<em>Para el emprendedor que ya invierte en publicidad y recibe leads por WhatsApp.</em>
+<table><thead><tr><th>Precio</th><th>vs. Individual</th></tr></thead><tbody><tr><td>Setup</td><td><strong>$497</strong></td><td>Ahorra $94 vs. separados ($591)</td></tr><tr><td>Mensualidad</td><td><strong>$197/mes</strong></td><td>Ahorra $24/mes vs. separados ($221)</td></tr></tbody></table>
+<h3>BUNDLE CORE FULL — Las 4 herramientas</h3>
+<em>El ecosistema completo: campañas detectadas + leads atendidos + clientes priorizados + web conectada.</em>
+<table><thead><tr><th>Precio</th><th>vs. Individual</th></tr></thead><tbody><tr><td>Setup</td><td><strong>$797</strong></td><td>Ahorra $191 vs. separados ($988)</td></tr><tr><td>Mensualidad</td><td><strong>$227/mes</strong></td><td>Ahorra $31/mes vs. separados ($258)</td></tr></tbody></table>
+<p><strong>Nota sobre los bundles:</strong><br>El ahorro no es el argumento central de los bundles. El argumento es la integración: las 4 herramientas conectadas generan más valor que la suma de las partes. Un lead captado por el Agente WhatsApp entra al CRM y el Smart Ads identifica qué campaña generó ese lead. La web conectada cierra el círculo. Eso no ocurre si se contratan herramientas separadas de diferentes proveedores.</p>
+<hr>
+<h2>ESCALERA DE ENTRADA AL ECOSISTEMA</h2>
+<pre><code>ENTRADA RECOMENDADA: H2 — CRM con IA ($147 setup · $57/mes)
+  ↓
+  Razón: Es la herramienta que conecta las demás.
+         Sin CRM, el Agente WhatsApp no registra leads.
+         Sin CRM, la Web Conectada no captura en el sistema.
+         El CRM es la infraestructura base del ecosistema.
+<p>SEGUNDA HERRAMIENTA SEGÚN PERFIL:<br>  · Si invierte en Meta Ads → agregar H1 Smart Ads ($197 setup)<br>  · Si recibe leads por WhatsApp → agregar H3 Agente WhatsApp ($247 setup)<br>  · Si no tiene web conectada → agregar H4 Web Conectada ($397 setup)</p>
+<p>ECOSISTEMA COMPLETO → Bundle Core Full<br>  Cuando el cliente tiene las primeras 2 herramientas activas y<br>  el sistema está demostrando valor → proponer el bundle completo</code></pre></p>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agente: Arquitecto de Producto (16)</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Siguiente: Arquitecto de Oferta (17) — escalera de valor y propuesta comercial</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

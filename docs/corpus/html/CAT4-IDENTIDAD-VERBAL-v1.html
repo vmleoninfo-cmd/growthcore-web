@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAT.4 — Identidad Verbal · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">CAT.4 — Identidad Verbal</div>
+  <div class="doc-subtitle">GROWTH CORE · Vocabulario · Frases · Prohibiciones</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>CAT.4 — IDENTIDAD VERBAL DE GROWTH CORE</h1>
+<h2>Vocabulario canónico · Frases fundacionales · Prohibiciones · Transformaciones</h2>
+<pre><code>cat_id:         CAT4-IDENTIDAD-VERBAL-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agentes:        Guardián de Voz (10) · Glosario Linter
+dependencias:   CAT1 · CAT2 · CAT3
+validado_por:   Sistema de Validación (11)
+estado:         APROBADO — base para CAT.5 y toda producción de contenido</code></pre>
+<hr>
+<blockquote><p>CAT.4 es el diccionario operativo del ecosistema.</p></blockquote>
+<blockquote><p>Define qué palabras pertenecen a Growth Core, cuáles están prohibidas,</p></blockquote>
+<blockquote><p>cómo se nombran las herramientas, cómo se habla del cliente y de los resultados.</p></blockquote>
+<blockquote><p>Ninguna pieza de comunicación se produce sin este documento como referencia activa.</p></blockquote>
+<hr>
+<h2>1. VOCABULARIO CANÓNICO</h2>
+<h3>Verbos del sistema — los que Growth Core usa como propios</h3>
+<table><thead><tr><th>Verbo</th><th>Por qué pertenece al sistema</th></tr></thead><tbody><tr><td><strong>Detectar</strong></td><td>Verbo central — deriva del Pilar 1. Growth Core detecta antes de actuar</td></tr><tr><td><strong>Identificar</strong></td><td>Sinónimo preciso de detectar para variación — sin perder especificidad</td></tr><tr><td><strong>Alertar</strong></td><td>Acción del sistema hacia el emprendedor — activa, no pasiva</td></tr><tr><td><strong>Priorizar</strong></td><td>Pilar 4 — el sistema ordena qué atender primero</td></tr><tr><td><strong>Calificar</strong></td><td>Aplicado a leads — diferencia el agente de WhatsApp de un bot</td></tr><tr><td><strong>Registrar</strong></td><td>El sistema captura datos de manera automática y estructurada</td></tr><tr><td><strong>Instalar</strong></td><td>Pilar 2 — Growth Core instala, no el cliente configura</td></tr><tr><td><strong>Conectar</strong></td><td>Pilar 3 — las herramientas se conectan entre sí</td></tr><tr><td><strong>Operar</strong></td><td>El sistema opera en el negocio — no "funciona", opera</td></tr><tr><td><strong>Integrar</strong></td><td>Pilar 3 — datos y herramientas integradas</td></tr><tr><td><strong>Entrenar</strong></td><td>Específico para el Agente WhatsApp — el agente se entrena con el negocio del cliente</td></tr></tbody></table>
+<h3>Sustantivos del sistema — los que definen la identidad del ecosistema</h3>
+<table><thead><tr><th>Sustantivo</th><th>Uso correcto</th></tr></thead><tbody><tr><td><strong>Sistema operativo comercial</strong></td><td>Descriptor central de qué es Growth Core como conjunto</td></tr><tr><td><strong>Cerebro operativo</strong></td><td>Metáfora canónica del ADN — solo cuando se quiere transmitir la idea de inteligencia aplicada</td></tr><tr><td><strong>Ecosistema</strong></td><td>Cómo se nombra el conjunto de las 4 herramientas — no "plataforma" ni "suite"</td></tr><tr><td><strong>Infraestructura</strong></td><td>Describe lo que Growth Core instala en el negocio del cliente</td></tr><tr><td><strong>Diagnóstico</strong></td><td>El proceso de identificar el problema antes de cualquier solución</td></tr><tr><td><strong>Acción concreta</strong></td><td>El output del sistema — siempre concreta, nunca abstracta</td></tr><tr><td><strong>Acción prioritaria</strong></td><td>Cuando hay múltiples acciones posibles, el sistema prioriza una</td></tr><tr><td><strong>Cuello de botella</strong></td><td>El problema específico que más bloquea el crecimiento del negocio</td></tr><tr><td><strong>Score</strong></td><td>Válido cuando se explica su escala y lo que activa — no como métrica sola</td></tr><tr><td><strong>Flujo de ventas</strong></td><td>Preferible a "pipeline" para el segmento objetivo</td></tr><tr><td><strong>Oportunidad perdida</strong></td><td>Describe los leads, clientes o presupuesto que se pierde sin sistema</td></tr><tr><td><strong>Onboarding</strong></td><td>El proceso de instalación e implementación — no "configuración" ni "setup" al hablar con el cliente</td></tr></tbody></table>
+<h3>Adjetivos del sistema — los que describen el ecosistema y sus outputs</h3>
+<table><thead><tr><th>Adjetivo</th><th>Uso correcto</th></tr></thead><tbody><tr><td><strong>Específico/a</strong></td><td>Toda solución de Growth Core es específica — no genérica</td></tr><tr><td><strong>Concreto/a</strong></td><td>Toda acción entregada es concreta — no abstracta</td></tr><tr><td><strong>Instalado/a</strong></td><td>Las herramientas se entregan instaladas — no "disponibles" ni "accesibles"</td></tr><tr><td><strong>Conectado/a</strong></td><td>Las herramientas y los datos del cliente están conectados</td></tr><tr><td><strong>Integrado/a</strong></td><td>El ecosistema funciona integrado — no como herramientas aisladas</td></tr><tr><td><strong>Entrenado/a</strong></td><td>El Agente WhatsApp se entrega entrenado para el negocio</td></tr><tr><td><strong>Accionable</strong></td><td>Los datos del sistema producen acciones — no reportes para contemplar</td></tr></tbody></table>
+<hr>
+<h2>2. FRASES FUNDACIONALES</h2>
+<p>Estas frases describen Growth Core en sus diferentes niveles. Se pueden usar directamente o como base de variaciones. No se reemplazan por sinónimos genéricos.</p>
+<h3>Cómo describir qué ES Growth Core</h3>
+<blockquote><p>"Growth Core es el sistema operativo de tu negocio."</p></blockquote>
+<blockquote><p>"Un cerebro que detecta dónde se pierden oportunidades y te dice qué hacer."</p></blockquote>
+<blockquote><p>"Infraestructura comercial instalada en tu negocio — sin que toques código."</p></blockquote>
+<blockquote><p>"El sistema que conecta tus campañas, leads y clientes en un solo lugar con inteligencia."</p></blockquote>
+<h3>Cómo describir qué HACE Growth Core</h3>
+<blockquote><p>"Detecta qué está fallando antes de que afecte tus resultados."</p></blockquote>
+<blockquote><p>"Entrega la acción concreta que resuelve cada problema que detecta."</p></blockquote>
+<blockquote><p>"Responde leads en segundos mientras tú atiendes otro cliente."</p></blockquote>
+<blockquote><p>"Sabe cuándo y cómo contactar cada cliente para cerrar más ventas."</p></blockquote>
+<h3>Cómo describir PARA QUIÉN es Growth Core</h3>
+<blockquote><p>"Para emprendedores que ya tienen clientes y campañas, y sienten que están dejando dinero sobre la mesa."</p></blockquote>
+<blockquote><p>"Para negocios que no tienen equipo técnico pero necesitan que el sistema funcione igual."</p></blockquote>
+<blockquote><p>"Para quienes ya invierten en publicidad y necesitan saber si esa inversión está trabajando."</p></blockquote>
+<h3>Cómo describir la DIFERENCIA de Growth Core</h3>
+<blockquote><p>"No es un CRM que configuras — es un sistema que opera en tu negocio desde el primer día."</p></blockquote>
+<blockquote><p>"No gestionamos tus campañas — te damos el sistema para que tus campañas trabajen mejor solas."</p></blockquote>
+<blockquote><p>"No es un bot de respuestas — es un agente entrenado con el guion de ventas de tu negocio."</p></blockquote>
+<hr>
+<h2>3. NAMING DE LAS HERRAMIENTAS</h2>
+<h3>Nombres oficiales y cómo usarlos</h3>
+<table><thead><tr><th>Herramienta</th><th>Nombre oficial</th><th>Descriptor canónico</th></tr></thead><tbody><tr><td>H1</td><td><strong>Smart Ads Dashboard</strong></td><td>"detecta campañas que desperdician presupuesto · score 0-100 con acción prioritaria"</td></tr><tr><td>H2</td><td><strong>CRM con IA</strong></td><td>"detecta qué clientes tienen mayor probabilidad de cierre · dice cuándo y cómo actuar"</td></tr><tr><td>H3</td><td><strong>Agente WhatsApp con IA</strong></td><td>"responde, califica y registra leads en WhatsApp de forma automática · entrenado para tu negocio"</td></tr><tr><td>H4</td><td><strong>Página Web Conectada</strong></td><td>"landing lista en 2 semanas · conectada al CRM desde el día 1"</td></tr></tbody></table>
+<h3>Reglas de naming</h3>
+<ul><li>Usar el nombre oficial completo en primera mención dentro de cualquier pieza</li>
+<li>En menciones posteriores: versión corta ("Smart Ads", "el CRM", "el agente", "tu web")</li>
+<li><strong>Nunca:</strong> "el dashboard de ads", "el bot de WhatsApp", "la plataforma CRM", "el sitio web"</li>
+<li><strong>Nunca:</strong> nombrar la herramienta por su función técnica sin el diferenciador ("el dashboard" a secas)</li>
+</ul>
+<hr>
+<h2>4. CÓMO HABLAR DEL CLIENTE</h2>
+<h3>Formas correctas de referirse al cliente objetivo</h3>
+<table><thead><tr><th>Forma</th><th>Uso</th></tr></thead><tbody><tr><td><strong>"Tu negocio"</strong></td><td>Forma primaria — crea proximidad y especificidad</td></tr><tr><td><strong>"Emprendedor"</strong></td><td>Para contenido de captación donde no hay relación previa</td></tr><tr><td><strong>"Dueño del negocio"</strong></td><td>Para contextos donde se quiere mostrar autonomía y responsabilidad del cliente</td></tr><tr><td><strong>"Tu equipo"</strong></td><td>Cuando la empresa tiene más de 1 persona y se quiere hablar de adopción</td></tr></tbody></table>
+<h3>Formas prohibidas de referirse al cliente</h3>
+<table><thead><tr><th>Prohibido</th><th>Por qué</th><th>Alternativa</th></tr></thead><tbody><tr><td>"Pequeña empresa"</td><td>Suena diminutivo — el cliente no se ve a sí mismo como pequeño</td><td>"Negocio de servicios" / "tu negocio"</td></tr><tr><td>"Usuario"</td><td>Lenguaje de software-as-a-service genérico — no de sistema instalado</td><td>"Tú" / "tu equipo"</td></tr><tr><td>"Cliente final"</td><td>Jerga interna que no debe llegar a la comunicación externa</td><td>"El cliente de tu negocio"</td></tr><tr><td>"PYME"</td><td>Etiqueta burocrática — no genera identificación</td><td>"Negocio con equipo pequeño"</td></tr></tbody></table>
+<hr>
+<h2>5. CÓMO HABLAR DE LOS RESULTADOS</h2>
+<h3>Regla central: resultado anclado al problema</h3>
+<p>No se comunica resultado sin el problema que lo genera. El resultado no es una promesa — es la consecuencia observable de detectar y resolver un problema específico.</p>
+<p><strong>Estructura correcta:</strong><br><blockquote><p>"Smart Ads detectó que [herramienta X] estaba desperdiciando [porcentaje] del presupuesto en clics de baja calidad. Al redirigir ese presupuesto, los leads calificados de MOVE aumentaron [número] en [tiempo]."</p></blockquote></p>
+<p><strong>Estructura prohibida:</strong><br><blockquote><p>"Con Growth Core, nuestros clientes aumentan sus ventas en más del 50%."</p></blockquote></p>
+<h3>Cómo citar resultados sin prometer</h3>
+<ul><li>Con cliente real nombrado: "MOVE — los datos de monitoreo mostraron X en Y semanas"</li>
+<li>Sin cliente nombrado: "En negocios con este perfil, el sistema detecta [problema] en los primeros [tiempo]"</li>
+<li>Nunca: porcentajes de mejora sin fuente, contexto o condición</li>
+</ul>
+<h3>Vocabulario de resultados por tipo</h3>
+<table><thead><tr><th>Tipo de resultado</th><th>Vocabulario canónico</th><th>Vocabulario prohibido</th></tr></thead><tbody><tr><td>Leads</td><td>"leads calificados" · "leads respondidos a tiempo" · "leads registrados"</td><td>"más leads" · "leads explosivos" · "leads ilimitados"</td></tr><tr><td>Campañas</td><td>"presupuesto recuperado" · "alerta antes de pérdida" · "score optimizado"</td><td>"campañas exitosas" · "ROI astronómico" · "campañas que convierten"</td></tr><tr><td>Clientes</td><td>"clientes priorizados" · "seguimiento sistemático" · "cierre identificado"</td><td>"más clientes" · "clientes felices" · "retención perfecta"</td></tr><tr><td>Tiempo</td><td>"mientras tú atiendes otro cliente" · "en los primeros 30 segundos" · "antes de que afecte resultados"</td><td>"ahorra tiempo infinito" · "trabaja menos" · "automatización total"</td></tr><tr><td>Dinero</td><td>"presupuesto no desperdiciado" · "inversión que trabaja"</td><td>"ingresos pasivos" · "gana más dinero" · "riqueza automatizada"</td></tr></tbody></table>
+<hr>
+<h2>6. PALABRAS Y FRASES PROHIBIDAS</h2>
+<h3>Nivel 1 — Prohibición absoluta (nunca en ningún contexto)</h3>
+<table><thead><tr><th>Prohibido</th><th>Razón</th><th>Alternativa</th></tr></thead><tbody><tr><td>"Ingresos pasivos"</td><td>Lenguaje de promesa vacía — representa exactamente lo que Growth Core no es</td><td>"Tu sistema opera mientras tú estás en otra parte"</td></tr><tr><td>"Desde la comodidad de tu hogar"</td><td>Aspiración personal del fundador proyectada al cliente</td><td>"Tu agente responde leads aunque estés en otra reunión"</td></tr><tr><td>"Trabaja menos, gana más"</td><td>Promesa que destruye credibilidad con el público objetivo</td><td>Describe el problema específico que se elimina</td></tr><tr><td>"Escala ilimitadamente"</td><td>Promesa sin condiciones ni mecanismo</td><td>"Crece el volumen de leads que puedes atender sin agregar personal"</td></tr><tr><td>"Revolución" / "Disruptivo" / "Game changer"</td><td>Hype sin sustancia — señal de que no hay argumento real</td><td>Describe qué hace diferente, específicamente</td></tr><tr><td>"Sin esfuerzo" / "Sin trabajo"</td><td>Irreal y contradice la implementación real</td><td>"Sin que toques código" / "sin aprender un software nuevo"</td></tr><tr><td>"Resultados garantizados"</td><td>Promesa incontrolable — crea expectativas sin base</td><td>"En negocios con este perfil, el sistema detecta X en Y tiempo"</td></tr></tbody></table>
+<h3>Nivel 2 — Prohibición contextual (no como argumento central)</h3>
+<table><thead><tr><th>Prohibido como argumento central</th><th>Cuándo sí puede usarse</th><th>Cómo</th></tr></thead><tbody><tr><td>"Personalizado"</td><td>Solo como descriptor secundario, nunca como diferenciador</td><td>"CRM configurado específicamente para tu tipo de negocio"</td></tr><tr><td>"Optimizar"</td><td>Solo cuando se especifica qué y cómo</td><td>"Smart Ads optimiza la distribución del presupuesto entre creativos cuando detecta CTR en caída"</td></tr><tr><td>"Plataforma"</td><td>Solo para referirse a Meta, WhatsApp, etc. — nunca para Growth Core</td><td>"Growth Core se conecta con la plataforma de Meta Ads"</td></tr><tr><td>"Automatizar" como promesa</td><td>Solo como descriptor de función específica</td><td>"El agente automatiza la respuesta inicial en WhatsApp con el guion de tu negocio"</td></tr><tr><td>"Potenciar"</td><td>Solo si va seguido de qué se potencia y cómo</td><td>Si no hay especificidad, reemplazar por el verbo de acción</td></tr></tbody></table>
+<h3>Nivel 3 — Vocabulario de agencia prohibido para Growth Core</h3>
+<p>Estas palabras son correctas en otros contextos pero no pertenecen al ADN de Growth Core:<br><ul><li>"Estrategia de marketing" — Growth Core no es estrategia, es sistema</li><br><li>"Branding" — no es servicio de Growth Core</li><br><li>"Community management" — no es servicio de Growth Core</li><br><li>"Funnel" — usar "flujo de ventas" o "proceso de captación"</li><br><li>"Lead magnet" — usar "contenido de captación" o "primera conversación"</li><br><li>"Onboarding" en comunicación externa al cliente — usar "instalación" o "proceso de implementación"</li><br></ul><br><hr></p>
+<h2>7. REGISTRO DE ESCRITURA</h2>
+<h3>Estructura de oración preferida</h3>
+<ul><li>Oraciones cortas. Una idea por oración.</li>
+<li>Sujeto activo: el sistema hace, detecta, entrega — no "se puede hacer", "se detecta"</li>
+<li>Verbo al inicio cuando hay instrucción: "Detecta. Actúa. Crece." — no "Tu negocio podría crecer si detectas y actúas"</li>
+<li>Sin gerundios acumulados: no "estando conectado y funcionando y detectando"</li>
+</ul>
+<h3>Longitud por tipo de pieza</h3>
+<table><thead><tr><th>Pieza</th><th>Longitud ideal</th></tr></thead><tbody><tr><td>Post de redes (texto)</td><td>80-150 palabras — un problema, un mecanismo, una acción</td></tr><tr><td>Título o hook</td><td>10-15 palabras — uno solo punto, preciso</td></tr><tr><td>Descripción de herramienta</td><td>2-3 oraciones — qué detecta + qué entrega + en qué tiempo</td></tr><tr><td>Email de informe (Smart Ads)</td><td>150-250 palabras — score + alertas + acciones</td></tr><tr><td>Propuesta a cliente</td><td>Sin límite — pero cada sección en no más de un párrafo</td></tr></tbody></table>
+<h3>Puntuación y formato</h3>
+<ul><li>Guiones (—) para clarificar, no para decorar</li>
+<li>Negritas para el concepto central de cada párrafo — no para decoración</li>
+<li>Listas solo cuando hay 3 o más elementos paralelos — no para fragmentar ideas que fluyen en prosa</li>
+<li>Mayúsculas en nombres propios del sistema: Smart Ads Dashboard, Agente WhatsApp con IA, CRM con IA</li>
+</ul>
+<hr>
+<h2>8. TRANSFORMACIONES VERBALES — ANTES Y DESPUÉS</h2>
+<p>Estos ejemplos muestran cómo suena un texto viciado vs. un texto alineado con la identidad verbal de Growth Core.</p>
+<h3>Descripción de Smart Ads</h3>
+<p><strong>Antes (viciado):</strong><br><em>"Smart Ads Systems conecta con los canales de ventas y potencia campañas."</em></p>
+<p><strong>Después (alineado):</strong><br><em>"Smart Ads detecta qué campaña está desperdiciando presupuesto antes de que afecte tus resultados del mes. Score 0-100 con la acción exacta que debes tomar esa semana."</em></p>
+<hr>
+<h3>Objetivo del negocio</h3>
+<p><strong>Antes (viciado):</strong><br><em>"Ingresos extras desde la comodidad de tu hogar con la ayuda de la inteligencia artificial."</em></p>
+<p><strong>Después (alineado):</strong><br><em>"Tu negocio recibe, califica y registra leads mientras tú estás atendiendo otro cliente. Sin respuestas perdidas. Sin tiempo manual."</em></p>
+<hr>
+<h3>Descripción del CRM</h3>
+<p><strong>Antes (viciado):</strong><br><em>"CRM personalizado para seguimiento de ventas y gestión de clientes."</em></p>
+<p><strong>Después (alineado):</strong><br><em>"Tu CRM detecta qué clientes tienen mayor probabilidad de cierre esta semana. Te dice cuándo llamar y qué decir — sin adivinar."</em></p>
+<hr>
+<h3>Propuesta de valor general</h3>
+<p><strong>Antes (viciado):</strong><br><em>"Optimiza tus ingresos y flujo de clientes, genera leads, detecta oportunidades, analiza datos y conecta campañas en un solo sistema."</em></p>
+<p><strong>Después (alineado):</strong><br><em>"Growth Core conecta tus campañas, leads y clientes en un solo sistema que detecta dónde se está perdiendo dinero y te dice qué hacer. Sin dashboards vacíos. Sin adivinar qué está pasando."</em></p>
+<hr>
+<h3>Agente WhatsApp</h3>
+<p><strong>Antes (viciado):</strong><br><em>"Bot de WhatsApp personalizado para tu negocio."</em></p>
+<p><strong>Después (alineado):</strong><br><em>"Agente de WhatsApp entrenado con el guion de ventas de tu negocio. Responde en segundos, califica si el lead vale tu tiempo y lo registra directo en tu CRM. Nunca pierde un contacto."</em></p>
+<hr>
+<h2>9. GLOSARIO DE TÉRMINOS INTERNOS VS. EXTERNOS</h2>
+<p>Algunos términos se usan internamente en el sistema HAYDE o entre Growth Core y Evoluciona Inteligente, pero no deben aparecer en comunicación externa al cliente final.</p>
+<table><thead><tr><th>Término interno</th><th>Cómo se traduce en comunicación externa</th></tr></thead><tbody><tr><td>Onboarding</td><td>"proceso de instalación" / "primeras semanas de implementación"</td></tr><tr><td>Setup</td><td>"instalación" / "configuración inicial por nuestro equipo"</td></tr><tr><td>Pipeline</td><td>"flujo de ventas" / "proceso de captación y cierre"</td></tr><tr><td>Score de dispositivo</td><td>No aplica en comunicación externa</td></tr><tr><td>Variable_CAPACIDAD</td><td>No aplica en comunicación externa</td></tr><tr><td>Herramienta Tipo 1/2/3</td><td>No aplica en comunicación externa</td></tr><tr><td>Gate</td><td>No aplica en comunicación externa</td></tr><tr><td>CAT.1-5</td><td>No aplica en comunicación externa</td></tr></tbody></table>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agentes: Guardián de Voz (10) · Glosario Linter</em><br><em>Validado por: Sistema de Validación (11)</em><br><em>Siguiente: CAT.5 — Arquitectura de contenido de GROWTH CORE</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>

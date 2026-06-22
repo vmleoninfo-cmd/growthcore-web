@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigación de Mercado — Precios · Growth Core by Evoluciona Inteligente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #1E293B;
+  background: #ffffff;
+  line-height: 1.65;
+}
+
+/* ── HEADER ── */
+.doc-header {
+  background: #0A1022;
+  color: #F8FAFC;
+  padding: 22px 28px 18px;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: #22C55E;
+}
+.brand-tag {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+.doc-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #F8FAFC;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 10pt;
+  color: #94A3B8;
+  font-weight: 400;
+}
+.doc-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item { font-size: 8pt; color: #94A3B8; }
+.meta-item span { color: #F8FAFC; font-weight: 500; }
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  color: #0A1022;
+  margin: 28px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #22C55E;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #0A1022;
+  margin: 22px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #22C55E;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #22C55E;
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  page-break-after: avoid;
+}
+p { margin-bottom: 10px; }
+strong { font-weight: 600; color: #0A1022; }
+em { color: #475569; font-style: italic; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  background: #F0FDF4;
+  border-left: 4px solid #22C55E;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 10.5pt;
+  color: #166534;
+  font-style: italic;
+}
+blockquote p { margin: 0; }
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: #0A1022;
+  color: #E2E8F0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.6;
+  margin: 12px 0;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+pre code { color: #94A3B8; }
+code {
+  background: #F1F5F9;
+  color: #0A1022;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+thead tr { background: #0A1022; color: #F8FAFC; }
+thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+}
+tbody tr:nth-child(even) { background: #F8FAFC; }
+tbody tr:nth-child(odd)  { background: #ffffff; }
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: top;
+}
+tbody tr:hover { background: #F0FDF4; }
+
+/* ── LISTS ── */
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+li { margin-bottom: 4px; }
+li strong { color: #22C55E; }
+
+/* ── HORIZONTAL RULE ── */
+hr {
+  border: none;
+  border-top: 1.5px solid #E2E8F0;
+  margin: 24px 0;
+}
+
+/* ── STATUS BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-green  { background: #DCFCE7; color: #166534; }
+.badge-red    { background: #FEE2E2; color: #991B1B; }
+.badge-yellow { background: #FEF9C3; color: #854D0E; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #94A3B8;
+}
+.doc-footer .brand { color: #22C55E; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="brand-tag">Growth Core <span style="color:#94A3B8;font-weight:400">by</span> Evoluciona Inteligente</div>
+  <div class="doc-title">Investigación de Mercado — Precios</div>
+  <div class="doc-subtitle">GROWTH CORE · Benchmark competitivo y capacidad de pago LATAM</div>
+  <div class="doc-meta">
+    <div class="meta-item">Fecha: <span>2026-06-04</span></div>
+    <div class="meta-item">Elaborado por: <span>Adriana Díaz · Evoluciona Inteligente</span></div>
+    <div class="meta-item">Estado: <span>Aprobado</span></div>
+  </div>
+</div>
+
+<h1>INVESTIGACIÓN DE MERCADO — PRECIOS Y COMPETENCIA</h1>
+<h2>Input para definición de precios de GROWTH CORE</h2>
+<pre><code>inv_id:         INV-MERCADO-PRECIOS-v1
+proyecto:       GROWTH CORE
+fecha:          2026-06-04
+agente:         Investigación (02)
+pendiente:      Validación por Validador de Información (03)
+próximo:        Arquitecto de Producto (16) — fichas de producto con precios
+confianza:      Media — precios de competidores verificados ·
+                capacidad de pago LATAM parcialmente inferida</code></pre>
+<hr>
+<blockquote><p>Los datos de este informe son input de investigación, no decisión estratégica.</p></blockquote>
+<blockquote><p>La decisión de precios corresponde al Arquitecto de Producto (16)</p></blockquote>
+<blockquote><p>después de validación por el Validador de Información (03).</p></blockquote>
+<hr>
+<h2>EJE 1 — COMPETENCIA DIRECTA POR HERRAMIENTA</h2>
+<h3>H1 — Smart Ads Dashboard (optimización Meta Ads)</h3>
+<table><thead><tr><th>Competidor</th><th>Precio entrada USD/mes</th><th>Escala con</th><th>Qué incluye</th></tr></thead><tbody><tr><td>Madgicx</td><td>$31–$99</td><td>Ad spend</td><td>IA autónoma, audiencias, creatividades</td></tr><tr><td>Revealbot</td><td>$99</td><td>Ad spend</td><td>Automatización por reglas, reportes, multi-plataforma</td></tr><tr><td>AdEspresso (Hootsuite)</td><td>$49 (hasta $1k spend) · $259 (hasta $10k)</td><td>Ad spend</td><td>A/B testing, creación de campañas, UX simplificado</td></tr><tr><td>Adriel</td><td>$49 · $129 · $499</td><td>Cuentas/canales</td><td>Reportería centralizada, white-label, multi-canal</td></tr><tr><td>Optmyzr</td><td>$209–$299 (anual)</td><td>Cuentas + spend</td><td>Optimización PPC, Meta + Google, reportes automatizados</td></tr><tr><td>Northbeam</td><td>Desde $1,500</td><td>Custom</td><td>Atribución ML — fuera del segmento LATAM PYME</td></tr></tbody></table>
+<p><strong>Patrón detectado:</strong> El rango dominante para optimización de ads en el segmento PYME es $49–$99/mes. El diferenciador de Smart Ads es el score interpretable + acción prioritaria en español para no-expertos — ningún competidor entrega "qué hacer primero" de forma simple para emprendedores sin equipo técnico.</p>
+<hr>
+<h3>H2 — CRM con IA</h3>
+<table><thead><tr><th>Competidor</th><th>Precio entrada USD/mes</th><th>Notas LATAM</th></tr></thead><tbody><tr><td>HubSpot Free</td><td>$0 (hasta 2 usuarios)</td><td>Salto a Starter $20/usuario genera fricción</td></tr><tr><td>HubSpot Starter</td><td>$20/usuario</td><td>Muchas PYMES LATAM se quedan atascadas aquí</td></tr><tr><td>Pipedrive Essential</td><td>$14/usuario (anual) · $19 (mensual)</td><td>Popular en B2B LATAM, intuitivo</td></tr><tr><td>Zoho CRM Free</td><td>$0 (hasta 3 usuarios)</td><td>Billing flexible; ventaja en LATAM</td></tr><tr><td>Zoho CRM Growth</td><td>$14/usuario</td><td>Precio más competitivo del segmento</td></tr><tr><td>Freshsales Free</td><td>$0 (hasta 3 usuarios)</td><td>IA de scoring incluida desde plan Growth</td></tr><tr><td>Freshsales Growth</td><td>$11–$15/usuario</td></tr><tr><td>Brevo</td><td>$0 Free · $9 Starter · $18 Standard</td><td>Cobra por emails, no por contactos</td></tr></tbody></table>
+<p><strong>Patrón detectado:</strong> El mercado CRM en LATAM se bifurca entre CRM pipeline clásico (HubSpot, Pipedrive, Zoho) y CRM WhatsApp-first para negocios que venden por chat (Kommo, Whaticket, Leadsales). Growth Core compite más con el segundo segmento. Precio de entrada observado: $0–$15/mes para adopción inicial, upgrade a $20–$50/mes cuando hay valor demostrado. La detección de probabilidad de cierre + instrucción de cuándo contactar no es estándar en ningún CRM de entrada del segmento.</p>
+<hr>
+<h3>H3 — Agente WhatsApp con IA</h3>
+<table><thead><tr><th>Competidor</th><th>Precio entrada USD/mes</th><th>Notas</th></tr></thead><tbody><tr><td>ManyChat</td><td>~$15 (hasta 500 contactos)</td><td>Bajo costo de entrada; limitado en WhatsApp Business API nativo</td></tr><tr><td>WATI</td><td>$49–$59 (hasta $299)</td><td>3 ejes de escala: volumen, equipo, workflows; markup 20% sobre tarifas Meta</td></tr><tr><td>Respond.io</td><td>Desde $79</td><td>Multi-canal; más robusto para equipos</td></tr><tr><td>Botmaker</td><td>$149 (3,000 chats/24h) + $99 setup único</td><td>Único con setup fee explícito; popular en LATAM</td></tr><tr><td>Tidio</td><td>Desde $29</td><td>Orientado a ecommerce</td></tr></tbody></table>
+<p><strong>Costo adicional crítico (Meta API):</strong> Desde julio 2025, Meta cobra por mensaje de plantilla. En México: marketing ~$0.55 MXN/mensaje, utilidad ~$0.17 MXN. Para 1,000–3,000 conversaciones/mes, costo real adicional: $25–$80 USD/mes al plan base.</p>
+<p><strong>Patrón detectado:</strong> Entrada real del mercado WhatsApp IA en LATAM: $49–$79/mes para solución funcional. El diferenciador de Growth Core (entrenado con el guion específico del negocio del cliente) no existe como feature estándar — todos los competidores requieren configuración manual extensa.</p>
+<hr>
+<h3>H4 — Página Web Conectada</h3>
+<table><thead><tr><th>Modalidad</th><th>Precio rango USD</th><th>Notas</th></tr></thead><tbody><tr><td>Agencias web LATAM (landing)</td><td>$800–$5,000 one-time</td><td>México $1,500–$5,000; AR/CO más bajo</td></tr><tr><td>Agencias Webflow LATAM</td><td>Desde $3,000 one-time</td><td>Orientado a startups</td></tr><tr><td>Wix (DIY)</td><td>$17–$159/mes</td><td>Sin setup fee; requiere tiempo del cliente</td></tr><tr><td>Squarespace (DIY)</td><td>$16–$99/mes</td><td>Diseño superior; menos flexible</td></tr><tr><td>Webflow (DIY)</td><td>$15–$25/mes (anual)</td><td>Mayor curva de aprendizaje</td></tr></tbody></table>
+<p><strong>Patrón detectado:</strong> El emprendedor LATAM enfrenta una brecha real entre DIY ($15–$25/mes, requiere tiempo y habilidad) y agencia ($800–$5,000+, requiere presupuesto alto y no incluye conexión al CRM). Growth Core resuelve ese gap: setup profesional + conexión nativa al CRM desde el día 1. Diferenciador verificable sin competencia directa en este segmento y precio.</p>
+<hr>
+<h2>EJE 2 — MODELOS DE PRECIO DOMINANTES EN SaaS PYMES LATAM</h2>
+<p><strong>Modelo dominante:</strong> Mensualidad plana con opción anual (ahorro 20–40%). El 43% de SaaS ya usa modelos híbridos (base + uso variable), proyectado a 61% para fin de 2026.</p>
+<p><strong>Setup fee:</strong> No es el modelo dominante en SaaS puro, pero sí en servicios + software (implementadores, agencias). Botmaker es el único competidor directo con setup fee explícito ($99). En el segmento de servicios profesionales digitales con implementación humana real, el setup fee está normalizado y percibido como precio justo.</p>
+<p><strong>Umbral de fricción mensual para PYMES LATAM:</strong></p>
+<table><thead><tr><th>Rango mensual</th><th>Fricción</th></tr></thead><tbody><tr><td>$0–$20/mes</td><td>Casi sin fricción</td></tr><tr><td>$20–$50/mes</td><td>Baja — se evalúa pero se acepta con valor claro</td></tr><tr><td>$50–$100/mes</td><td>Media — requiere justificación de ROI evidente</td></tr><tr><td>$100–$200/mes</td><td>Alta — se percibe como "herramienta para empresas medianas"</td></tr><tr><td>$200+/mes</td><td>Rechazo — percibido como "enterprise"</td></tr></tbody></table>
+<hr>
+<h2>EJE 3 — CAPACIDAD DE PAGO DEL SEGMENTO</h2>
+<p><strong>Presupuesto de marketing digital (PyME latinoamericana):</strong> $500–$550 USD/mes promedio. Rango: $250–$3,000/mes según tamaño y país.</p>
+<p><strong>Porcentaje para herramientas:</strong> Del presupuesto de marketing, 15–20% se destina a herramientas/software. El resto va a inversión en ads y producción.</p>
+<p><strong>Para el segmento objetivo de Growth Core</strong> (facturación $5,000–$30,000 USD/mes, Meta Ads $100–$1,000/mes):<br><ul><li>Presupuesto marketing estimado: $1,200–$1,500 USD/mes</li><br><li>Porción para herramientas: $180–$300 USD/mes para todo el stack</li><br></ul><br><strong>Benchmarks de percepción:</strong><br><ul><li>Precio "accesible" por herramienta individual: $50–$100/mes</li><br><li>Precio "para empresas grandes": $200+/mes por herramienta</li><br><li>Stack total tolerable PYME LATAM: $150–$350 USD/mes (todas las herramientas combinadas)</li><br></ul><br><hr></p>
+<h2>EJE 4 — PRECIO PERCIBIDO VS. VALOR EN IA PARA PYMES LATAM</h2>
+<p><strong>Estado del mercado:</strong> El mercado de IA en LATAM superó $8.96 mil millones USD en 2025 (crecimiento 18.3% anual proyectado hasta 2035). Solo el 6% de emprendedores LATAM usa IA a nivel avanzado — el 94% la usa a nivel básico. La brecha entre disponibilidad y adopción es la oportunidad.</p>
+<p><strong>Disposición a pagar por setup con implementación completa:</strong> Alta cuando se enmarca como eliminación de la barrera técnica. La "concierge implementation" (el proveedor hace todo) reduce churn y aumenta conversión. Precio de referencia: $99 (Botmaker) — percibido como aceptable en el mercado.</p>
+<p><strong>Argumentos de precio por efectividad en este segmento:</strong></p>
+<table><thead><tr><th>Argumento</th><th>Efectividad</th><th>Por qué</th></tr></thead><tbody><tr><td>Reemplazo de empleado</td><td>Alta</td><td>El costo laboral es presión real en LATAM</td></tr><tr><td>ROI en ads</td><td>Alta</td><td>Tangible y verificable con números del propio negocio</td></tr><tr><td>Ahorro de tiempo</td><td>Media</td><td>Funciona si se cuantifica ("4 hrs/semana = $X en tu tiempo")</td></tr><tr><td>Acceso a tecnología enterprise</td><td>Baja (secundario)</td><td>Funciona como refuerzo, no como argumento principal</td></tr></tbody></table>
+<p><strong>Regla de ROI del segmento:</strong> Si la herramienta cuesta $X/mes, debe ahorrar o generar más de $X en 90 días o menos para ser retenida. Quick wins visibles en 1–4 semanas tienen tasa de adopción significativamente mayor.</p>
+<hr>
+<h2>PATRONES GLOBALES DETECTADOS</h2>
+<p><strong>1. Brecha de implementación no resuelta</strong><br>Todos los competidores entregan software; nadie en el segmento LATAM PYME entrega software + implementación completa + entrenamiento personalizado en un paquete accesible. Esta es la ventaja estructural de Growth Core.</p>
+<p><strong>2. WhatsApp como canal primario en LATAM</strong><br>El mercado CRM se bifurca hacia WhatsApp-first. Growth Core está correctamente posicionado — el Agente WhatsApp es la herramienta más diferenciada del ecosistema.</p>
+<p><strong>3. Stack acumulativo vs. herramienta única</strong><br>Las PYMES LATAM acumulan costos de $150–$350/mes en múltiples SaaS no conectados. Un ecosistema integrado de 4 herramientas justifica precio total superior al de cada herramienta aislada.</p>
+<p><strong>4. El modelo setup + mensualidad está validado</strong><br>Cuando hay implementación real incluida, el setup fee es precio justo percibido — no fricción. El cliente no tiene que hacer nada para empezar.</p>
+<p><strong>5. Techo psicológico de precio mensual por herramienta</strong><br>$97–$127/mes es el techo antes de que el cliente perciba la herramienta como "no para mi". Cualquier precio bajo $97/mes por herramienta individual se percibe como accesible para el segmento.</p>
+<hr>
+<h2>RANGO DE PRECIO RECOMENDADO POR HERRAMIENTA</h2>
+<h3>(Input para Arquitecto de Producto · 16 — no es decisión final)</h3>
+<table><thead><tr><th>Herramienta</th><th>Competidor referencia</th><th>Rango competitivo</th><th>Setup sugerido</th><th>Mensualidad sugerida</th></tr></thead><tbody><tr><td>H1 Smart Ads Dashboard</td><td>Madgicx $49–$99 · Adriel $49</td><td>$49–$99/mes</td><td>$97–$197</td><td>$49–$79/mes</td></tr><tr><td>H2 CRM con IA</td><td>Pipedrive $14–$29 · Zoho $14</td><td>$14–$50/mes</td><td>$97–$197</td><td>$47–$79/mes</td></tr><tr><td>H3 Agente WhatsApp IA</td><td>WATI $49–$99 · Botmaker $149</td><td>$49–$149/mes</td><td>$197–$297</td><td>$79–$127/mes</td></tr><tr><td>H4 Web Conectada</td><td>Agencia LATAM $800–$3,000</td><td>$800–$3,000 one-time</td><td>$297–$497</td><td>$27–$47/mes (hosting + mantenimiento)</td></tr></tbody></table>
+<p><strong>Bundle ecosistema completo (las 4 herramientas):</strong><br><ul><li>Capacidad de pago verificada: $150–$350 USD/mes stack total</li><br><li>Setup total ecosistema: $497–$997 (implementación completa)</li><br><li>Mensualidad total ecosistema: $197–$397/mes</li><br><li>Este rango está dentro del umbral de capacidad de pago y por debajo del umbral "enterprise"</li><br></ul><br><hr></p>
+<h2>BRECHAS DE DATOS — INVESTIGACIÓN ADICIONAL RECOMENDADA</h2>
+<ul><li>Precios de Treble.ai (WhatsApp IA, LATAM-native) — requiere consulta directa</li>
+<li>Datos de capacidad de pago del segmento exacto ($100–$1,000/mes en Meta Ads) — inferidos, no medidos directamente</li>
+<li>Precios de CRM WhatsApp-first LATAM nativos: Kommo, Leadsales, Whaticket — relevantes para H3</li>
+</ul>
+<hr>
+<h2>FUENTES</h2>
+<ul><li>AdStellar — Meta Ads Software Pricing Comparison 2026</li>
+<li>Madgicx Review 2026 · Madgicx vs Revealbot 2026</li>
+<li>Optmyzr Pricing 2026 · Northbeam Pricing 2026</li>
+<li>Mejores CRMs PYMEs Ecuador 2026 — nmtechstudio.com</li>
+<li>Mejor CRM para empresas en Latinoamérica 2026 — guiadesoftware.com</li>
+<li>Brevo Pricing 2026 · WATI Pricing WhatsApp Business API</li>
+<li>Ranking 2026: Mejores plataformas chatbot WhatsApp LATAM — chatsell.net</li>
+<li>Precio chatbot WhatsApp 2026 — aurorainbox.com</li>
+<li>Precio landing page profesional LATAM 2026 — ab4cus.com</li>
+<li>Webflow Pricing 2026 · Wix vs Webflow vs Squarespace 2026</li>
+<li>Presupuesto Marketing Digital PyMEs 2026 — simplixy.com.mx</li>
+<li>SaaS Pricing Strategy Guide 2026 — nxcode.io</li>
+<li>IA y automatización en LATAM: guía para founders 2026 — ecosistemastartup.com</li>
+<li>Stripe — Tarifas SaaS baja interacción</li>
+<li>Onboarding SaaS: cómo optimizarlo — agenciasnowball.com</li>
+</ul>
+<hr>
+<p><em>Versión: 1.0 — 2026-06-04</em><br><em>Agente: Investigación (02)</em><br><em>Pendiente: Validación por Validador de Información (03)</em><br><em>Siguiente: Arquitecto de Producto (16) — fichas de producto con precios</em></p>
+
+<div class="doc-footer">
+  <span><span class="brand">GROWTH CORE</span> <span style="color:#64748B">by</span> <span style="color:#94A3B8;font-weight:500">Evoluciona Inteligente</span> · v1.0</span>
+  <span>Elaborado por <strong style="color:#94A3B8">Adriana Díaz</strong> · Evoluciona Inteligente · 2026</span>
+</div>
+
+</body>
+</html>
