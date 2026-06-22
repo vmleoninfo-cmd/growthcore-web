@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Search, Settings, TrendingUp } from "lucide-react";
 
 const steps = [
@@ -9,31 +10,39 @@ const steps = [
     icon: Search,
     title: "Diagnóstico",
     description:
-      "Analizamos tu negocio, tus campañas actuales y tu flujo de ventas. En una llamada de 30 minutos definimos exactamente qué herramientas necesitas y cómo las implementamos.",
-    duration: "Semana 1",
+      "Analizamos tu negocio, tus campañas actuales y tu flujo de ventas. Identificamos el cuello de botella más urgente y las herramientas que lo resuelven. El diagnóstico es gratis.",
+    duration: "Gratis · 24h hábiles",
   },
   {
     number: "02",
     icon: Settings,
     title: "Implementación",
     description:
-      "Configuramos todo: tu dashboard de Meta Ads, el agente de WhatsApp, el CRM y tu web. Tú no tocas ningún código — nosotros lo hacemos todo por ti.",
-    duration: "Semanas 2-3",
+      "GrowthCore instala y conecta las herramientas de tu plan. Los tramos técnicos que controlamos los comprometemos en días hábiles. La activación final de WhatsApp depende de procesos de Meta (verificación de cuenta y aprobación de plantillas): proceso externo sin tiempo garantizado.",
+    duration: "Días hábiles (GrowthCore) · Meta sin SLA",
   },
   {
     number: "03",
     icon: TrendingUp,
-    title: "Resultados",
+    title: "Operación",
     description:
-      "Tu sistema funciona desde el primer día. Monitoreamos el rendimiento, ajustamos lo que sea necesario y te entregamos reportes claros cada semana.",
-    duration: "Desde semana 4",
+      "Tu sistema detecta problemas y entrega la acción exacta cada semana. Recibes un reporte con lo que se detectó, cuánto cuesta ignorarlo y qué hacer primero.",
+    duration: "Operación activa",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-24 bg-primary text-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="como-funciona" className="py-24 bg-primary text-white relative overflow-hidden">
+      <Image
+        src="/images/eco-action.png"
+        alt=""
+        aria-hidden
+        width={1376}
+        height={768}
+        className="pointer-events-none absolute right-0 bottom-0 w-[680px] max-w-none opacity-[0.10]"
+      />
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.span
@@ -51,9 +60,9 @@ export default function HowItWorks() {
             className="font-heading font-bold text-white mb-4"
             style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
           >
-            De cero a sistema funcionando
+            De tu operación actual
             <br />
-            en menos de un mes.
+            a un sistema que trabaja por ti.
           </motion.h2>
         </div>
 

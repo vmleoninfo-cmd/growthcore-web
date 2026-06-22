@@ -1,15 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 const testimonials = [
   {
     quote:
-      "Pasamos de seguir leads en WhatsApp y Excel a tener un sistema que nos dice exactamente qué campaña está funcionando y qué hacer con cada lead. En dos meses ya éramos más eficientes.",
-    author: "Move",
-    role: "Empresa de logística de última milla",
-    metric: "+40% leads contactados a tiempo",
+      "Pasamos de seguir leads en WhatsApp y Excel a tener un sistema que nos avisa qué campaña falla y qué lead necesita acción hoy. Los leads de nuestras campañas Meta entran al CRM automáticamente.",
+    author: "MOVE",
+    role: "Logística última milla · Santiago, Chile",
+    metric: "Primer piloto en producción",
   },
 ];
 
@@ -24,7 +23,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="inline-block text-accent font-semibold text-sm uppercase tracking-widest mb-4"
           >
-            Resultados reales
+            Piloto en producción
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +32,7 @@ export default function Testimonials() {
             className="font-heading font-bold text-foreground"
             style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
           >
-            Lo que dicen nuestros clientes.
+            MOVE — primer caso real del sistema.
           </motion.h2>
         </div>
 
@@ -47,21 +46,22 @@ export default function Testimonials() {
               transition={{ duration: 0.5 }}
               className="max-w-2xl bg-card border border-border rounded-2xl p-10 relative"
             >
-              <Quote className="w-8 h-8 text-accent/30 mb-6" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/move-logo.png" alt="MOVE Última Milla" className="h-10 w-auto mb-6" />
 
-              {/* Métricas antes/después */}
+              {/* Métricas reales del caso */}
               <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-border">
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-accent">+40%</p>
-                  <p className="text-xs text-muted-foreground mt-1">leads contactados a tiempo</p>
+                  <p className="text-2xl font-bold text-accent">$2.000</p>
+                  <p className="text-xs text-muted-foreground mt-1">costo por lead (CLP)</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-accent">−18%</p>
-                  <p className="text-xs text-muted-foreground mt-1">costo por lead (CPL)</p>
+                  <p className="text-2xl font-bold text-accent">En vivo</p>
+                  <p className="text-xs text-muted-foreground mt-1">dashboard de campañas</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-accent">−40%</p>
-                  <p className="text-xs text-muted-foreground mt-1">tiempo manual semanal</p>
+                  <p className="text-2xl font-bold text-accent">24/7</p>
+                  <p className="text-xs text-muted-foreground mt-1">monitoreo activo</p>
                 </div>
               </div>
 
