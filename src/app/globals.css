@@ -48,20 +48,20 @@
   --gc-gray-600:      #475569;
   --gc-gray-800:      #1E293B;
 
-  /* ── Tokens semánticos ── */
-  --background:       var(--gc-white);
-  --foreground:       var(--gc-navy);
-  --card:             #FFFFFF;
-  --card-foreground:  var(--gc-navy);
+  /* ── Tokens semánticos — dark-first (Future Systems) ── */
+  --background:       var(--gc-navy);
+  --foreground:       var(--gc-white);
+  --card:             var(--gc-navy-surface);
+  --card-foreground:  var(--gc-white);
   --primary:          var(--gc-navy);
   --primary-foreground: var(--gc-white);
   --secondary:        var(--gc-navy-mid);
   --secondary-foreground: var(--gc-white);
   --accent:           var(--gc-green);
   --accent-foreground: var(--gc-navy);
-  --muted:            #E2E8F0;
+  --muted:            var(--gc-gray-800);
   --muted-foreground: var(--gc-gray-400);
-  --border:           #E2E8F0;
+  --border:           var(--gc-gray-800);
   --ring:             var(--gc-green);
   --destructive:      var(--gc-red);
   --radius:           0.625rem;
@@ -109,4 +109,56 @@ html {
 ::selection {
   background-color: #22C55E33;
   color: #0F172A;
+}
+
+/* CTA shimmer animation */
+@keyframes shimmer {
+  0%   { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(220%)  skewX(-12deg); }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  width: 50%;
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Section separator — radial gradient sutil */
+.section-separator {
+  position: relative;
+}
+.section-separator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: radial-gradient(ellipse at center, #1E293B 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(15, 33, 55, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Card hover shadow — applied via whileHover, shadow via CSS transition */
+.card-hover-shadow {
+  transition: box-shadow 0.18s ease;
+}
+.card-hover-shadow:hover {
+  box-shadow: 0 20px 60px rgba(34, 197, 94, 0.12);
 }

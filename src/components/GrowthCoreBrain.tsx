@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const modules = [
-  { label: "Marketing",  score: 74, color: "#3B82F6", trend: "+8 pts",  status: "Revisar creativos" },
-  { label: "Ventas",     score: 81, color: "#22C55E", trend: "+12 pts", status: "Pipeline saludable" },
-  { label: "Leads",      score: 62, color: "#FBBF24", trend: "+22%",    status: "Volumen bajo meta" },
-  { label: "Conversión", score: 88, color: "#8B5CF6", trend: "+5 pts",  status: "Tasa óptima" },
+  { label: "Campañas", score: 74, color: "#22C55E", trend: "+8 pts",  status: "Revisar creativos" },
+  { label: "Leads",    score: 62, color: "#FBBF24", trend: "+22%",    status: "Volumen bajo meta" },
+  { label: "Clientes", score: 81, color: "#22C55E", trend: "+12 pts", status: "Pipeline saludable" },
+  { label: "Web",      score: 88, color: "#22C55E", trend: "+5 pts",  status: "Conectada al CRM" },
 ];
 
 function ScoreRing({ score, color, size = 56 }: { score: number; color: string; size?: number }) {
@@ -35,8 +36,16 @@ export default function GrowthCoreBrain() {
   const overallScore = Math.round(modules.reduce((a, m) => a + m.score, 0) / modules.length);
 
   return (
-    <section className="py-24" style={{ background: "var(--gc-navy, #0A1022)" }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-24 relative overflow-hidden" style={{ background: "var(--gc-navy, #0A1022)" }}>
+      <Image
+        src="/images/eco-brain.png"
+        alt=""
+        aria-hidden
+        width={1024}
+        height={1024}
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] max-w-none opacity-[0.14]"
+      />
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
 
         {/* Header */}
         <div className="text-center mb-16">
@@ -47,7 +56,7 @@ export default function GrowthCoreBrain() {
             className="inline-block text-xs font-semibold uppercase tracking-widest mb-4"
             style={{ color: "var(--gc-green, #22C55E)" }}
           >
-            GrowthCore Brain
+GrowthCore Brain · Ejemplo
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -56,9 +65,9 @@ export default function GrowthCoreBrain() {
             className="font-bold text-white mb-4 leading-tight"
             style={{ fontSize: "var(--text-xl, 2.25rem)", fontFamily: "var(--font-heading)" }}
           >
-            Un cerebro que analiza{" "}
-            <span style={{ color: "var(--gc-green, #22C55E)" }}>todo tu negocio</span>
-            {" "}en tiempo real.
+            Un cerebro que conecta{" "}
+            <span style={{ color: "var(--gc-green, #22C55E)" }}>campañas, leads, clientes y web</span>
+            {" "}en una sola acción clara.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -68,8 +77,9 @@ export default function GrowthCoreBrain() {
             className="text-lg max-w-2xl mx-auto"
             style={{ color: "var(--gc-gray-400, #94A3B8)" }}
           >
-            GrowthCore procesa datos de campañas, leads y clientes para darte
-            una visión unificada y acciones concretas — no dashboards vacíos.
+            La IA de GrowthCore conecta campañas, leads, clientes y web en un
+            solo cerebro: lee los datos de las cuatro áreas y entrega la acción
+            concreta. No es un dashboard que solo mira — te dice qué hacer.
           </motion.p>
         </div>
 

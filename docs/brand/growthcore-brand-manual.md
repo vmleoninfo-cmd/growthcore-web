@@ -2,7 +2,7 @@
 
 > Documento canónico de marca. Referencia para diseñadores, desarrolladores, copywriters y agentes IA que trabajen con GrowthCore.
 
-**Versión:** 1.0 — Mayo 2026  
+**Versión:** 1.1 — Junio 2026  
 **Dominio:** usegrowthcore.com  
 **Tagline:** GrowthCore convierte datos dispersos en decisiones claras.
 
@@ -35,7 +35,7 @@ Las empresas en crecimiento pierden leads, dinero y tiempo porque sus herramient
 | **Categoría** | Sistema operativo empresarial (no "agencia", no "software") |
 | **Beneficio clave** | Decisiones automáticas basadas en datos reales |
 | **Diferenciador** | Score 0-100 con causa identificada + acción concreta |
-| **Prueba** | Caso MOVE: +40% leads contactados, −18% CPL, −40% tiempo manual |
+| **Prueba** | Caso MOVE: CPL ~$500 CLP/lead · ~7 leads/día con campaña activa · leads directo al CRM |
 
 ### Versus la competencia
 
@@ -59,7 +59,7 @@ El Mago transforma. Toma algo complejo y lo hace simple. Lo invisible se vuelve 
 - Siempre tiene el dato antes de hacer la afirmación
 - No promete resultados sin explicar el mecanismo
 - Muestra el proceso, no solo el resultado final
-- Usa lenguaje preciso: "−18% CPL" en lugar de "redujo el costo"
+- Usa lenguaje preciso: "CPL ~$500 CLP por lead" en lugar de "redujo el costo"
 
 ---
 
@@ -85,7 +85,7 @@ El Mago transforma. Toma algo complejo y lo hace simple. Lo invisible se vuelve 
 - ❌ "Nuestro avanzado sistema de IA analiza tus datos en tiempo real para brindarte insights accionables."
 
 **Resultado:**
-- ✅ "MOVE redujo su CPL en 18% en 60 días."
+- ✅ "MOVE opera con un CPL de ~$500 CLP por lead en Meta Ads."
 - ❌ "Nuestros clientes ven mejoras increíbles en sus resultados de marketing."
 
 **CTA:**
@@ -181,8 +181,10 @@ CTA (sm, Space Grotesk SemiBold)
 
 | Variante | Uso | Archivo |
 |---|---|---|
-| **Wordmark horizontal** | Navbar, documentos, presentaciones | `public/logo.svg` |
-| **Isotipo solo** | Favicon, avatar, espacios reducidos | `public/logo-icon.svg` |
+| **Wordmark (navy/sobre claro)** | Navbar claro, documentos, presentaciones | `public/brand/growthcore-logo-dark.svg` |
+| **Wordmark (blanco/sobre oscuro)** | Navbar sobre navy | `public/brand/growthcore-logo-light.svg` |
+| **Isotipo (navy)** | Favicon, avatar sobre claro | `public/brand/growthcore-mark-navy.svg` |
+| **Isotipo (blanco)** | Avatar/portadas sobre navy | `public/brand/growthcore-mark-white.svg` |
 | **Light (sobre oscuro)** | Navbar sobre fondo navy | `<Logo light={true} />` |
 | **Dark (sobre claro)** | Footer, documentos blancos | `<Logo />` (default) |
 
@@ -268,25 +270,25 @@ MOVE es una empresa de logística de última milla en Chile. Operan con campaña
 
 ### Situación antes
 - Seguimiento de leads: manual en WhatsApp + Excel
-- Tiempo semanal en reportes: ~8 horas
 - Visibilidad de campañas: reporte mensual de la agencia
 - CPL: sin referencia clara por campaña
 
-### Situación después (60 días)
+### Situación después (en producción)
 | Métrica | Resultado |
 |---|---|
-| Leads contactados a tiempo | +40% |
-| Costo por lead (CPL) | −18% |
-| Tiempo manual semanal | −40% (~5 horas → ~3 horas) |
+| Costo por lead (CPL) | ~$500 CLP/lead en Meta Ads |
+| Leads con campaña activa | ~7 por día |
+| Gestión de leads | Directo al CRM (antes: WhatsApp + Excel manual) |
+| Monitoreo del sistema | 24/7, sin revisión manual |
 
 ### Quote
-> "Pasamos de seguir leads en WhatsApp y Excel a tener un sistema que nos dice exactamente qué campaña está funcionando y qué hacer con cada lead. En dos meses ya éramos más eficientes."
-> — **MOVE**, Empresa de logística de última milla
+> "Pasamos de seguir leads en WhatsApp y Excel a tener un sistema que nos avisa qué campaña falla y qué lead necesita acción hoy. Bajamos el costo por lead a ~$500 CLP y dejamos de perder oportunidades."
+> — **MOVE**, Logística última milla · Chile
 
 ### Por qué funciona este caso
 1. **Antes concreto:** herramientas específicas (WhatsApp + Excel)
-2. **Después medible:** porcentajes reales, no "mejoró mucho"
-3. **Tiempo definido:** "60 días" — no "en poco tiempo"
+2. **Después medible:** cifras reales y verificables (CPL ~$500 CLP, ~7 leads/día), no "mejoró mucho"
+3. **Honestidad:** solo métricas que se pueden respaldar — sin porcentajes inventados ni baseline que no existe
 4. **Quote auténtico:** primera persona, proceso, no resultado
 
 ---
@@ -310,5 +312,6 @@ MOVE es una empresa de logística de última milla en Chile. Operan con campaña
 
 ---
 
-*GrowthCore Brand Manual v1 — Mayo 2026*  
+*GrowthCore Brand Manual v1.1 — Junio 2026*  
+*Cambios v1.1: métricas del caso MOVE actualizadas a datos reales y verificables (CPL ~$500 CLP/lead, ~7 leads/día) — se eliminaron los porcentajes sin baseline (+40%/−18%/−40%).*  
 *Próxima revisión: cuando se agregue el segundo cliente de referencia.*

@@ -188,6 +188,16 @@ export default function Plans() {
               {/* CTA */}
               <motion.a
                 href="#contacto"
+                onClick={() =>
+                  window.dispatchEvent(
+                    new CustomEvent("gc:selectPlan", {
+                      detail: {
+                        title: plan.title,
+                        tag: `Opción ${plan.id} · ${plan.setupPrice} setup / ${plan.monthlyPrice} mes`,
+                      },
+                    })
+                  )
+                }
                 whileTap={buttonTap}
                 className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-colors ${
                   plan.recommended

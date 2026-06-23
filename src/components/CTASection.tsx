@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
+import { PRECISION, buttonTap } from "@/lib/motion";
 
 export default function CTASection() {
   const whatsappLink =
-    "https://wa.me/56900000000?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20GrowthCore";
+    "https://wa.me/56991088138?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%20GrowthCore";
 
   return (
-    <section id="contacto" className="py-24 bg-primary relative overflow-hidden">
+    <section id="cta" className="py-24 bg-primary relative overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -30,45 +31,47 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4, ease: PRECISION }}
+          className="glass-panel rounded-3xl px-10 py-14"
         >
           <span className="inline-block text-accent font-semibold text-sm uppercase tracking-widest mb-6">
-            Empieza hoy
+            Diagnóstico gratuito
           </span>
 
           <h2
-            className="font-heading font-bold text-white mb-6 leading-[1.1]"
+            className="font-heading font-bold text-white mb-5 leading-[1.1]"
             style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
           >
-            ¿Listo para que tu negocio
+            Quiero saber dónde
             <br />
-            <span className="text-accent">trabaje solo?</span>
+            <span className="text-accent">pierdo leads.</span>
           </h2>
 
           <p
             className="text-white/60 mb-10 max-w-lg mx-auto leading-relaxed"
             style={{ fontSize: "var(--text-base)" }}
           >
-            Agenda una demo de 30 minutos. Te mostramos exactamente cómo
-            funciona el sistema, respondemos tus preguntas y armamos un plan
-            personalizado para tu negocio — sin compromiso.
+            Responde 5 preguntas sobre tu negocio. En 24 horas te enviamos un
+            diagnóstico con las fugas de dinero, leads o clientes más urgentes —
+            y qué hacer con cada una. Sin costo, sin compromiso.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
+            <motion.a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent/90 transition-all hover:gap-3 hover:shadow-lg hover:shadow-accent/30"
+              whileTap={buttonTap}
+              className="btn-shimmer card-hover-shadow inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent/90 transition-colors"
             >
               <Calendar className="w-5 h-5" />
-              Agendar demo gratis
+              Quiero mi diagnóstico gratis
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </motion.a>
           </div>
 
           <p className="text-white/30 text-sm mt-6">
-            Sin tarjeta de crédito · Sin permanencia · Sin complicaciones
+            5 preguntas · Diagnóstico en 24h · Sin costo
           </p>
         </motion.div>
       </div>

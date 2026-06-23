@@ -34,8 +34,19 @@ export default function ContactForm() {
   });
   const [sent, setSent] = useState(false);
   const [utms, setUtms] = useState<Record<string, string>>({});
+  const [plan, setPlan] = useState<{ title: string; tag: string } | null>(null);
 
   useEffect(() => { setUtms(getUtmParams()); }, []);
+
+  // Plan-picker: escucha la elección desde la sección Planes
+  useEffect(() => {
+    function onSelectPlan(e: Event) {
+      const d = (e as CustomEvent).detail as { title?: string; tag?: string } | undefined;
+      if (d?.title) setPlan({ title: d.title, tag: d.tag || "" });
+    }
+    window.addEventListener("gc:selectPlan", onSelectPlan as EventListener);
+    return () => window.removeEventListener("gc:selectPlan", onSelectPlan as EventListener);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -52,8 +63,10 @@ export default function ContactForm() {
         name: form.name,
         phone: form.whatsapp,
         company: form.company || undefined,
+        plan: plan?.title || undefined,
         notes: [
-          form.service && `Servicio: ${form.service}`,
+          plan && `Plan elegido: ${plan.title}${plan.tag ? ` (${plan.tag})` : ""}`,
+          !plan && form.service && `Servicio: ${form.service}`,
           form.message && `Mensaje: ${form.message}`,
         ].filter(Boolean).join(" | ") || undefined,
         ...utms,
@@ -68,10 +81,10 @@ export default function ContactForm() {
         `*Nombre:* ${form.name}\n` +
         `*Empresa:* ${form.company || "—"}\n` +
         `*WhatsApp:* ${form.whatsapp}\n` +
-        `*Me interesa:* ${form.service}\n` +
+        `*Me interesa:* ${plan ? plan.title : form.service}\n` +
         (form.message ? `*Mensaje:* ${form.message}` : "")
     );
-    window.open(`https://wa.me/56991098138?text=${text}`, "_blank");
+    window.open(`https://wa.me/56991088138?text=${text}`, "_blank");
     setSent(true);
   };
 
@@ -87,7 +100,7 @@ export default function ContactForm() {
               viewport={{ once: true }}
               className="inline-block text-accent font-semibold text-sm uppercase tracking-widest mb-4"
             >
-              Empieza hoy
+              {plan ? "Último paso" : "Empieza hoy"}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -96,9 +109,18 @@ export default function ContactForm() {
               className="font-heading font-bold text-foreground mb-4 leading-[1.15]"
               style={{ fontSize: "var(--text-xl)", fontFamily: "var(--font-heading)" }}
             >
-              Detecta qué está fallando
-              <br />
-              <span className="text-accent">antes de que cueste más.</span>
+              {plan ? (
+                <>
+                  Activemos tu{" "}
+                  <span className="text-accent">{plan.title}.</span>
+                </>
+              ) : (
+                <>
+                  Detecta qué está fallando
+                  <br />
+                  <span className="text-accent">antes de que cueste más.</span>
+                </>
+              )}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -108,8 +130,9 @@ export default function ContactForm() {
               className="text-muted-foreground leading-relaxed mb-8"
               style={{ fontSize: "var(--text-base)" }}
             >
-              Completa el formulario y te contactamos por WhatsApp en menos de
-              24 horas. La demo es gratuita y sin compromiso.
+              {plan
+                ? `Déjanos tus datos y coordinamos la puesta en marcha de ${plan.title} por WhatsApp en menos de 24 horas. Sin compromiso.`
+                : "Completa el formulario y te contactamos por WhatsApp en menos de 24 horas. La demo es gratuita y sin compromiso."}
             </motion.p>
 
             {/* Garantías */}
@@ -117,7 +140,7 @@ export default function ContactForm() {
               {[
                 "Demo de 30 min sin costo",
                 "Sin permanencia ni contrato largo",
-                "Implementación en menos de 3 semanas",
+                "Setup en días hábiles · activación según Meta (sin SLA)",
                 "Soporte directo con el equipo",
               ].map((g) => (
                 <li key={g} className="flex items-center gap-3 text-sm text-foreground">
@@ -160,6 +183,24 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {plan && (
+                  <div className="flex items-center gap-3 rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm">
+                    <span className="text-foreground">
+                      Plan elegido:{" "}
+                      <strong className="font-semibold text-accent">{plan.title}</strong>
+                      {plan.tag ? (
+                        <span className="text-muted-foreground"> — {plan.tag}</span>
+                      ) : null}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setPlan(null)}
+                      className="ml-auto text-xs text-muted-foreground underline hover:text-foreground"
+                    >
+                      cambiar
+                    </button>
+                  </div>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">
@@ -202,27 +243,29 @@ export default function ContactForm() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
-                    ¿Qué te interesa? *
-                  </label>
-                  <select
-                    name="service"
-                    value={form.service}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-border rounded-lg px-3.5 py-2.5 text-sm text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
-                  >
-                    <option value="" disabled>
-                      Selecciona un servicio
-                    </option>
-                    {services.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
+                {!plan && (
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-1.5">
+                      ¿Qué te interesa? *
+                    </label>
+                    <select
+                      name="service"
+                      value={form.service}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-border rounded-lg px-3.5 py-2.5 text-sm text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                    >
+                      <option value="" disabled>
+                        Selecciona un servicio
                       </option>
-                    ))}
-                  </select>
-                </div>
+                      {services.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">
@@ -243,7 +286,7 @@ export default function ContactForm() {
                   className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors"
                 >
                   <Send className="w-4 h-4" />
-                  Solicitar demo gratis
+                  {plan ? `Quiero empezar con ${plan.title}` : "Solicitar demo gratis"}
                 </button>
 
                 <p className="text-center text-muted-foreground text-xs">
