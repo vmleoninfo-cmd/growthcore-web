@@ -1,30 +1,7 @@
-# Multi-stage build for Next.js 14 production deployment
-FROM node:22-alpine AS deps
-WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm ci
-
-FROM node:22-alpine AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-# NEXT_PUBLIC_* se incrustan en build-time: deben llegar como build args.
-# En Coolify, marca estas env vars como "Build Variable".
-ARG NEXT_PUBLIC_META_PIXEL_ID
-ARG NEXT_PUBLIC_GA4_ID
-ENV NEXT_PUBLIC_META_PIXEL_ID=$NEXT_PUBLIC_META_PIXEL_ID
-ENV NEXT_PUBLIC_GA4_ID=$NEXT_PUBLIC_GA4_ID
-RUN npm run build
-
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-ENV HOSTNAME=0.0.0.0
-ENV PORT=3000
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/package-lock.json ./package-lock.json
+# Producción GrowthCore — sirve el sitio ESTÁTICO que trabajamos (/site) vía nginx.
+# (El build Next.js anterior quedó preservado en Dockerfile.nextjs.)
+FROM nginx:alpine
+COPY site-nginx.conf /etc/nginx/conf.d/default.conf
+COPY site/ /usr/share/nginx/html/
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
