@@ -113,6 +113,9 @@
       var notes = [d.plan && ('Plan elegido: ' + d.plan), d.email && ('Email: ' + d.email), 'Origen: web GrowthCore'].filter(Boolean).join(' | ');
       var body = Object.assign({ name: d.name, phone: d.whatsapp, company: d.company || undefined, plan: d.plan || undefined, notes: notes || undefined }, utm);
       try { fetch('https://crm.usegrowthcore.com/api/webhook', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).catch(function () {}); } catch (e) {}
+      // Conversión: Meta Pixel + GA4
+      try { if (window.fbq) fbq('track', 'Lead', { content_name: d.plan || 'diagnostico' }); } catch (e) {}
+      try { if (window.gtag) gtag('event', 'generate_lead', { plan: d.plan || 'diagnostico' }); } catch (e) {}
       var closing = d.plan ? ('Quiero empezar con: ' + d.plan + '.') : 'Quiero mi diagnóstico gratis.';
       var txt = encodeURIComponent('Hola GrowthCore 👋\n\nNombre: ' + d.name + '\nWhatsApp: ' + d.whatsapp + (d.email ? '\nEmail: ' + d.email : '') + (d.company ? '\nNegocio: ' + d.company : '') + (d.plan ? '\nPlan elegido: ' + d.plan : '') + '\n\n' + closing);
       try { window.open('https://wa.me/56991088138?text=' + txt, '_blank'); } catch (e) {}
