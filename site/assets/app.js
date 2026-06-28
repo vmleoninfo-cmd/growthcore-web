@@ -72,17 +72,16 @@
     modal.addEventListener('click', function (e) { if (e.target === modal || (e.target.className && String(e.target.className).indexOf('gc-x') >= 0)) closeM(); });
     try {
       var fnav = document.querySelector('footer nav');
-      if (fnav) { var a = document.createElement('a'); a.href = '#'; a.textContent = 'Privacidad y cookies'; a.addEventListener('click', openM); fnav.appendChild(a); }
+      if (fnav) { var a = document.createElement('a'); a.href = '/privacidad.html'; a.textContent = 'Privacidad y cookies'; fnav.appendChild(a); }
     } catch (e) {}
     var ok = true;
     try { ok = !localStorage.getItem('gc_cookie_ok'); } catch (e) {}
     if (ok) {
       var ban = document.createElement('div');
       ban.id = 'gc-cookie-banner';
-      ban.innerHTML = '<div>Usamos cookies para mejorar tu experiencia y medir el rendimiento del sitio. <a id="gc-cookie-more">Más información</a></div><div class="gc-row"><button id="gc-cookie-ok">Aceptar</button></div>';
+      ban.innerHTML = '<div>Usamos cookies para mejorar tu experiencia y medir el rendimiento del sitio. <a id="gc-cookie-more" href="/privacidad.html">Más información</a></div><div class="gc-row"><button id="gc-cookie-ok">Aceptar</button></div>';
       document.body.appendChild(ban);
       document.getElementById('gc-cookie-ok').addEventListener('click', function () { try { localStorage.setItem('gc_cookie_ok', '1'); } catch (e) {} ban.remove(); });
-      document.getElementById('gc-cookie-more').addEventListener('click', openM);
     }
   }
 
@@ -111,10 +110,12 @@
       [].slice.call(f.querySelectorAll('input,select,textarea')).forEach(function (el) { if (el.name) d[el.name] = (el.value || '').trim(); });
       if (!d.name || !d.whatsapp) { return; }
       var notes = [d.plan && ('Plan elegido: ' + d.plan), d.email && ('Email: ' + d.email), 'Origen: web GrowthCore'].filter(Boolean).join(' | ');
-      var body = Object.assign({ name: d.name, phone: d.whatsapp, company: d.company || undefined, plan: d.plan || undefined, notes: notes || undefined }, utm);
+      var eventId = 'lead.' + Date.now() + '.' + Math.random().toString(36).slice(2, 10);
+      function gcCookie(n) { try { var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : undefined; } catch (e) { return undefined; } }
+      var body = Object.assign({ name: d.name, phone: d.whatsapp, company: d.company || undefined, plan: d.plan || undefined, notes: notes || undefined, event_id: eventId, fbp: gcCookie('_fbp'), fbc: gcCookie('_fbc'), client_user_agent: navigator.userAgent, event_source_url: location.href }, utm);
       try { fetch('https://crm.usegrowthcore.com/api/webhook', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).catch(function () {}); } catch (e) {}
-      // Conversión: Meta Pixel + GA4
-      try { if (window.fbq) fbq('track', 'Lead', { content_name: d.plan || 'diagnostico' }); } catch (e) {}
+      // Conversión: Meta Pixel + GA4 (eventID compartido con CAPI para dedup)
+      try { if (window.fbq) fbq('track', 'Lead', { content_name: d.plan || 'diagnostico' }, { eventID: eventId }); } catch (e) {}
       try { if (window.gtag) gtag('event', 'generate_lead', { plan: d.plan || 'diagnostico' }); } catch (e) {}
       var closing = d.plan ? ('Quiero empezar con: ' + d.plan + '.') : 'Quiero mi diagnóstico gratis.';
       var txt = encodeURIComponent('Hola GrowthCore 👋\n\nNombre: ' + d.name + '\nWhatsApp: ' + d.whatsapp + (d.email ? '\nEmail: ' + d.email : '') + (d.company ? '\nNegocio: ' + d.company : '') + (d.plan ? '\nPlan elegido: ' + d.plan : '') + '\n\n' + closing);
