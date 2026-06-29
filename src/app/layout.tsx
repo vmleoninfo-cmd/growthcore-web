@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     "diseño web chile",
     "growthcore",
   ],
+  verification: {
+    facebook: "2tcajgn2r3fy0ko7g58m2kyks572ca",
+  },
   openGraph: {
     title: "GrowthCore — Detecta dónde se pierden oportunidades",
     description:
