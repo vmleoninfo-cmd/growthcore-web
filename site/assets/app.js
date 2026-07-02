@@ -119,7 +119,7 @@
       try { if (window.gtag) gtag('event', 'generate_lead', { plan: d.plan || 'diagnostico' }); } catch (e) {}
       var closing = d.plan ? ('Quiero empezar con: ' + d.plan + '.') : 'Quiero mi diagnóstico gratis.';
       var txt = encodeURIComponent('Hola GrowthCore 👋\n\nNombre: ' + d.name + '\nWhatsApp: ' + d.whatsapp + (d.email ? '\nEmail: ' + d.email : '') + (d.company ? '\nNegocio: ' + d.company : '') + (d.plan ? '\nPlan elegido: ' + d.plan : '') + '\n\n' + closing);
-      try { window.open('https://wa.me/56991088138?text=' + txt, '_blank'); } catch (e) {}
+      try { window.open('https://wa.me/56984972922?text=' + txt, '_blank'); } catch (e) {}
       f.hidden = true;
       var ok = document.getElementById('gc-form-ok'); if (ok) { ok.hidden = false; ok.classList.add('in'); }
     });
